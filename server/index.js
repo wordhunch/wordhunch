@@ -42,3 +42,4 @@ app.delete('/auth/logout', authCtrl.logoutUser)
 // game endpoints
 
 // word endpoints
+app.get('/api/targetword/:difficulty', wordCtrl.getTargetWord)
