@@ -7,9 +7,9 @@ const Game = () => {
   return (
     <div>
       Game.js
-      {TargetWord}
-      {GuessedWords}
-      {Input}
+      <TargetWord/>
+      <GuessedWords/>
+      <Input/>
     </div>
   );
 };
