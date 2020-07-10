@@ -3,6 +3,9 @@ const massive = require("massive");
 const express = require("express");
 const session = require("express-session");
 const app = express();
+const authCtrl = require("./controllers/authController");
+const gameCtrl = require("./controllers/gameController");
+const wordCtrl = require("./controllers/wordController");
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -31,4 +34,8 @@ app.use(
   })
 );
 
-//endpoints
+// auth endpoints
+
+// game endpoints
+
+// word endpoints
