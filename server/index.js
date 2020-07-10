@@ -1,5 +1,5 @@
 require("dotenv").config();
-const massive = rquire("massive");
+const massive = require("massive");
 const express = require("express");
 const session = require("express-session");
 const app = express();
@@ -19,16 +19,16 @@ massive({
   })
   .catch((err) => console.log(err));
 
-  app.use(express.static(`${__dirname}/../build`))
-  app.use(express.json())
+app.use(express.static(`${__dirname}/../build`));
+app.use(express.json());
 
-  app.use(
-      session({
-          resave: false,
-          saveUninitialized: false,
-          secret: SESSION_SECRET,
-          cookie: {maxAge: 1000 * 60 * 60 * 24 * 7}
-      })
-  )
+app.use(
+  session({
+    resave: false,
+    saveUninitialized: false,
+    secret: SESSION_SECRET,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 * 7 },
+  })
+);
 
-  //endpoints
+//endpoints
