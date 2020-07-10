@@ -35,6 +35,9 @@ app.use(
 );
 
 // auth endpoints
+app.post('/auth/register', authCtrl.registerUser)
+app.post('/auth/login', authCtrl.loginUser)
+app.delete('/auth/logout', authCtrl.logoutUser)
 
 // game endpoints
 
