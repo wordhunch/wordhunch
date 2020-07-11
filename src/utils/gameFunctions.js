@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const generateWord = async (difficulty) => {
     //Get a target word for a given game
-    return await axios.get(`/word/getRandomWord/:difficulty`) //not sure how difficulty is going to be passed to the endpoint--params? body?
+    return await axios.get(`/word/getRandomWord/:difficulty`)
 }
 
 export const checkUserInput = async (targetWord, inputWord) => {
@@ -22,7 +22,7 @@ export const checkUserInput = async (targetWord, inputWord) => {
     }
 
     //validate word endpoint in server looks at list of acceptable words and returns true or false?
-    const validWord = await axios.post('/', {word: input})
+    const validWord = await axios.post('/', {word: input}) //create endpoint for word check
 
     if (validWord) {
         const sharedLetterCount = 0
