@@ -40,5 +40,8 @@ app.post('/auth/login', authCtrl.loginUser)
 app.delete('/auth/logout', authCtrl.logoutUser)
 
 // game endpoints
-
+app.get('/game/getHighScores/:userId', gameCtrl.getHighScores)
+app.post('/game/newGame', gameCtrl.newGame)
+app.post('/game/moveToHistory', gameCtrl.moveToHistory)
 // word endpoints
+app.get('/api/targetword/:difficulty', wordCtrl.getTargetWord)
