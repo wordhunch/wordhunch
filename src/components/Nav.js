@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import About from "./About";
 import { Link } from "react-router-dom";
 import templogo from "../images/templogo.png";
 import axios from "axios";
@@ -54,6 +53,7 @@ const Nav = (props) => {
       </div>
       <div className="logged-in">
         <Link to="/profile">Profile</Link>
+        <button>About</button>
       </div>
     </div>
   );

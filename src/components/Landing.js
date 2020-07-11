@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Game from './Game'
+import About from './About'
 
 const Landing = () => {
   const [showGame, setGame] = useState(false)
@@ -10,8 +11,12 @@ const Landing = () => {
       ? <div>
       <h1>Welcome to WordHunch!</h1>
       <button onClick={() => setGame(true)}>Play Now!</button>
+      <About />
       </div>
-      : <Game/>
+      : <div>
+      <Game/>
+      <About />
+      </div>
       }
     </div>
   );
