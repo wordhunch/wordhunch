@@ -7,4 +7,5 @@ import authReducer from './reducers/authReducer'
 //     auth: authReducer
 // })
 
-export default createStore(authReducer, composeWithDevTools(applyMiddleware(promiseMiddleware)))
+export default createStore(authReducer)
+// , composeWithDevTools(applyMiddleware(promiseMiddleware)))

@@ -6,6 +6,7 @@ const app = express();
 const authCtrl = require("./controllers/authController");
 const gameCtrl = require("./controllers/gameController");
 const wordCtrl = require("./controllers/wordController");
+const profileCtrl = require("./controllers/profileController")
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -39,9 +40,17 @@ app.post('/auth/register', authCtrl.registerUser)
 app.post('/auth/login', authCtrl.loginUser)
 app.delete('/auth/logout', authCtrl.logoutUser)
 
+
 // game endpoints
 app.get('/game/getHighScores/:userId', gameCtrl.getHighScores)
 app.post('/game/newGame', gameCtrl.newGame)
 app.post('/game/moveToHistory', gameCtrl.moveToHistory)
 // word endpoints
 app.get('/api/targetword/:difficulty', wordCtrl.getTargetWord)
+app.post('/word', wordCtrl.checkInputWord)
+
+//profile endpoints
+app.get('/profile/view/:user_id', profileCtrl.getUser )
+
+
+

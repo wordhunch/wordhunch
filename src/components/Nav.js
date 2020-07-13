@@ -4,10 +4,13 @@ import templogo from '../images/templogo.png'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setUser } from '../redux/reducers/authReducer'
+import About from "./About";
+import '../styles/Nav.css'
 
 const Nav = props => {
   const [loginValue, setValue] = useState('')
   const [password, setPassword] = useState('')
+  const [about, setAbout] = useState(false)
 
   const login = e => {
     e.preventDefault()
@@ -24,9 +27,15 @@ const Nav = props => {
       })
   }
 
+
+  const toggleAbout = () => {
+    setAbout(!about);
+  };
+
   return (
-    <div>
+    <div className='Nav'>
       <Link to='/'>
+
         <img
           className='app-logo'
           src={templogo}
@@ -57,8 +66,10 @@ const Nav = props => {
       </div>
       <div className='logged-in'>
         <Link to='/profile'>Profile</Link>
-        <button>About</button>
+       <button onClick={toggleAbout}>About</button>
+
       </div>
+      {!about ? null : <About about={about}/>}
     </div>
   )
 }

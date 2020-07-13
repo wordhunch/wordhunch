@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios'
 import {withRouter} from 'react-router-dom'
+import {setUser} from '../../redux/reducers/authReducer'
+import {connect} from 'react-redux'
 
 const Auth = (props) => {
 
@@ -14,9 +16,16 @@ const Auth = (props) => {
   const registerUser = () => {
     axios.post('/auth/register', {email, password, username, profile_picture})
         .then((res) => {
+          const {username, user_id} = res.data
+          props.setUser(
+            username,
+            user_id
+          )
            props.history.push("/")
+          
            
-        }).catch((err)=> alert(err.response.request.response))
+           
+        }).catch((err)=> console.log(err))
         
     }
 
@@ -39,4 +48,6 @@ const Auth = (props) => {
   )
 }
 
-export default withRouter(Auth);
+const mapStateToProps = reduxState => reduxState
+
+export default connect(mapStateToProps, {setUser})(Auth);
