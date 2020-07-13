@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Game from './Game'
-import About from './About'
+import '../styles/Landing.css'
 
 const Landing = () => {
   const [showGame, setGame] = useState(false)
@@ -9,7 +9,7 @@ const Landing = () => {
 
   
   return (
-    <div>
+    <div className="Landing">
       {(!showGame) 
       ? <div>
       <h1>Welcome to WordHunch!</h1>
@@ -20,11 +20,9 @@ const Landing = () => {
         <option value='3'>Hard</option>
       </select>
       <button onClick={() => setGame(true)}>Play Now!</button>
-      <About />
       </div>
       : <div>
       <Game difficulty={difficulty}/>
-      <About />
       </div>
       }
     </div>
