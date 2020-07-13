@@ -10,14 +10,15 @@ export const checkUserInput = async (targetWord, inputWord) => {
     const input = inputWord.toLowerCase()
     const target = targetWord.toLowerCase()
 
-    if (input.length < 5 || input.includes(' ')) {
+    if (input.length < 5 || input.length >5 || input.includes(' ')) {
         return false
     }
 
     //validate word endpoint in server looks at list of acceptable words and returns true or false?
     const validWord = await axios.post('/word', {inputWord: input}) 
 
-    if (validWord) {
+    if (validWord.data) {
+
         let sharedLetterArray = []
 
         //increment the counter for each shared letter between input and target
@@ -33,6 +34,9 @@ export const checkUserInput = async (targetWord, inputWord) => {
             sharedLetterCount: sharedLetterArray.length
         }
 
+    } else {
+        return false
+        //could add something to say word is not valid
     }
 }
 

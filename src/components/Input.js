@@ -13,6 +13,8 @@ const Input = ({ targetWord, updateGuessedWords }) => {
     }
     //could add text response if word is not valid
     setInput('')
+    setSharedLetterCount(null)
+    setValid(false)
     //empty input to make entering next word simple
   }
 
@@ -29,7 +31,7 @@ const Input = ({ targetWord, updateGuessedWords }) => {
   return (
     <div>
       <form>
-        <input value={input} onChange={(e) => { setInput(e.target.value) }} />
+        <input maxLength='5' value={input} onChange={(e) => { setInput(e.target.value) }} />
         <input onClick={(e) => handleSubmit(e)} type='submit' value='Submit'/>
       </form>
     </div>

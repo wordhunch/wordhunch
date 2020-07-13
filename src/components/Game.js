@@ -9,16 +9,21 @@ const Game = ({difficulty}) => {
   const [guessedWords, setGuessedWords] = useState([])
   const [gameOver, setGameOver] = useState(false)
 
+  //adds guessed words and letter count to state in the guessed words array
   const updateGuessedWords = (validatedWord) => {
     setGuessedWords([...guessedWords, validatedWord])
   }
 
+  //generates the target word at the beginning of the game
   useEffect(() => {
     generateWord(difficulty).then(res => setTargetWord(res.data[0].word))
   }, [])
 
+  //watches to see if the user guesses the correct word
   useEffect(() => {
-    setGameOver(determineWinner(targetWord, guessedWords[guessedWords.length - 1]))
+    if (guessedWords.length) {
+    setGameOver(determineWinner(targetWord, guessedWords[guessedWords.length - 1].word))
+    }
   }, [guessedWords])
 
   const guessedWordsMap = guessedWords.map((item, index) => (
@@ -31,13 +36,17 @@ const Game = ({difficulty}) => {
 
   return (
     <div>
-      <TargetWord targetWord={targetWord} />
+      <TargetWord targetWord={targetWord} gameOver={gameOver}/>
       {guessedWordsMap}
-      <Input
+      {!gameOver && <Input
         updateGuessedWords={updateGuessedWords}
         targetWord={targetWord}
-      />
-      {gameOver && <h2>GAME OVER</h2>}
+      />}
+      {gameOver && <>
+      <h2>YOU WIN!</h2>
+      {/* play again button not functional */}
+      <button>Play again?</button>
+      </>}
     </div>
   );
 };
