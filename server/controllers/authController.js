@@ -22,9 +22,9 @@ module.exports = {
         const hash = bcryptjs.hashSync(password, salt)
   
         const [newUser] = await db.register_user([
+          username,
           email,
           hash,
-          username,
           profile_picture
         ])
   
@@ -44,16 +44,16 @@ module.exports = {
 
     loginUser: async (req, res) => {
       const db = req.app.get('db')
-      const { email, password }= req.body
+      const { loginValue, password }= req.body
   
       try {
-        const user = await db.get_user(email)
+        const [user] = await db.get_user(loginValue)
   
-        if(!user[0]){
-          return res.status(404).send('No account is associated with that email')
+        if(!user){
+          return res.status(404).send('No account is associated with those credentials. Please register.')
         }
   
-        const isAuthenticated = bcryptjs.compareSync(password, user[0].password)
+        const isAuthenticated = bcryptjs.compareSync(password, user.password)
   
         if(isAuthenticated){
         //   delete user.password
