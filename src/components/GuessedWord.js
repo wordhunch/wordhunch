@@ -1,9 +1,10 @@
 import React from 'react';
 
-const GuessedWord = () => {
+const GuessedWord = ({word, sharedLetterCount}) => {
   return (
     <div>
-      GuessedWord.js
+      <p>{word}</p>
+      <p>{sharedLetterCount}</p>
     </div>
   );
 }
