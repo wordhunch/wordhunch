@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import templogo from "../images/templogo.png";
 import axios from "axios";
+
+import {connect} from 'react-redux'
+import {setUser} from '../redux/reducers/authReducer'
+
 import About from "./About";
 import '../styles/Nav.css'
+
 
 const Nav = (props) => {
   const [loginValue, setValue] = useState("");
@@ -15,11 +20,12 @@ const Nav = (props) => {
     axios
       .post("/auth/login", { loginValue, password })
       .then((res) => {
-        // props.loginUser(res.data);
-        props.history.push("/");
+        props.setUser(res.data);
+        // props.history.push("/");
       })
       .catch((err) => {
-        alert(err.response.data);
+        console.log(err);
+        ;
       });
   };
 
@@ -66,4 +72,4 @@ const Nav = (props) => {
   );
 };
 
-export default Nav;
+export default connect(null, {setUser})(Nav);
