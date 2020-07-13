@@ -47,8 +47,10 @@ app.post('/game/newGame', gameCtrl.newGame)
 app.post('/game/moveToHistory', gameCtrl.moveToHistory)
 // word endpoints
 app.get('/api/targetword/:difficulty', wordCtrl.getTargetWord)
+app.post('/word', wordCtrl.checkInputWord)
 
 //profile endpoints
 app.get('/profile/view/:user_id', profileCtrl.getUser )
+
 
 
