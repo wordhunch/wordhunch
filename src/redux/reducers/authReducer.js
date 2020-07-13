@@ -12,7 +12,7 @@ export const setUser = (username, userId) => {
     }
 }
 
-export default (state=initialState, action) {
+export default function (state=initialState, action) {
     switch (action.type) {
         case SET_USER:
             const {username, userId} = action.payload

@@ -1,8 +1,8 @@
 import React from "react"
 import {Switch, Route} from "react-router-dom"
 import Landing from "./components/Landing"
-import Profile from "./components/Profile"
-import Auth from './components/Auth'
+import Profile from "./components/Profile/Profile"
+import Auth from './components/Auth/Auth'
 
 export default (
     <Switch>
