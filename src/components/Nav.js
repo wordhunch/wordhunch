@@ -4,16 +4,16 @@ import templogo from "../images/templogo.png";
 import axios from "axios";
 
 const Nav = (props) => {
-  const [value, setValue] = useState("");
+  const [loginValue, setValue] = useState("");
   const [password, setPassword] = useState("");
 
   const login = (e) => {
     e.preventDefault();
     axios
-      .post("/auth/login", { value, password })
+      .post("/auth/login", { loginValue, password })
       .then((res) => {
-        props.loginUser(res.data);
-        props.history.push("/dashboard");
+        // props.loginUser(res.data);
+        props.history.push("/");
       })
       .catch((err) => {
         alert(err.response.data);
@@ -36,7 +36,7 @@ const Nav = (props) => {
             className="login-input"
             type="text"
             placeholder="username or email"
-            value={value}
+            value={loginValue}
             onChange={(e, v) => setValue(e.target.value)}
           />
           <input

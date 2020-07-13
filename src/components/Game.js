@@ -10,7 +10,11 @@ const Game = () => {
   const [userInput, setUserInput] = useState('')
 
   const guessedWordsMap = guessedWords.map((item,index) => (
-    <GuessedWord key={`guessed-word-${index}`} word={item.word} sharedLetterCount={word.sharedLetterCount}/>
+    <GuessedWord 
+      key={`guessed-word-${index}`} 
+      word={item.word} 
+      // sharedLetterCount={word.sharedLetterCount}
+    />
   ))
 
   const handleInput = (e) => {
