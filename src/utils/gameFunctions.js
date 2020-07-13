@@ -24,7 +24,6 @@ export const checkUserInput = async (targetWord, inputWord) => {
         //increment the counter for each shared letter between input and target
         input.split('').forEach(item => {
             if (target.includes(item) && ! sharedLetterArray.includes(item)) {
-                console.log(item)
                 sharedLetterArray.push(item)
             }
         })
