@@ -17,6 +17,14 @@ const Game = ({difficulty}) => {
     setGuessedWords([...guessedWords, validatedWord])
   }
 
+  const newGame = () => {
+    generateWord(difficulty).then(res => setTargetWord(res.data[0].word))
+    // axios.post('/game/newGame', {targetWord, userId, difficulty}).then(res => setGameId(res.data)) waiting to have access to userId from redux
+    setGuessedWords([])
+    setGameOver(false)
+    setScore(null)
+  }
+
   //generates the target word at the beginning of the game
   useEffect(() => {
     generateWord(difficulty).then(res => setTargetWord(res.data[0].word))
@@ -78,7 +86,7 @@ const Game = ({difficulty}) => {
       <h2>YOU WIN!</h2>
       <h2>Score: {score}</h2>
       {/* play again button not functional */}
-      <button>Play again?</button>
+      <button onClick={() => newGame()}>Play again?</button>
       </>}
     </div>
   );
