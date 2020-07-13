@@ -14,11 +14,11 @@ module.exports = {
     },
     newGame: async (req, res) => {
         const db = req.app.get('db')
-        const { target, userId, difficulty } = req.body
+        const { targetWord, userId, difficulty } = req.body
 
         try {
             //instantiate a new game in the games database
-            const gameId = await db.game.insert({ user_id: user, word_id: target, difficulty_game: difficulty })
+            const gameId = await db.game.insert({ user_id: userId, word_id: targetWord, difficulty_game: difficulty })
             res.status(200).send(gameId)
         } catch (error) {
             console.log(error)
