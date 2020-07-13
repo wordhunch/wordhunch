@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TargetWord = () => {
+const TargetWord = ({targetWord, gameOver}) => {
   return (
     <div>
-      TargetWord.js
+      {gameOver ? <p>{targetWord}</p> : <p>? ? ? ? ?</p>}
     </div>
   );
 }
