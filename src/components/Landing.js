@@ -1,21 +1,19 @@
 import React, {useState} from 'react';
 import Game from './Game'
-import About from './About'
+import '../styles/Landing.css'
 
 const Landing = () => {
   const [showGame, setGame] = useState(false)
   
   return (
-    <div>
+    <div className="Landing">
       {(!showGame) 
       ? <div>
-      <h1>Welcome to WordHunch!</h1>
+      <h1 className="greeting">Welcome to WordHunch!</h1>
       <button onClick={() => setGame(true)}>Play Now!</button>
-      <About />
       </div>
       : <div>
       <Game/>
-      <About />
       </div>
       }
     </div>
