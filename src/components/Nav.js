@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import templogo from "../images/templogo.png";
 import axios from "axios";
+import About from "./About";
+import '../styles/Nav.css'
 
 const Nav = (props) => {
   const [loginValue, setValue] = useState("");
   const [password, setPassword] = useState("");
+  const [about, setAbout] = useState(false);
 
   const login = (e) => {
     e.preventDefault();
@@ -20,8 +23,12 @@ const Nav = (props) => {
       });
   };
 
+  const toggleAbout = () => {
+    setAbout(!about);
+  };
+
   return (
-    <div>
+    <div className="Nav">
       <Link to="/">
         <img
           className="app-logo"
@@ -49,12 +56,12 @@ const Nav = (props) => {
           <button type="submit">Login</button>
         </form>
         <Link to="/auth">Register</Link>
-        
       </div>
       <div className="logged-in">
         <Link to="/profile">Profile</Link>
-        <button>About</button>
+        <button onClick={toggleAbout}>About</button>
       </div>
+      {!about ? null : <About about={about}/>}
     </div>
   );
 };
