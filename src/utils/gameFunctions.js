@@ -3,38 +3,46 @@ import axios from 'axios'
 
 export const generateWord = async (difficulty) => {
     //Get a target word for a given game
-    return await axios.get(`/word/getRandomWord/:difficulty`)
+    return await axios.get(`/api/targetword/${+difficulty}`)
 }
 
 export const checkUserInput = async (targetWord, inputWord) => {
     const input = inputWord.toLowerCase()
     const target = targetWord.toLowerCase()
 
-    if (input.length < 5 || input.includes(' ')) {
-        return
-    }
-
-    if (input === target) {
-        return {
-            correct: true,
-            word: input,
-        }
+    if (input.length < 5 || input.length >5 || input.includes(' ')) {
+        return false
     }
 
     //validate word endpoint in server looks at list of acceptable words and returns true or false?
-    const validWord = await axios.post('/', {word: input}) //create endpoint for word check
+    const validWord = await axios.post('/word', {inputWord: input}) 
 
-    if (validWord) {
-        const sharedLetterCount = 0
+    if (validWord.data) {
+
+        let sharedLetterArray = []
 
         //increment the counter for each shared letter between input and target
-        input.split('').forEach(item => target.includes(item)? sharedLetterCount ++ : null)
+        input.split('').forEach(item => {
+            if (target.includes(item) && ! sharedLetterArray.includes(item)) {
+                console.log(item)
+                sharedLetterArray.push(item)
+            }
+        })
 
         return {
-            correct: false,
             word: input,
-            sharedLetterCount
+            sharedLetterCount: sharedLetterArray.length
         }
 
+    } else {
+        return false
+        //could add something to say word is not valid
+    }
+}
+
+export const determineWinner = (target, input) => {
+    //returns the status of gameOver
+    if (input) {
+    return target === input ? true : false
     }
 }
