@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './components/Nav'
+import Nav from './components/Nav/Nav'
 import routes from './routes'
 import './styles/App.css'
 

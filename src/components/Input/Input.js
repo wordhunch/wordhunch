@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { checkUserInput } from '../utils/gameFunctions'
+import { checkUserInput } from '../../utils/gameFunctions'
 
 const Input = ({ targetWord, updateGuessedWords }) => {
   const [input, setInput] = useState('')

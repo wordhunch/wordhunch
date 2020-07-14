@@ -3,6 +3,7 @@ import axios from 'axios'
 import {withRouter} from 'react-router-dom'
 import {setUser} from '../../redux/reducers/authReducer'
 import {connect} from 'react-redux'
+import './Auth.css'
 
 const Auth = (props) => {
 
@@ -19,16 +20,19 @@ const Auth = (props) => {
           const {username, user_id} = res.data
           props.setUser(
             username,
-            user_id
+            user_id,
+            profile_picture,
+            email
+          
           )
            props.history.push("/")
           
            
            
-        }).catch((err)=> console.log(err))
+        }).catch((err)=> alert(err.response.data))
         
     }
-
+   
     const handleEmail = event =>setEmail(event.target.value) 
     const handlePassword = event =>setPassword(event.target.value)
     const handleUsername = event =>setUsername(event.target.value)
