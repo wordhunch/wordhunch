@@ -51,6 +51,7 @@ app.post('/word', wordCtrl.checkInputWord)
 
 //profile endpoints
 app.get('/profile/view/:user_id', profileCtrl.getUser )
+app.put('/profile/edit/:user_id', profileCtrl.editUser)
 
 
 

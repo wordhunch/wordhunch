@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import templogo from '../images/templogo.png'
+import templogo from '../../images/templogo.png'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setUser } from '../redux/reducers/authReducer'
-import About from "./About";
-import '../styles/Nav.css'
+import { setUser } from '../../redux/reducers/authReducer'
+import About from "../About/About";
+import './Nav.css'
 import session from 'express-session'
 
 const Nav = props => {
@@ -18,16 +18,21 @@ const Nav = props => {
     axios
       .post('/auth/login', { loginValue, password })
       .then(res => {
-        props.setUser(res.data)
+        const {username, user_id, profile_picture, email} = res.data
+        props.setUser(
+          username,
+          user_id,
+          profile_picture,
+          email
+        )
         props.history.push('/profile')
         console.log('logged in')
         setValue('')
         setPassword('')
       })
-      .catch(err => {
-        // alert(err.response.data);
-        console.log(err)
-      })
+      .catch(err => alert(err.response.data))
+        // console.log(err)
+      
   }
 
   const logout = () => {

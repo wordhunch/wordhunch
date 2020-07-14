@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { checkUserInput } from '../utils/gameFunctions'
+import { checkUserInput } from '../../utils/gameFunctions'
 
 const Input = ({ targetWord, updateGuessedWords }) => {
   const [input, setInput] = useState('')
@@ -20,6 +20,7 @@ const Input = ({ targetWord, updateGuessedWords }) => {
   }
 
   useEffect(() => {
+    if (targetWord) {
     checkUserInput(targetWord, input).then(res => {
       if (res) {
         setValid(true)
@@ -27,6 +28,7 @@ const Input = ({ targetWord, updateGuessedWords }) => {
         setSharedLetterCount(res.sharedLetterCount)
       }
     })
+  }
   }, [input])
 
   

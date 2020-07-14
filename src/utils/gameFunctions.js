@@ -7,6 +7,7 @@ export const generateWord = async (difficulty) => {
 }
 
 export const checkUserInput = async (targetWord, inputWord) => {
+
     const input = inputWord.toLowerCase()
     const target = targetWord.toLowerCase()
 
