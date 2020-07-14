@@ -20,6 +20,7 @@ const Input = ({ targetWord, updateGuessedWords }) => {
   }
 
   useEffect(() => {
+    if (targetWord) {
     checkUserInput(targetWord, input).then(res => {
       if (res) {
         setValid(true)
@@ -27,6 +28,7 @@ const Input = ({ targetWord, updateGuessedWords }) => {
         setSharedLetterCount(res.sharedLetterCount)
       }
     })
+  }
   }, [input])
 
   

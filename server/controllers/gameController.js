@@ -13,7 +13,6 @@ module.exports = {
         }
     },
     newGame: async (req, res) => {
-        console.log(req.session.user)
         const db = req.app.get('db')
         const { targetWord, difficulty } = req.body
         const {user_id} = req.session.user
