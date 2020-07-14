@@ -13,12 +13,15 @@ module.exports = {
         }
     },
     newGame: async (req, res) => {
+        console.log(req.session.user)
         const db = req.app.get('db')
-        const { targetWord, userId, difficulty } = req.body
+        const { targetWord, difficulty } = req.body
+        const {user_id} = req.session.user
+        
 
         try {
             //instantiate a new game in the games database
-            const gameId = await db.game.insert({ user_id: userId, word_id: targetWord, difficulty_game: difficulty })
+            const gameId = await db.game.insert({ user_id, word_id: targetWord, difficulty_game: difficulty })
             res.status(200).send(gameId)
         } catch (error) {
             console.log(error)
@@ -26,12 +29,13 @@ module.exports = {
     },
     moveToHistory: async (req, res) => {
         const db = req.app.get('db')
-        const { gameId, userId, score } = req.body
+        const { gameId, score } = req.body
+        const {user_id} = req.session.user
 
         try {
             //instantiate a new game history in the games history database
 
-            const history_id = await db.game_history.insert({ user_id: userId, score })
+            const history_id = await db.game_history.insert({ user_id, score })
 
             //if successful, destroy the game info from the game database
             if (history_id) {
