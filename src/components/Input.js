@@ -6,15 +6,16 @@ const Input = ({ targetWord, updateGuessedWords }) => {
   const [valid, setValid] = useState(false)
   const [sharedLetterCount, setSharedLetterCount] = useState(null)
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (valid) {
       updateGuessedWords({word: input, sharedLetterCount})
+      setInput('')
+      setSharedLetterCount(null)
+      setValid(false)
     }
     //could add text response if word is not valid
-    setInput('')
-    setSharedLetterCount(null)
-    setValid(false)
     //empty input to make entering next word simple
   }
 
@@ -27,6 +28,8 @@ const Input = ({ targetWord, updateGuessedWords }) => {
       }
     })
   }, [input])
+
+  
 
   return (
     <div>
