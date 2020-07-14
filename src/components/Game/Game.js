@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
-import TargetWord from "./TargetWord";
-import GuessedWord from "./GuessedWord";
-import Input from "./Input";
-import { generateWord, determineWinner } from '../utils/gameFunctions'
-import { connect } from 'react-redux'
+import TargetWord from "../TargetWord/TargetWord";
+import GuessedWord from "../GuessedWord/GuessedWord";
+import Input from "../Input/Input";
+import { generateWord, determineWinner } from '../../utils/gameFunctions'
 
 const Game = (props) => {
   const difficulty = props.difficulty
