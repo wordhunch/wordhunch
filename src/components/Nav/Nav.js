@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import templogo from '../images/templogo.png'
-import { Link } from 'react-router-dom'
+import templogo from '../../images/templogo.png'
+import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setUser } from '../redux/reducers/authReducer'
-import About from "./About";
-import '../styles/Nav.css'
+import { setUser } from '../../redux/reducers/authReducer'
+import About from "../About/About";
+import './Nav.css'
+import session from 'express-session'
 
 const Nav = props => {
   const [loginValue, setValue] = useState('')
@@ -17,16 +18,31 @@ const Nav = props => {
     axios
       .post('/auth/login', { loginValue, password })
       .then(res => {
-        props.setUser(res.data)
+        const {username, user_id, profile_picture, email} = res.data
+        props.setUser(
+          username,
+          user_id,
+          profile_picture,
+          email
+        )
         props.history.push('/profile')
         console.log('logged in')
+        setValue('')
+        setPassword('')
       })
-      .catch(err => {
-        // alert(err.response.data);
-        console.log(err)
-      })
+      .catch(err => alert(err.response.data))
+        // console.log(err)
+      
   }
 
+  const logout = () => {
+    axios
+      .delete('/auth/logout')
+      .then(res => {
+        props.setUser(res.data)
+        props.history.push('/')
+      })
+  }
 
   const toggleAbout = () => {
     setAbout(!about);
@@ -44,7 +60,7 @@ const Nav = props => {
         />
       </Link>
 
-      <div className='not-loggedin'>
+      {!props.username ? <div className='not-loggedin'>
         <form onSubmit={e => login(e)}>
           <input
             className='login-input'
@@ -62,13 +78,13 @@ const Nav = props => {
           />
           <button type='submit'>Login</button>
         </form>
-        <Link to='/auth'>Register</Link>
-      </div>
+        <Link to='/auth'><button>Register</button></Link>
+      </div> :
       <div className='logged-in'>
-        <Link to='/profile'>Profile</Link>
-       <button onClick={toggleAbout}>About</button>
-
-      </div>
+        <Link to='/profile'><button>Profile</button></Link>
+        <button onClick={logout}>Logout</button>
+      </div>}
+      <button onClick={toggleAbout}>About</button>
       {!about ? null : <About about={about}/>}
     </div>
   )
@@ -76,4 +92,4 @@ const Nav = props => {
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, { setUser })(Nav)
+export default connect(mapStateToProps, { setUser })(withRouter(Nav))

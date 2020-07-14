@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import Game from './Game'
-import '../styles/Landing.css'
+import Game from '../Game/Game'
+import './Landing.css'
 
 const Landing = () => {
   const [showGame, setGame] = useState(false)

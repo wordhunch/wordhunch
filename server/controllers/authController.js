@@ -8,14 +8,20 @@ module.exports = {
       const db = req.app.get('db')
       const { username, email, password, profile_picture} = req.body
   
-      try {
-        const existingUser = await db.get_user(email)
+      
+        const [existingUser] = await db.get_user({username, email})
+        .catch(err => res.status(500).send(err))
+        try {
+        if (existingUser && existingUser.username === username) {
+          return res
+          .status(409)
+          .send("User already exists. Please pick another username.");
+        } else if (existingUser && existingUser.email === email) {
+          return res.status(409).send("Email already exists. Please log in.");
         
-        if(existingUser[0]) {
-          return res.status(409).send('Email already in use!')
         }
 
-        if(existingUser[0] || !emailChecker(email)){
+        if(existingUser || !emailChecker(email)){
             return res.status(409).send('Not a valid email!')
         }
   
@@ -53,7 +59,7 @@ module.exports = {
       const { loginValue, password }= req.body
   
       try {
-        const [user] = await db.get_user(loginValue)
+        const [user] = await db.login_user(loginValue)
   
         if(!user){
           return res.status(404).send('No account is associated with those credentials. Please register.')
@@ -87,7 +93,7 @@ module.exports = {
     logoutUser: (req, res) => {
       if(req.session.user){
         req.session.destroy()
-        return res.sendStatus(200)
+        return res.status(200).send('')
       }
   
       res.status(404).send('No user currently logged in.')
