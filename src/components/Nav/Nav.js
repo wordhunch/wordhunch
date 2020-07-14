@@ -83,8 +83,8 @@ const Nav = props => {
       <div className='logged-in'>
         <Link to='/profile'><button>Profile</button></Link>
         <button onClick={logout}>Logout</button>
-       <button onClick={toggleAbout}>About</button>
       </div>}
+      <button onClick={toggleAbout}>About</button>
       {!about ? null : <About about={about}/>}
     </div>
   )
