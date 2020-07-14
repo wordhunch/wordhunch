@@ -4,9 +4,10 @@ import TargetWord from "./TargetWord";
 import GuessedWord from "./GuessedWord";
 import Input from "./Input";
 import { generateWord, determineWinner } from '../utils/gameFunctions'
+import {connect} from 'react-redux'
 
 const Game = ({difficulty}) => {
-  const [targetWord, setTargetWord] = useState('')
+  const [targetWord, setTargetWord] = useState({})
   const [gameId, setGameId] = useState(null)
   const [guessedWords, setGuessedWords] = useState([])
   const [gameOver, setGameOver] = useState(false)
@@ -19,7 +20,8 @@ const Game = ({difficulty}) => {
 
   const newGame = () => {
     generateWord(difficulty).then(res => setTargetWord(res.data[0].word))
-    // axios.post('/game/newGame', {targetWord, userId, difficulty}).then(res => setGameId(res.data)) waiting to have access to userId from redux
+    axios.post('/game/newGame', {targetWord, difficulty}).then(res => setGameId(res.data))
+    // waiting to have access to userId from redux
     setGuessedWords([])
     setGameOver(false)
     setScore(null)
@@ -27,8 +29,10 @@ const Game = ({difficulty}) => {
 
   //generates the target word at the beginning of the game
   useEffect(() => {
-    generateWord(difficulty).then(res => setTargetWord(res.data[0].word))
-    // axios.post('/game/newGame', {targetWord, userId, difficulty}).then(res => setGameId(res.data)) waiting to have access to userId from redux
+    generateWord(difficulty).then(res => setTargetWord({word: res.data[0].word, wordId: res.data[0].word_id})).then(console.log(targetWord))
+    
+    axios.post('/game/newGame', {targetWord, difficulty}).then(res => setGameId(res.data))
+    // waiting to have access to userId from redux
   }, [])
 
   //watches to see if the user guesses the correct word
