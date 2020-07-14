@@ -27,7 +27,7 @@ const Nav = props => {
         props.history.push('/profile')
         console.log('logged in')
       })
-      .catch(err => alert(err.response.data))
+      // .catch(err => alert(err.response.data))
         // console.log(err)
       
   }
