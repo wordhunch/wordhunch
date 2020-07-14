@@ -1,23 +1,16 @@
 const nodemailer = require('nodemailer')
+require('dotenv').config()
+const {GMAIL_USER, GMAIL_PASSWORD} = process.env
 
-export default async () => {
-    //set up sending email
 
-    let transporter = nodemailer.createTransport({
-        host: '',//host goes here?
-        port: '???',
-        secure: false,
+const transporter = nodemailer.createTransport({
+        service: 'Gmail',
         auth: {
-            user: 'user',
-            pass: 'pass'
+            user: GMAIL_USER,
+            pass: GMAIL_PASSWORD
         }
     })
 
-    let info = await transporter.sendMail({
-        from: 'sender address',
-        to: 'user email',
-        subject: 'Welcome to WordHunch!',
-        text: 'Whatever text we want',
-        html: '<h1>Hello World (html)</h1>'
-    })
+module.exports = {
+    transporter
 }

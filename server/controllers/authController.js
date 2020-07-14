@@ -1,5 +1,6 @@
 const bcryptjs = require('bcryptjs')
 const {emailChecker} = require('../utils/emailChecker')
+const {transporter} = require('../utils/nodemailer')
 
 
 module.exports = {
@@ -33,6 +34,14 @@ module.exports = {
           hash,
           profile_picture
         ])
+
+        //send confirmation email
+        transporter.sendMail({
+          from: 'wordhunchgame@gmail.com',
+          to: email,
+          subject: 'Welcome!',
+          text: 'Welcome to wordHunch, the bestest game on the WorldWideWeb!!!!!'
+        })
   
         
         delete newUser.password
@@ -44,9 +53,6 @@ module.exports = {
         res.status(500).send('An error was encountered while processing your registration request. Please try again later.')
       }
     },
-
-
-
 
     loginUser: async (req, res) => {
       const db = req.app.get('db')
@@ -91,5 +97,5 @@ module.exports = {
       }
   
       res.status(404).send('No user currently logged in.')
-    },
+    }
   }
