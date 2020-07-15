@@ -34,7 +34,7 @@ const Game = (props) => {
   useEffect(() => {
     generateWord(difficulty)
       .then(res => setTargetWord({ word: res.data[0].word, wordId: res.data[0].word_id }))
-  }, [])
+  }, [difficulty])
 
   //adds a new game to the database once the target word has been set
   useEffect(() => {
@@ -43,14 +43,14 @@ const Game = (props) => {
       axios.post('/game/newGame', { targetWord: targetWord.wordId, difficulty })
         .then(res => setGameId(res.data.game_id))
     }
-  }, [targetWord])
+  }, [targetWord, difficulty, props.username])
 
   //watches to see if the user guesses the correct word
   useEffect(() => {
     if (guessedWords.length) {
       setGameOver(determineWinner(targetWord.word, guessedWords[guessedWords.length - 1].word))
     }
-  }, [guessedWords])
+  }, [guessedWords, targetWord])
 
   //watches to see if the game is over and if so, calculates a score. if the user is logged in, it will send the data to the gamehistory table
   useEffect(() => {
@@ -63,10 +63,9 @@ const Game = (props) => {
         //after game is over, send game data to game history table
       }
     }
-  }, [gameOver])
+  }, [gameOver, difficulty, gameId, guessedWords, props.username])
 
   const guessedWordsMap = guessedWords.map((item, index, array) => {
-
     let numberToRender
     //switches the number of guesses rendered
     switch (parseInt(difficulty)) {
@@ -89,7 +88,7 @@ const Game = (props) => {
         word={item.word}
         sharedLetterCount={item.sharedLetterCount}
       />)
-    }
+    } return null
   })
 
   return (
