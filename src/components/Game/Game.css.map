@@ -2,10 +2,10 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "game.scss",
+        "Game.scss",
         "../../styles/_variables.scss",
         "../../styles/_mixins.scss"
     ],
     "names": [],
-    "file": "game.css"
+    "file": "Game.css"
 }

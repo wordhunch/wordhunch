@@ -1,4 +1,6 @@
-
+@import './variables';
+@import './mixins';
+@import './reset';
 
 * {
     margin: 0;
@@ -7,4 +9,5 @@
 
 .App {
     text-align: center;
+    background-color: $primary;
 }
