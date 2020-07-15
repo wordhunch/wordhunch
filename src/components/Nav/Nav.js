@@ -6,7 +6,6 @@ import { connect } from 'react-redux'
 import { setUser } from '../../redux/reducers/authReducer'
 import About from "../About/About";
 import './Nav.css'
-import session from 'express-session'
 
 const Nav = props => {
   const [loginValue, setValue] = useState('')

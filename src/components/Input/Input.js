@@ -29,7 +29,7 @@ const Input = ({ targetWord, updateGuessedWords }) => {
       }
     })
   }
-  }, [input])
+  }, [input, targetWord])
 
   
 
