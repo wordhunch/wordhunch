@@ -30,7 +30,7 @@ const Nav = props => {
         setValue('')
         setPassword('')
       })
-      // .catch(err => alert(err.response.data))
+      .catch(err => alert(err.response.data))
         // console.log(err)
       
   }
