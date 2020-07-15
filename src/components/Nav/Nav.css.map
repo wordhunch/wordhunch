@@ -1,8 +1,10 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,IAAI,CAAC;EACD,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,KAAK;EACZ,QAAQ,EAAE,MAAM;CACnB",
+    "mappings": "AAGA,AAAA,IAAI,CAAC;EACD,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,KAAK;EACZ,QAAQ,EAAE,MAAM;CACnB",
     "sources": [
-        "Nav.scss"
+        "Nav.scss",
+        "../../styles/_variables.scss",
+        "../../styles/_mixins.scss"
     ],
     "names": [],
     "file": "Nav.css"
