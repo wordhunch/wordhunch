@@ -3,8 +3,8 @@ import axios from 'axios'
 import TargetWord from "../TargetWord/TargetWord";
 import GuessedWord from "../GuessedWord/GuessedWord";
 import Input from "../Input/Input";
-import {connect} from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
+import {connect} from 'react-redux'
 
 const Game = (props) => {
   const difficulty = props.difficulty
