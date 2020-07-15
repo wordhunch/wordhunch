@@ -5,6 +5,7 @@ import GuessedWord from "../GuessedWord/GuessedWord";
 import Input from "../Input/Input";
 import {connect} from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
+import './Game.css'
 
 const Game = (props) => {
   const difficulty = props.difficulty
@@ -93,7 +94,7 @@ const Game = (props) => {
   })
 
   return (
-    <div>
+    <div className='game-container'>
       <TargetWord targetWord={targetWord.word} gameOver={gameOver} />
       {!gameOver && <>
         {guessedWordsMap}

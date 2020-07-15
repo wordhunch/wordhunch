@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './TargetWord.css'
+
 const TargetWord = ({targetWord, gameOver}) => {
   return (
     <div>
