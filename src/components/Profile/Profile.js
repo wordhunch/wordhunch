@@ -7,10 +7,10 @@ import './Profile.css'
 const Profile = (props) => {
 
   const[newEmail, setEmail] = useState(props.email);
-  const[newPassword, setPassword] = useState('');
+  // const[newPassword, setPassword] = useState('');
   const[newUsername, setUsername] = useState(props.username)
   const[newProfilePicture, setProfilePicture] = useState(props.profilePicture);
-  const[highScores, setHighScores] = useState([])
+  // const[highScores, setHighScores] = useState([])
   const[toggled, setToggled] = useState(false)
 
   const handleUsername = event =>setUsername(event.target.value)
@@ -36,7 +36,7 @@ const Profile = (props) => {
 // })
 const toggleFn = () => {
   setToggled(!toggled)
-setEmail(props.email)
+  setEmail(props.email)
 setUsername(props.username)
 setProfilePicture(props.profilePicture)
 }
@@ -44,15 +44,15 @@ setProfilePicture(props.profilePicture)
 const saveChanges = () => {
   const body = {newUsername, newProfilePicture, newEmail}
   axios.put(`/profile/edit/${props.userId}`, body).then(res => {
-
+    props.editUser(newUsername, newProfilePicture, newEmail)
+    toggleFn()
   })
-  props.editUser(newUsername, newProfilePicture, newEmail)
-}
+  .catch(err => alert(err.response.data))}
   return (
 
     <div className = "user-info">
       {/* <p>{highScores}</p> */}
-      <img src={props.profilePicture}/>
+      <img src={props.profilePicture} alt='user profile' />
       {toggled ? (
       <div>
         <div>
@@ -67,7 +67,7 @@ const saveChanges = () => {
           <p>New Profile Picture</p>
             <input value = {newProfilePicture} onChange = {(event) => handleProfilePicture(event)} name = 'profilePicture'/>
         </div>
-        <button onClick = {saveChanges, toggleFn}>Save Changes</button>
+        <button onClick = {saveChanges}>Save Changes</button>
         <button onClick = {() => toggleFn()}>Cancel</button>
       </div>
       
@@ -75,7 +75,7 @@ const saveChanges = () => {
         <div>
         <p>{props.username}</p>
         <p>{props.email}</p>
-        <button className = "edit-user" onClick ={() => toggleFn()}>Edit</button>
+        <button className = "edit-user" onClick ={toggleFn}>Edit</button>
         </div>
       )}
       

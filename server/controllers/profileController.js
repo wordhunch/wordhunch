@@ -1,3 +1,4 @@
+const {emailChecker} = require('../utils/emailChecker')
 module.exports = {
     getUser: async (req, res) => {
         const db = req.app.get('db');
@@ -18,19 +19,19 @@ module.exports = {
         const {newUsername, newProfilePicture, newEmail} = req.body
 
     const [existingUser] = await db
-    .check_user({ newUsername, newEmail })
+    .check_user({ user_id, newUsername, newEmail })
     .catch((err) => res.status(500).send(err));
     
-    if(existingUser || !emailChecker(email)){
-        return res.status(409).send('Not a valid email!')
-    }
+    
 
     if (existingUser && existingUser.username === newUsername) {
       return res
       .status(409)
-      .send("User already exists. Please pick another username.");
+      .send("Username already exists. Please pick another username.");
     } else if (existingUser && existingUser.email === newEmail) {
-      return res.status(409).send("Email already exists. Please log in.");
+      return res.status(409).send("Email already exists. Please choose another email.");
+    }else if (existingUser || !emailChecker(newEmail)){
+        return res.status(409).send('Not a valid email!')
     }
 
         
