@@ -7,10 +7,10 @@ import './Profile.css'
 const Profile = (props) => {
 
   const[newEmail, setEmail] = useState(props.email);
-  const[newPassword, setPassword] = useState('');
+  // const[newPassword, setPassword] = useState('');
   const[newUsername, setUsername] = useState(props.username)
   const[newProfilePicture, setProfilePicture] = useState(props.profilePicture);
-  const[highScores, setHighScores] = useState([])
+  // const[highScores, setHighScores] = useState([])
   const[toggled, setToggled] = useState(false)
 
   const handleUsername = event =>setUsername(event.target.value)
@@ -52,7 +52,7 @@ const saveChanges = () => {
 
     <div className = "user-info">
       {/* <p>{highScores}</p> */}
-      <img src={props.profilePicture}/>
+      <img src={props.profilePicture} alt='user profile' />
       {toggled ? (
       <div>
         <div>

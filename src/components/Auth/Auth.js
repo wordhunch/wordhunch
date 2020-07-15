@@ -69,4 +69,4 @@ const Auth = (props) => {
 
 const mapStateToProps = reduxState => reduxState
 
-export default connect(mapStateToProps, {setUser})(Auth);
+export default connect(mapStateToProps, {setUser})(withRouter(Auth));
