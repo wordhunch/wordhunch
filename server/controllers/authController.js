@@ -1,6 +1,7 @@
 const bcryptjs = require('bcryptjs')
 const {emailChecker} = require('../utils/emailChecker')
 const {transporter} = require('../utils/nodemailer')
+const emailHtml = require('../utils/email-html')
 
 
 module.exports = {
@@ -40,7 +41,7 @@ module.exports = {
           from: 'wordhunchgame@gmail.com',
           to: email,
           subject: 'Welcome!',
-          text: 'Welcome to wordHunch, the bestest game on the WorldWideWeb!!!!!'
+          html: emailHtml(username)
         })
   
         
