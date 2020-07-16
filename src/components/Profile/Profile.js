@@ -73,7 +73,7 @@ const saveChanges = (e) => {
   const mapTopScores = topScores.map(e => <div key = {e.history_id}>
     {props.userId && topScores[0] ?
     <div>
-    <img src = {e.profile_picture}/>
+    <img src = {e.profile_picture} alt='user profile'/>
     <p>{e.username}</p>
     <p>{e.score}</p>
     </div>
