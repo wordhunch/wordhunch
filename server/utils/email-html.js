@@ -5,7 +5,7 @@ module.exports = (username) => {
     <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>wordHunch</title>
+    <title>Word Logic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body style="background-color:'#ffffff'; margin: 0; padding: 0;">
@@ -14,13 +14,13 @@ module.exports = (username) => {
                 <td align="center" bgcolor="#ffffff" style="padding: 0px 0 0px 0; color: #cccccc; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
                     <a href="http://localhost:3000/#/" style="color: #ffffff;">
                     <img src='http://localhost:3000/static/media/templogo.e20848d7.png'
-                     alt="wordHunch" width="500" height="200" />
+                     alt="Word Logic" width="500" height="200" />
                     </a>
                 </td>
             </tr>
             <tr>
                 <td style="background-color: white;text-align: center; color: #223377; font-family: Arial, sans-serif; font-size: 24px;">
-                    <b>Welcome to wordHunch, ${username}!</b>
+                    <b>Welcome to Word Logic, ${username}!</b>
                 </td>
             </tr>
             <tr>
