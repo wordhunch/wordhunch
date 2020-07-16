@@ -43,6 +43,7 @@ app.delete('/auth/logout', authCtrl.logoutUser)
 
 // game endpoints
 app.get('/game/getHighScores/:userId', gameCtrl.getHighScores)
+app.get('/game/getTopScores', gameCtrl.getTopScores)
 app.post('/game/newGame', gameCtrl.newGame)
 app.post('/game/moveToHistory', gameCtrl.moveToHistory)
 // word endpoints
@@ -52,6 +53,6 @@ app.post('/word', wordCtrl.checkInputWord)
 //profile endpoints
 app.get('/profile/view/:user_id', profileCtrl.getUser )
 app.put('/profile/edit/:user_id', profileCtrl.editUser)
-
+app.put('/profile/password/:user_id', profileCtrl.updatePassword)
 
 

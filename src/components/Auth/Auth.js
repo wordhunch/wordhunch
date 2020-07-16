@@ -34,10 +34,7 @@ const Auth = (props) => {
         
     }
    
-    const handleEmail = event =>setEmail(event.target.value) 
-    const handlePassword = event =>setPassword(event.target.value)
-    const handleUsername = event =>setUsername(event.target.value)
-
+   
 
 
   return (
