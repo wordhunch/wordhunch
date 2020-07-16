@@ -1,1 +1,31 @@
-/* No CSS *//*# sourceMappingURL=Input.css.map */
+.input-form {
+  width: 100%;
+  margin: auto;
+}
+
+.input-form .game-input {
+  width: 150px;
+  border-radius: 10px;
+  margin: 10px auto;
+  background-color: white;
+  font-size: 30px;
+  color: #235789;
+  text-align: center;
+  caret-color: #235789;
+}
+
+.input-form .game-input:focus {
+  outline: none;
+}
+
+.input-form .submit-button {
+  padding: 5px;
+  background-color: #f49d6e;
+  font-size: 20px;
+  font-weight: bold;
+  color: #235789;
+  border: 3px solid #235789;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Input.css.map */

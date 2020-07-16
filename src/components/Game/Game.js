@@ -3,6 +3,7 @@ import axios from 'axios'
 import TargetWord from "../TargetWord/TargetWord";
 import GuessedWord from "../GuessedWord/GuessedWord";
 import Input from "../Input/Input";
+import LetterChart from '../LetterChart/LetterChart'
 import {connect} from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
 import './Game.css'
@@ -107,6 +108,7 @@ const Game = (props) => {
         <h2>Score: {score}</h2>
         <button onClick={() => newGame()}>Play again?</button>
       </>}
+      <LetterChart/>
     </div>
   );
 };

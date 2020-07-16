@@ -1,1 +1,63 @@
-/* No CSS *//*# sourceMappingURL=GuessedWord.css.map */
+.guessed-word-container {
+  width: 300px;
+  margin: 10px auto;
+  position: relative;
+}
+
+.guessed-word-container .word-map-container {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
+}
+
+.guessed-word-container .word-map-container .letter-tile-guessed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50px;
+  height: 50px;
+  color: #235789;
+  font-size: 50px;
+  border: 3px solid #f49d6e;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 4px 4px;
+          box-shadow: 0px 4px 4px;
+}
+
+.guessed-word-container .shared-letter-count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50px;
+  height: 50px;
+  color: #f49d6e;
+  font-size: 50px;
+  border: 3px solid #710627;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 4px 4px;
+          box-shadow: 0px 4px 4px;
+  position: absolute;
+  right: -110px;
+  top: 0px;
+}
+/*# sourceMappingURL=GuessedWord.css.map */
