@@ -3,7 +3,7 @@
     "mappings": "",
     "sources": [
         "Landing.scss",
-        "_variables.scss"
+        "../../styles/_variables.scss"
     ],
     "names": [],
     "file": "Landing.css"
