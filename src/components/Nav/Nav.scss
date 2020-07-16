@@ -5,4 +5,37 @@
     height: 18vh;
     width: 100vw;
     position: sticky;
+    background-color: $secondary;
+    @include flexCenter();
+    border-bottom: solid $quaternary 3px;
+    button {
+        background-color: $tertiary;
+        height: 4vh;
+        width: 5vw;
+        border: none;
+        border-radius: 10px;
+        box-shadow: $quaternary .10rem .25rem;
+        color: $secondary;
+        font-weight: 700;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+}
+
+.logo-container {
+    margin-right: 40vw;
+}
+
+.not-loggedin {
+    width: 40vw;
+    height: 12vh;
+    @include flexCenter();
+    justify-content: flex-end;
+}
+
+.login-input,
+.login-btn,
+.register-btn {
+    margin-right: 1rem;
 }
