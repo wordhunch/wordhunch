@@ -3,5 +3,59 @@
   width: 100vw;
   position: -webkit-sticky;
   position: sticky;
+  background-color: #235789;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: solid #710627 3px;
+}
+
+.Nav button {
+  background-color: #f49d6e;
+  height: 4vh;
+  width: 5vw;
+  border: none;
+  border-radius: 10px;
+  -webkit-box-shadow: #710627 0.1rem 0.25rem;
+          box-shadow: #710627 0.1rem 0.25rem;
+  color: #235789;
+  font-weight: 700;
+}
+
+.Nav button:hover {
+  cursor: pointer;
+}
+
+.logo-container {
+  margin-right: 40vw;
+}
+
+.not-loggedin {
+  width: 40vw;
+  height: 12vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.login-input,
+.login-btn,
+.register-btn {
+  margin-right: 1rem;
 }
 /*# sourceMappingURL=Nav.css.map */
