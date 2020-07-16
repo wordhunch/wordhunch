@@ -5,12 +5,24 @@ module.exports = {
 
         try {
             //get high scores using sql file and send back the returned high scores
-            const [highScores] = await db.get_high_scores(+userId)
-
-            res.status(200).send(highScores)
+            db.get_high_scores(+userId)
+            .then(highScore => {
+                res.status(200).send(highScore)
+            })
         } catch (error) {
-            console.log(error)
+            res.status(404).send(error)
         }
+    },
+    getTopScores: async (req, res) => {
+        const db = req.app.get('db')
+        try {
+        db.get_top_scores()
+        .then(topScores => {
+            res.status(200).send(topScores)
+        })
+    } catch (error) {
+        res.status(404).send(error)
+    }
     },
     newGame: async (req, res) => {
         const db = req.app.get('db')
