@@ -1,0 +1,24 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin felxEvenly {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@mixin letter-tile ($border-color, $text-color){
+    @include flexCenter;
+
+    width: 100px;
+    height: 100px;
+
+    color: $text-color;
+    font-size: 50px;
+    border: 3px solid $border-color;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px;
+}
