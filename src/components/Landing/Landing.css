@@ -1,1 +1,77 @@
-/* No CSS *//*# sourceMappingURL=Landing.css.map */
+.logic-map {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 550px;
+  margin: auto;
+}
+
+.title-word {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 550px;
+  height: 100px;
+  margin: 40px auto;
+  font-size: 80px;
+  color: #235789;
+  font-weight: bold;
+  background-color: #f49d6e;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 4px 4px;
+          box-shadow: 0px 4px 4px;
+  text-shadow: 0px 4px 4px grey;
+}
+
+.difficulty-buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
+  margin: 50px auto 10px;
+}
+
+.difficulty-buttons-container .difficulty-button {
+  padding: 5px;
+  background-color: #f49d6e;
+  font-size: 20px;
+  font-weight: bold;
+  color: #235789;
+  border: 3px solid #235789;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.difficulty-buttons-container .difficulty-selected {
+  background-color: white;
+}
+
+.play-button {
+  width: 130px;
+  height: 75px;
+  font-size: 50px;
+  color: #f49d6e;
+  background-color: #235789;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=Landing.css.map */

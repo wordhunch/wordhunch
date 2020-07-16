@@ -24,7 +24,7 @@ const Nav = props => {
           profile_picture,
           email
         )
-        props.history.push('/profile')
+        // props.history.push('/profile')
         console.log('logged in')
         setValue('')
         setPassword('')

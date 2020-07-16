@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Game from '../Game/Game'
 import LetterChart from '../LetterChart/LetterChart'
 import './Landing.css'
@@ -7,25 +7,29 @@ const Landing = () => {
   const [showGame, setGame] = useState(false)
   const [difficulty, setDifficulty] = useState('1')
 
+  const logicMap = 'LOGIC'.split('').map(item => <p className='letter-tile'>{item}</p>)
 
   
+
   return (
-    <div className="Landing">
-      {(!showGame) 
-      ? <div>
-      <h1>Welcome to WordHunch!</h1>
-      <label htmlFor='difficulty'>Difficulty:</label>
-      <select onChange={(e) => setDifficulty(e.target.value)} name='difficulty'>
-        <option value='1'>Easy</option>
-        <option value='2'>Medium</option>
-        <option value='3'>Hard</option>
-      </select>
-      <button onClick={() => setGame(true)}>Play Now!</button>
-      </div>
-      : <div>
-      <LetterChart />
-      <Game difficulty={difficulty}/>
-      </div>
+    <div className="landing-container">
+      {(!showGame)
+        ? <div className='landing'>
+          <p className='title-word'>Word</p>
+          <div className='logic-map'>
+            {logicMap}
+          </div>
+          <div className='difficulty-buttons-container'>
+            <button onClick={() => setDifficulty('1')} className={`difficulty-button ${difficulty === '1' && 'difficulty-selected'}`}>Easy</button>
+            <button onClick={() => setDifficulty('2')} className={`difficulty-button ${difficulty === '2' && 'difficulty-selected'}`}>Medium</button>
+            <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
+          </div>
+          <button className='play-button' onClick={() => setGame(true)}>Play</button>
+        </div>
+        : <div>
+          <LetterChart />
+          <Game difficulty={difficulty} />
+        </div>
       }
     </div>
   );
