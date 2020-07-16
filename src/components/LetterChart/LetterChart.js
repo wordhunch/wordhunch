@@ -1,4 +1,4 @@
-import React from 'react'
+import React/*, {useState}*/ from 'react'
 import './LetterChart.css'
 import Letter from '../Letter/Letter'
 
@@ -8,8 +8,22 @@ const LetterChart = props => {
     const lettersMap = letters.map( elem => {
         return <Letter key='elem' value={elem} />
     })
+    
+    // const [cssClass, setClass] = useState('unknown')
+
+    // const click = () => {
+    //     (cssClass === 'unknown') 
+    //     ? setClass('no')
+    //     : ((cssClass === 'no') 
+    //     ? setClass('yes')
+    //     : setClass('unknown'))
+    // }
+    
     return (
-        <div className='letter-chart'>
+        <div 
+        className='letter-chart' 
+        // onClick={click}
+        >
             {lettersMap}
         </div>
     )

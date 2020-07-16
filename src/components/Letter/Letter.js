@@ -1,21 +1,20 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
+import './Letter.css'
 
 const Letter = props => {
 
-    const [cssClass, setClass] = useState('black')
+    const [cssClass, setClass] = useState('unknown')
 
-    const clickOne = () => {
-        setClass('red')
-    }
-    const clickTwo = () => {
-        setClass('green')
-    }
-    const clickThree = () => {
-        setClass('black')
+    const click = () => {
+        (cssClass === 'unknown') 
+        ? setClass('no')
+        : ((cssClass === 'no') 
+        ? setClass('yes')
+        : setClass('unknown'))
     }
 
     return (
-        <h6>
+        <h6 className={`letter-${cssClass}`} onClick={click}>
             {props.value}
         </h6>
     )
