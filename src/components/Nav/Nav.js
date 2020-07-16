@@ -4,14 +4,11 @@ import templogo from '../../images/templogo.png'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setUser } from '../../redux/reducers/authReducer'
-import About from "../About/About";
 import './Nav.css'
-import session from 'express-session'
 
 const Nav = props => {
   const [loginValue, setValue] = useState('')
   const [password, setPassword] = useState('')
-  const [about, setAbout] = useState(false)
 
   const login = e => {
     e.preventDefault()
@@ -25,7 +22,7 @@ const Nav = props => {
           profile_picture,
           email
         )
-        props.history.push('/profile')
+        // props.history.push('/profile')
         console.log('logged in')
         setValue('')
         setPassword('')
@@ -43,10 +40,6 @@ const Nav = props => {
         props.history.push('/')
       })
   }
-
-  const toggleAbout = () => {
-    setAbout(!about);
-  };
 
   return (
     <div className='Nav'>
@@ -84,8 +77,7 @@ const Nav = props => {
         <Link to='/profile'><button>Profile</button></Link>
         <button onClick={logout}>Logout</button>
       </div>}
-      <button className="about-btn" onClick={toggleAbout}>About</button>
-      {!about ? null : <About about={about}/>}
+      <Link to='/about'><button className="about-btn">About</button></Link>
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { checkUserInput } from '../../utils/gameFunctions'
 
+import './Input.css'
+
 const Input = ({ targetWord, updateGuessedWords }) => {
   const [input, setInput] = useState('')
   const [valid, setValid] = useState(false)
@@ -29,7 +31,7 @@ const Input = ({ targetWord, updateGuessedWords }) => {
       }
     })
   }
-  }, [input])
+  }, [input, targetWord])
 
   
 

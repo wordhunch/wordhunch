@@ -1,4 +1,5 @@
 const {emailChecker} = require('../utils/emailChecker')
+const bcryptjs = require('bcryptjs')
 module.exports = {
     getUser: async (req, res) => {
         const db = req.app.get('db');
@@ -45,6 +46,38 @@ module.exports = {
         res.status(500).send("Error encountered");
     
 
-    }
+    },
+    updatePassword: async (req, res) => {
+        const db = req.app.get("db");
+    
+        if (!req.session.user) {
+          return res.status(401).send("Please log in");
+        }
+        const {user_id} = req.params
+        const { password, newPassword1 } = req.body;
+
+        
+        const [passwordChecker] = await db.get_password(user_id)
+        .catch(err => res.status(500).send(err))
+
+        const isAuthenticated = bcryptjs.compareSync(password,passwordChecker.password)
+        
+         
+        if(!isAuthenticated){
+            return res.status(406).send("Password was incorrect.")
+        }
+        
+        // const { username } = req.session.user;
+    
+        const salt = bcryptjs.genSaltSync(10);
+        const hash = bcryptjs.hashSync(newPassword1, salt);
+        // console.log(user_id, hash);
+        db.edit_password([user_id, hash])
+          .then(() => res.status(200).send("Password updated"))
+          .catch((err) => res.status(500).send('Something went wrong please try again later.',
+          console.log(err)));
+          
+
+      }
 }
 
