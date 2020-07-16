@@ -1,6 +1,6 @@
 .letter-chart {
-  height: 200px;
-  width: 200px;
+  height: 14vw;
+  width: 14vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10,44 +10,28 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   background-color: #AAAAAA;
+  position: absolute;
+  padding: 5px;
+  margin-left: 25vw;
 }
 
 .letter-chart h6 {
-  height: 20px;
-  width: 20px;
-  font-size: 12px;
-  background-color: white;
-  border: black 1px;
+  height: 16px;
+  width: 16px;
+  font-family: sans-serif;
+  font-size: 1rem;
   border-radius: 50%;
-  margin: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  margin: 3px;
+  padding: 3px;
 }
 
-.letter-red h6 {
-  height: 20px;
-  width: 20px;
-  font-size: 12px;
-  background-color: white;
-  border: black 1px;
-  border-radius: 50%;
-  margin: 5px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+.letter-chart h6:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=LetterChart.css.map */
