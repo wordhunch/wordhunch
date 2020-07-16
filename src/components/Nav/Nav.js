@@ -74,8 +74,8 @@ const Nav = props => {
         <Link to='/auth'><button className="register-btn">Register</button></Link>
       </div> :
       <div className='logged-in'>
-        <Link to='/profile'><button>Profile</button></Link>
-        <button onClick={logout}>Logout</button>
+        <Link to='/profile'><button className="profile-btn">Profile</button></Link>
+        <button className="logout-btn" onClick={logout}>Logout</button>
       </div>}
       <Link to='/about'><button className="about-btn">About</button></Link>
     </div>

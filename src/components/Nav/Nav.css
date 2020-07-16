@@ -7,9 +7,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -33,7 +33,8 @@
 }
 
 .logo-container {
-  margin-right: 40vw;
+  position: absolute;
+  left: 3vw;
 }
 
 .not-loggedin {
@@ -51,11 +52,27 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  position: absolute;
+  right: 8vw;
 }
 
 .login-input,
 .login-btn,
-.register-btn {
+.register-btn,
+.profile-btn,
+.logout-btn {
   margin-right: 1rem;
+}
+
+.about-btn {
+  position: absolute;
+  bottom: 7vh;
+  right: 3vw;
+}
+
+.logged-in {
+  position: absolute;
+  bottom: 7vh;
+  right: 8vw;
 }
 /*# sourceMappingURL=Nav.css.map */
