@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import templogo from '../../images/templogo.png'
+import logo from '../../images/wordlogic-logo.png'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setUser } from '../../redux/reducers/authReducer'
@@ -47,8 +47,8 @@ const Nav = props => {
       <Link to='/'>
         <img
           className='app-logo'
-          src={templogo}
-          alt='WordHunch logo'
+          src={logo}
+          alt='WordLogic logo'
           style={{ width: '120px' }}
         />
       </Link>
