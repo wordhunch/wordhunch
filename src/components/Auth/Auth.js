@@ -14,7 +14,8 @@ const Auth = (props) => {
   const[profile_picture] = useState('https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg');
 
 
-  const registerUser = () => {
+  const registerUser = (e) => {
+    e.preventDefault()
     axios.post('/auth/register', {email, password, username, profile_picture})
         .then((res) => {
           const {username, user_id} = res.data
@@ -33,21 +34,32 @@ const Auth = (props) => {
         
     }
    
-    const handleEmail = event =>setEmail(event.target.value) 
-    const handlePassword = event =>setPassword(event.target.value)
-    const handleUsername = event =>setUsername(event.target.value)
-
+   
 
 
   return (
     <div>
+      <form onSubmit={e => registerUser(e)}>
       <input 
-      className ="register-input email" value = {email} name = "email" placeholder = "email" onChange={(event) => handleEmail(event)}/>
+      className ="register-input email" 
+      value = {email} 
+      name = "email" 
+      placeholder = "email" 
+      onChange={e => setEmail(e.target.value)}/>
       <input 
-      className ="register-input password" value = {password} name = "password" placeholder = "password" onChange={(event) => handlePassword(event)}/>
+      className ="register-input password" 
+      value = {password} 
+      name = "password" 
+      placeholder = "password" 
+      onChange={e => setPassword(e.target.value)}/>
       <input 
-      className ="register-input username" value = {username} name = "username" placeholder = "username" onChange={(event) => handleUsername(event)}/>
-    <button onClick ={registerUser}>Register</button>
+      className ="register-input username"
+      value = {username} 
+      name = "username" 
+      placeholder = "username" 
+      onChange={e => setUsername(e.target.value)}/>
+    <button type='submit'>Register</button>
+    </form>
     </div>
   )
 }
