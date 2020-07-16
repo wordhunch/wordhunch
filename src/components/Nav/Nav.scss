@@ -6,7 +6,7 @@
     width: 100vw;
     position: sticky;
     background-color: $secondary;
-    @include flexCenter();
+    @include flexEvenly();
     border-bottom: solid $quaternary 3px;
     button {
         background-color: $tertiary;
@@ -24,7 +24,9 @@
 }
 
 .logo-container {
-    margin-right: 40vw;
+    position: absolute;
+    left: 3vw;
+
 }
 
 .not-loggedin {
@@ -32,6 +34,8 @@
     height: 12vh;
     @include flexCenter();
     justify-content: flex-end;
+    position: absolute;
+    right: 8vw;
 }
 
 .login-input,
@@ -40,4 +44,14 @@
 .profile-btn,
 .logout-btn {
     margin-right: 1rem;
+}
+
+.about-btn {
+    @include navBtnPlacer();
+    right: 3vw;
+}
+
+.logged-in {
+    @include navBtnPlacer();
+    right: 8vw;
 }
