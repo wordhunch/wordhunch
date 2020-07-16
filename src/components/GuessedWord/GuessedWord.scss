@@ -19,7 +19,7 @@
         }
     }
     .shared-letter-count {
-        @include letter-tile($quaternary, $tertiary, 50%);
+        @include letter-tile($quaternary, $quaternary, 50%);
 
         position: absolute;
         right: -110px;

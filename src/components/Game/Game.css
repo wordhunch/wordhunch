@@ -1,4 +1,8 @@
-.game-container {
+.game-outer-container {
+  position: relative;
+}
+
+.game-outer-container .game-container {
   margin: 20px auto;
   height: 800px;
   display: -webkit-box;

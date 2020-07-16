@@ -4,7 +4,7 @@ import TargetWord from "../TargetWord/TargetWord";
 import GuessedWord from "../GuessedWord/GuessedWord";
 import Input from "../Input/Input";
 import LetterChart from '../LetterChart/LetterChart'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
 import './Game.css'
 
@@ -94,21 +94,23 @@ const Game = (props) => {
   })
 
   return (
-    <div className='game-container'>
-      <TargetWord targetWord={targetWord.word} gameOver={gameOver} />
-      {!gameOver && <>
-        {guessedWordsMap}
-        <Input
-          updateGuessedWords={updateGuessedWords}
-          targetWord={targetWord.word}
-        />
-      </>}
-      {gameOver && <>
-        <h2>YOU WIN!</h2>
-        <h2>Score: {score}</h2>
-        <button onClick={() => newGame()}>Play again?</button>
-      </>}
-      <LetterChart/>
+    <div className='game-outer-container'>
+      <div className='game-container'>
+        <TargetWord targetWord={targetWord.word} gameOver={gameOver} />
+        {!gameOver && <>
+          {guessedWordsMap}
+          <Input
+            updateGuessedWords={updateGuessedWords}
+            targetWord={targetWord.word}
+          />
+        </>}
+        {gameOver && <>
+          <h2>YOU WIN!</h2>
+          <h2>Score: {score}</h2>
+          <button onClick={() => newGame()}>Play again?</button>
+        </>}
+      </div>
+        <LetterChart />
     </div>
   );
 };

@@ -34,8 +34,8 @@
   font-size: 50px;
   border: 3px solid #f49d6e;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 4px 4px;
-          box-shadow: 0px 4px 4px;
+  -webkit-box-shadow: 0px 4px 4px grey;
+          box-shadow: 0px 4px 4px grey;
 }
 
 .guessed-word-container .shared-letter-count {
@@ -50,12 +50,12 @@
           align-items: center;
   width: 50px;
   height: 50px;
-  color: #f49d6e;
+  color: #710627;
   font-size: 50px;
   border: 3px solid #710627;
   border-radius: 10px;
-  -webkit-box-shadow: 0px 4px 4px;
-          box-shadow: 0px 4px 4px;
+  -webkit-box-shadow: 0px 4px 4px grey;
+          box-shadow: 0px 4px 4px grey;
   position: absolute;
   right: -110px;
   top: 0px;

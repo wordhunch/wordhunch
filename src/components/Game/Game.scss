@@ -1,12 +1,15 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
+.game-outer-container {
+    position: relative;
+    
+    .game-container {
+        margin: 20px auto;
+        height: 800px;
 
-.game-container {
-    margin: 20px auto;
-    height: 800px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

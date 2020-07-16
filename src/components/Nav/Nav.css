@@ -1,5 +1,5 @@
 .Nav {
-  height: 18vh;
+  height: 7vh;
   width: 100vw;
   position: -webkit-sticky;
   position: sticky;
@@ -66,13 +66,13 @@
 
 .about-btn {
   position: absolute;
-  bottom: 7vh;
+  bottom: 14px;
   right: 3vw;
 }
 
 .logged-in {
   position: absolute;
-  bottom: 7vh;
+  bottom: 14px;
   right: 8vw;
 }
 /*# sourceMappingURL=Nav.css.map */
