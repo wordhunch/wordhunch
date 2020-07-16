@@ -1,3 +1,9 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
 
 //colors
 $primary: #93A3B1;

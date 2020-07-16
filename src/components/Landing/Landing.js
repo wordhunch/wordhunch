@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Game from '../Game/Game'
+import LetterChart from '../LetterChart/LetterChart'
 import './Landing.css'
 
 const Landing = () => {
@@ -22,6 +23,7 @@ const Landing = () => {
       <button onClick={() => setGame(true)}>Play Now!</button>
       </div>
       : <div>
+      <LetterChart />
       <Game difficulty={difficulty}/>
       </div>
       }
