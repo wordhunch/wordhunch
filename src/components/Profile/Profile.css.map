@@ -1,8 +1,10 @@
 {
     "version": 3,
-    "mappings": "AAAA,AACI,UADM,CACN,GAAG,CAAA;EACC,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,GAAG;CACrB",
+    "mappings": "AAGA,AACI,UADM,CACN,GAAG,CAAA;EACC,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,KAAK;EACb,aAAa,EAAE,GAAG;CACrB",
     "sources": [
-        "Profile.scss"
+        "Profile.scss",
+        "../../styles/_variables.scss",
+        "../../styles/_mixins.scss"
     ],
     "names": [],
     "file": "Profile.css"
