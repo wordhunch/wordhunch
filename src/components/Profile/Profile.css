@@ -29,12 +29,13 @@
   font-size: 20px;
   height: 100vh;
   width: 30vw;
-  background-color: lightblue;
+  background-color: #93A3B1;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   border-right: solid black;
+  color: #235789;
 }
 
 .main-user h4 {
@@ -49,13 +50,15 @@
       align-self: center;
   margin-top: 100px;
   font-size: 40px;
+  color: #710627;
 }
 
 .main-user p {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  font-size: 20px;
+  font-size: 30px;
+  margin-top: 20px;
 }
 
 .main-user img {
@@ -64,6 +67,8 @@
 
 .main-user button {
   background-color: #f49d6e;
+  color: #235789;
+  font-size: 20px;
   width: 10vw;
   height: 40px;
   margin-left: 30px;

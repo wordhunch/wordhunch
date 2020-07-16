@@ -4,13 +4,11 @@ import templogo from '../../images/templogo.png'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setUser } from '../../redux/reducers/authReducer'
-import About from "../About/About";
 import './Nav.css'
 
 const Nav = props => {
   const [loginValue, setValue] = useState('')
   const [password, setPassword] = useState('')
-  const [about, setAbout] = useState(false)
 
   const login = e => {
     e.preventDefault()
@@ -43,14 +41,10 @@ const Nav = props => {
       })
   }
 
-  const toggleAbout = () => {
-    setAbout(!about);
-  };
-
   return (
     <div className='Nav'>
+      <div className="logo-container">
       <Link to='/'>
-
         <img
           className='app-logo'
           src={templogo}
@@ -58,7 +52,7 @@ const Nav = props => {
           style={{ width: '120px' }}
         />
       </Link>
-
+      </div>
       {!props.username ? <div className='not-loggedin'>
         <form onSubmit={e => login(e)}>
           <input
@@ -75,16 +69,15 @@ const Nav = props => {
             value={password}
             onChange={e => setPassword(e.target.value)}
           />
-          <button type='submit'>Login</button>
+          <button className="login-btn" type='submit'>Login</button>
         </form>
-        <Link to='/auth'><button>Register</button></Link>
+        <Link to='/auth'><button className="register-btn">Register</button></Link>
       </div> :
       <div className='logged-in'>
-        <Link to='/profile'><button>Profile</button></Link>
-        <button onClick={logout}>Logout</button>
+        <Link to='/profile'><button className="profile-btn">Profile</button></Link>
+        <button className="logout-btn" onClick={logout}>Logout</button>
       </div>}
-      <button onClick={toggleAbout}>About</button>
-      {!about ? null : <About about={about}/>}
+      <Link to='/about'><button className="about-btn">About</button></Link>
     </div>
   )
 }

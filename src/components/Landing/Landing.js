@@ -8,7 +8,7 @@ const Landing = () => {
   const [showGame, setGame] = useState(false)
   const [difficulty, setDifficulty] = useState('1')
 
-  const logicMap = 'LOGIC'.split('').map(item => <p className='letter-tile'>{item}</p>)
+  const logicMap = 'LOGIC'.split('').map(item => <p className='letter-tile-landing'>{item}</p>)
 
   
 
@@ -29,7 +29,6 @@ const Landing = () => {
           <h4 className = "register-here"> If you want to save your score...<Link to = '/Auth'> Sign Up here!</Link></h4>
         </div>
         : <div>
-          <LetterChart />
           <Game difficulty={difficulty} />
         </div>
       }

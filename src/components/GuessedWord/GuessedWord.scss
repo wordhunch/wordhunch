@@ -1,2 +1,28 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
+
+
+
+.guessed-word-container {
+    width: 300px;
+
+    margin: 10px auto;
+
+    position: relative;
+
+    .word-map-container {
+        margin: auto;
+        @include flexCenter;
+        width: 300px;
+        .letter-tile-guessed{
+            @include letter-tile ($tertiary, $secondary, 10px);
+        }
+    }
+    .shared-letter-count {
+        @include letter-tile($quaternary, $quaternary, 50%);
+
+        position: absolute;
+        right: -110px;
+        top: 0px;
+    }
+}

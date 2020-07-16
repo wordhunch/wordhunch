@@ -2,7 +2,56 @@
 @import '../../styles/mixins';
 
 .Nav {
-    height: 18vh;
+    height: 7vh;
     width: 100vw;
     position: sticky;
+    background-color: $secondary;
+    @include flexEvenly();
+    border-bottom: solid $quaternary 3px;
+    button {
+        background-color: $tertiary;
+        height: 4vh;
+        width: 5vw;
+        border: none;
+        border-radius: 10px;
+        box-shadow: $quaternary .10rem .25rem;
+        color: $secondary;
+        font-weight: 700;
+    }
+    button:hover {
+        cursor: pointer;
+    }
+}
+
+.logo-container {
+    position: absolute;
+    left: 3vw;
+
+}
+
+.not-loggedin {
+    width: 40vw;
+    height: 12vh;
+    @include flexCenter();
+    justify-content: flex-end;
+    position: absolute;
+    right: 8vw;
+}
+
+.login-input,
+.login-btn,
+.register-btn,
+.profile-btn,
+.logout-btn {
+    margin-right: 1rem;
+}
+
+.about-btn {
+    @include navBtnPlacer();
+    right: 3vw;
+}
+
+.logged-in {
+    @include navBtnPlacer();
+    right: 8vw;
 }

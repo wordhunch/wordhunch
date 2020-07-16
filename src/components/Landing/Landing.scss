@@ -25,6 +25,10 @@
     text-shadow: 0px 4px 4px grey;
 }
 
+.letter-tile-landing {
+    @include letter-tile($tertiary, $secondary, 10px)
+}
+
 .difficulty-buttons-container {
     @include flexCenter;
 

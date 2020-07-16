@@ -1,24 +1,25 @@
 .letter-chart {
-  height: 14vw;
-  width: 14vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 14vw;
+  width: 14vw;
+  justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   background-color: #AAAAAA;
   position: absolute;
+  left: 20%;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   padding: 5px;
-  margin-left: 25vw;
 }
 
 .letter-chart h6 {
