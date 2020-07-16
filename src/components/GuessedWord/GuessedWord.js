@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './GuessedWord.css'
+
 const GuessedWord = ({word, sharedLetterCount}) => {
   return (
     <div>

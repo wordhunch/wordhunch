@@ -2,7 +2,9 @@
     "version": 3,
     "mappings": "",
     "sources": [
-        "Auth.scss"
+        "Auth.scss",
+        "../../styles/_variables.scss",
+        "../../styles/_mixins.scss"
     ],
     "names": [],
     "file": "Auth.css"
