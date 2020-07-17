@@ -13,6 +13,7 @@ const Game = (props) => {
   const difficulty = props.difficulty
   
   const [gameOver, setGameOver] = useState(false)
+  const [gaveUp, setGaveUp] = useState(false)
   const [score, setScore] = useState(null)
 
   //adds guessed words and letter count to state in the guessed words array
@@ -20,6 +21,13 @@ const Game = (props) => {
     props.setReduxGuessedWords(validatedWord)
   }
 
+  //displays the target word with option to play again
+  const giveUp = () => {
+    setScore(0)
+    setGaveUp(true)
+  }
+
+  //resets values in state
   const newGame = () => {
     generateWord(difficulty)
       .then(res => {
@@ -27,6 +35,7 @@ const Game = (props) => {
         props.setWord(wordObj)
         props.emptyGuessedWords()
         setGameOver(false)
+        setGaveUp(false)
         setScore(null)
       })
   }
@@ -98,18 +107,20 @@ const Game = (props) => {
 
   return (
     <div className='game-outer-container'>
-        <TargetWord gameOver={gameOver} />
+        <TargetWord gameOver={gameOver} gaveUp={gaveUp} />
           <LetterChart />
       <div className='game-container'>
-        {!gameOver && <>
+        {!gameOver && !gaveUp && <>
           {guessedWordsMap}
           <Input/>
+          <button className='game-button' onClick={() => giveUp()}>Give up?</button>
         </>}
         {gameOver && <>
           <h2>YOU WIN!</h2>
           <h2>Score: {score}</h2>
-          <button onClick={() => newGame()}>Play again?</button>
+          <button className='game-button' onClick={() => newGame()}>Play again?</button>
         </>}
+        {gaveUp && <button className='game-button' onClick={() => newGame()}>Play again?</button>}
       </div>
     </div>
   );
