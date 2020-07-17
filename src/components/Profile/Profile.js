@@ -61,13 +61,14 @@ const Profile = (props) => {
       .catch((err) => alert(err.response.data));
   };
 
-  const mapTopScores = topScores.map((e) => (
+  const mapTopScores = topScores.map((e, i) => (
     <div key={e.history_id}>
       {props.userId && topScores[0] ? (
-        <div>
+        <div className = 'top-score-user'>
+          <p>#{1 + i} </p>
           <img src={e.profile_picture} alt="user profile" />
           <p>{e.username}</p>
-          <p>{e.score}</p>
+          <p className= 'score'>Score: {e.score}</p>
         </div>
       ) : null}
     </div>
@@ -139,6 +140,7 @@ const Profile = (props) => {
       ) : (
         <div className="main-profile">
           <div className="main-user">
+            <div className= "profile-info">
             <img src={props.profilePicture} alt="user profile" />
             <h4>{props.username}</h4>
             <h4>{props.email}</h4>
@@ -150,8 +152,8 @@ const Profile = (props) => {
                 Edit Password
               </button>
             </div>
-
-            <h5>Your Top Score</h5>
+            </div>
+            <h5>Your Top Scores</h5>
             {/* {console.log(highScores)} */}
             <p>
               {props.userId && highScores[0]
@@ -161,8 +163,8 @@ const Profile = (props) => {
             {props.userId && highScores[1] ? <p>2. {highScores[1].score}</p> : null}
             {props.userId && highScores[1] ? <p>3. {highScores[1].score}</p> : null}
           </div>
-          <div>
-            <p>LeaderBoard:</p>
+          <div className = 'top-scores'>
+            <h5>Leaderboard:</h5>
             {mapTopScores}
           </div>
         </div>
