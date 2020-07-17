@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Game from '../Game/Game'
-import LetterChart from '../LetterChart/LetterChart'
 import './Landing.css'
 import {Link} from 'react-router-dom'
 

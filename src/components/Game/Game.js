@@ -6,27 +6,26 @@ import Input from "../Input/Input";
 import LetterChart from '../LetterChart/LetterChart'
 import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
+import {setWord, setGameId, setReduxGuessedWords, emptyGuessedWords} from '../../redux/reducers/gameReducer'
 import './Game.css'
 
 const Game = (props) => {
   const difficulty = props.difficulty
-
-  const [targetWord, setTargetWord] = useState({})
-  const [gameId, setGameId] = useState(null)
-  const [guessedWords, setGuessedWords] = useState([])
+  
   const [gameOver, setGameOver] = useState(false)
   const [score, setScore] = useState(null)
 
   //adds guessed words and letter count to state in the guessed words array
   const updateGuessedWords = (validatedWord) => {
-    setGuessedWords([...guessedWords, validatedWord])
+    props.setReduxGuessedWords(validatedWord)
   }
 
   const newGame = () => {
     generateWord(difficulty)
       .then(res => {
-        setTargetWord({ word: res.data[0].word, wordId: res.data[0].word_id })
-        setGuessedWords([])
+        const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
+        props.setWord(wordObj)
+        props.emptyGuessedWords()
         setGameOver(false)
         setScore(null)
       })
@@ -35,39 +34,43 @@ const Game = (props) => {
   //generates the target word at the beginning of the game
   useEffect(() => {
     generateWord(difficulty)
-      .then(res => setTargetWord({ word: res.data[0].word, wordId: res.data[0].word_id }))
+      .then(res => {
+        const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
+        props.setWord(wordObj)
+      })
   }, [difficulty])
 
   //adds a new game to the database once the target word has been set
   useEffect(() => {
-    if (props.username && targetWord.wordId) {
+    if (props.auth.username && props.game.targetWord.wordId) {
       console.log('creating new game', difficulty)
-      axios.post('/game/newGame', { targetWord: targetWord.wordId, difficulty })
-        .then(res => setGameId(res.data.game_id))
+      axios.post('/game/newGame', { targetWord: props.game.targetWord.wordId, difficulty })
+        .then(res => {
+          props.setGameId(res.data.game_id)
+        })
     }
-  }, [targetWord, difficulty, props.username])
+  }, [props.game.targetWord, difficulty, props.auth.username])
 
   //watches to see if the user guesses the correct word
   useEffect(() => {
-    if (guessedWords.length) {
-      setGameOver(determineWinner(targetWord.word, guessedWords[guessedWords.length - 1].word))
+    if (props.game.guessedWords.length) {
+      setGameOver(determineWinner(props.game.targetWord.word, props.game.guessedWords[props.game.guessedWords.length - 1].word))
     }
-  }, [guessedWords, targetWord])
+  }, [props.game.guessedWords, props.game.targetWord])
 
   //watches to see if the game is over and if so, calculates a score. if the user is logged in, it will send the data to the gamehistory table
   useEffect(() => {
     if (gameOver) {
       const scoreCalc = Math.ceil(100 - (guessedWords.length * 5))
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
-      console.log(gameId, scoreCalc)
-      if (props.username && gameId) {
-        axios.post('/game/moveToHistory', { gameId, score: scoreCalc })
+      if (props.auth.username && props.game.gameId) {
+        axios.post('/game/moveToHistory', { gameId: props.game.gameId, score: scoreCalc })
         //after game is over, send game data to game history table
       }
     }
-  }, [gameOver, difficulty, gameId, guessedWords, props.username])
+  }, [gameOver, difficulty, props.game.gameId, props.game.guessedWords, props.auth.username])
 
-  const guessedWordsMap = guessedWords.map((item, index, array) => {
+  const guessedWordsMap = props.game.guessedWords.map((item, index, array) => {
     let numberToRender
     //switches the number of guesses rendered
     switch (parseInt(difficulty)) {
@@ -95,15 +98,12 @@ const Game = (props) => {
 
   return (
     <div className='game-outer-container'>
-        <TargetWord targetWord={targetWord.word} gameOver={gameOver} />
+        <TargetWord gameOver={gameOver} />
           <LetterChart />
       <div className='game-container'>
         {!gameOver && <>
           {guessedWordsMap}
-          <Input
-            updateGuessedWords={updateGuessedWords}
-            targetWord={targetWord.word}
-          />
+          <Input/>
         </>}
         {gameOver && <>
           <h2>YOU WIN!</h2>
@@ -117,4 +117,6 @@ const Game = (props) => {
 
 const mapStateToProps = (reduxState) => reduxState
 
-export default connect(mapStateToProps)(Game);
+
+
+export default connect(mapStateToProps, {setWord, setGameId, setReduxGuessedWords, emptyGuessedWords})(Game);
