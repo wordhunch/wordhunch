@@ -8,3 +8,113 @@
         border-radius: 50%;
     }
 }
+.main-profile{
+    display: flex;
+    position: relative;
+    background-color: $primary;
+    width: 100vw;
+    height: 92vh;
+    flex-direction: row;
+    // margin-right: none;
+}
+
+.main-user{
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    font-size: 20px;
+    height: 92vh;
+    width: 30vw;
+    background-color: $primary;
+    flex-direction: column;
+    // border-right: solid 1px $secondary;
+    color: $secondary;
+        h4{
+            margin-bottom: 30px;
+            // margin-left: 30px;
+            font-size: 25px;
+        }
+        h5{
+            align-self: center;
+            margin-top: 100px;
+            font-size: 30px;
+            color: $quaternary;
+            font-weight: bold;
+        }
+        p{
+            align-self: center;
+            font-size: 24px;
+            margin-top: 15px;
+        }
+        img{
+            margin: 30px;
+        }
+        button{
+            font-size: 15px;
+            font-weight: bold;
+            border: 3px solid $secondary;
+            border-radius: 5px;
+            background-color: $tertiary; 
+            color: $secondary;
+            width: 40%;
+            height: 32px;
+            margin-left: 5px;
+        }
+}
+
+.top-scores{
+    width: 70vw;
+  
+    h5{
+        display: flex;
+        align-self: flex-start;
+        margin-top: 20px;
+        margin-left: 20px;
+            font-size: 40px;
+            color: $quaternary;
+            font-weight: bold;
+            margin-bottom: 15px;
+    }
+}
+
+.top-score-user{
+    
+    align-items: center;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    // width: 50vw;
+    width: 70%;
+    border: solid 1px $secondary;
+    margin-top: .5vh;
+    height: 7.5vh;
+    // background-color: red;
+        img{
+            width: 50px;
+            height: 50px;
+            margin-right: 100px;
+        }
+        p{
+            color: $secondary;
+            font-size: 30px;
+            margin-right: 20px;
+        }
+}
+
+.score{
+    display: flex;
+    position: absolute;
+    right: 10%;
+    margin-left: 30px;
+}
+
+.profile-info{
+    align-items: center;
+    width: 80%;
+    height: 40%;
+    border: 1px solid $secondary;
+    border-radius: 30px;
+    padding: 20px;
+    margin: 5%;
+}
