@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Game from '../Game/Game'
 import './Landing.css'
+import {Link} from 'react-router-dom'
 
 const Landing = () => {
   const [showGame, setGame] = useState(false)
@@ -24,6 +25,7 @@ const Landing = () => {
             <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
           </div>
           <button className='play-button' onClick={() => setGame(true)}>Play</button>
+          <h4 className = "register-here"> If you want to save your score...<Link to = '/Auth'> Sign Up here!</Link></h4>
         </div>
         : <div>
           <Game difficulty={difficulty} />

@@ -1,21 +1,24 @@
 import React, { useState, useEffect, useRef } from 'react';
+import {useSelector, useDispatch} from 'react-redux'
 import { checkUserInput } from '../../utils/gameFunctions'
+import {setReduxGuessedWords} from '../../redux/reducers/gameReducer'
 
 import './Input.css'
 
-const Input = ({ targetWord, updateGuessedWords }) => {
+const Input = (props) => {
   const [input, setInput] = useState('')
   const [valid, setValid] = useState(false)
   const [sharedLetterCount, setSharedLetterCount] = useState(null)
 
   const textInput = useRef(null)
-
-
+  const currentWord = useSelector(state => state.game.targetWord.word)
+  const dispatch = useDispatch()
+  
 
   const handleSubmit = (e) => {
     e.preventDefault()
     if (valid) {
-      updateGuessedWords({ word: input, sharedLetterCount })
+      dispatch(setReduxGuessedWords({ word: input, sharedLetterCount }))
       setInput('')
       setSharedLetterCount(null)
       setValid(false)
@@ -25,8 +28,8 @@ const Input = ({ targetWord, updateGuessedWords }) => {
   }
 
   useEffect(() => {
-    if (targetWord) {
-      checkUserInput(targetWord, input).then(res => {
+    if (currentWord) {
+      checkUserInput(currentWord, input).then(res => {
         if (res) {
           setValid(true)
           //render input in red or something to show word is not valid
@@ -36,7 +39,7 @@ const Input = ({ targetWord, updateGuessedWords }) => {
 
       textInput.current.focus()
     }
-  }, [input, targetWord])
+  }, [input, currentWord])
 
 
 
