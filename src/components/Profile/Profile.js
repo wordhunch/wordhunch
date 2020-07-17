@@ -7,11 +7,11 @@ import './Profile.css'
 
 const Profile = (props) => {
 
-  const[newEmail, setEmail] = useState(props.email);
+  const[newEmail, setEmail] = useState(props.auth.email);
   const[password, setPassword] = useState('');
   const[newPassword1, setNewPassword1] = useState('');
   const[newPassword2, setNewPassword2] = useState('');
-  const[newUsername, setUsername] = useState(props.username)
+  const[newUsername, setUsername] = useState(props.auth.username)
   const[newProfilePicture, setProfilePicture] = useState(props.profilePicture);
   const[highScores, setHighScores] = useState([])
   const[topScores, setTopScores] = useState([])
@@ -23,13 +23,13 @@ const Profile = (props) => {
  
 
   useEffect(() => {
-    axios.get(`/game/getHighScores/${props.userId}`)
+    axios.get(`/game/getHighScores/${props.auth.userId}`)
     .then((res =>
       setHighScores(res.data)))
     axios.get('/game/getTopScores').then((response =>{
       setTopScores(response.data)
     }))
-  },[props.userId])
+  },[props.auth.userId])
 
 
 const togglePasswordFn = () => {
@@ -37,9 +37,9 @@ const togglePasswordFn = () => {
 }
 const toggleFn = () => {
   setToggled(!toggled)
-  setEmail(props.email)
-setUsername(props.username)
-setProfilePicture(props.profilePicture)
+  setEmail(props.auth.email)
+setUsername(props.auth.username)
+setProfilePicture(props.auth.profilePicture)
 }
 
 
@@ -50,7 +50,7 @@ event.preventDefault()
 if(newPassword1 !== newPassword2){
   return alert('New Passwords do not match!')
 }
-axios.put(`/profile/password/${props.userId}`, {password, newPassword1}).then(res =>{
+axios.put(`/profile/password/${props.auth.userId}`, {password, newPassword1}).then(res =>{
   alert("Password Updated")
   togglePasswordFn()
 }).catch(err => alert(err.response.data))
@@ -62,7 +62,7 @@ axios.put(`/profile/password/${props.userId}`, {password, newPassword1}).then(re
 const saveChanges = (e) => {
   e.preventDefault()
   const body = {newUsername, newProfilePicture, newEmail}
-  axios.put(`/profile/edit/${props.userId}`, body).then(res => {
+  axios.put(`/profile/edit/${props.auth.userId}`, body).then(res => {
     props.editUser(newUsername, newProfilePicture, newEmail)
     toggleFn()
   })
@@ -71,7 +71,7 @@ const saveChanges = (e) => {
 
 
   const mapTopScores = topScores.map(e => <div key = {e.history_id}>
-    {props.userId && topScores[0] ?
+    {props.auth.userId && topScores[0] ?
     <div>
     <img src = {e.profile_picture} alt='user profile'/>
     <p>{e.username}</p>
@@ -88,7 +88,7 @@ const saveChanges = (e) => {
        
     <div className = "user-info">
       {/* <p>{highScores}</p> */}
-      <img src={props.profilePicture} alt='user profile' />
+      <img src={props.auth.profilePicture} alt='user profile' />
       {toggled ? (
       <div>
         <form onSubmit={event => saveChanges(event)}>
@@ -149,16 +149,16 @@ const saveChanges = (e) => {
       </div>
         :
         <div>
-        <p>{props.username}</p>
-        <p>{props.email}</p>
+        <p>{props.auth.username}</p>
+        <p>{props.auth.email}</p>
         <button className = "edit-user" onClick ={() => toggleFn()}>Edit</button>
         <button className = "edit-user" onClick ={() =>togglePasswordFn()}>Edit Password</button>
         <div>
         <h4>Your Top Score</h4>
         {/* {console.log(highScores)} */}
-        <p>{props.userId && highScores[0] ? highScores[0].score: 'You need to play first!'}</p>
-        <p>{props.userId && highScores[1] ? highScores[1].score: null}</p>
-        <p>{props.userId && highScores[2] ? highScores[2].score: null}</p>
+        <p>{props.auth.userId && highScores[0] ? highScores[0].score: 'You need to play first!'}</p>
+        <p>{props.auth.userId && highScores[1] ? highScores[1].score: null}</p>
+        <p>{props.auth.userId && highScores[2] ? highScores[2].score: null}</p>
 
         <div>
           <p>LeaderBoard:</p>
