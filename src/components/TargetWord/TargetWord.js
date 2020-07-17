@@ -3,12 +3,12 @@ import {useSelector} from 'react-redux'
 
 import './TargetWord.css'
 
-const TargetWord = ({targetWord, gameOver}) => {
+const TargetWord = ({gameOver, gaveUp}) => {
   const currentWord = useSelector(state => state.game.targetWord.word)
 
   return (
     <div className='target-word-container'>
-      {gameOver ? <p className='target-word'>{currentWord}</p> : <p className='target-word'>_______</p>}
+      {gameOver || gaveUp? <p className='target-word'>{currentWord}</p> : <p className='target-word'>_______</p>}
     </div>
   );
 }
