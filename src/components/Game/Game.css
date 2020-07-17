@@ -4,7 +4,9 @@
 
 .game-outer-container .game-container {
   margin: 20px auto;
-  height: 800px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -60,7 +60,7 @@ const Game = (props) => {
       const scoreCalc = Math.ceil((1 / guessedWords.length) * 100 * difficulty)
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
       console.log(gameId, scoreCalc)
-      if (props.username) {
+      if (props.username && gameId) {
         axios.post('/game/moveToHistory', { gameId, score: scoreCalc })
         //after game is over, send game data to game history table
       }
@@ -95,8 +95,9 @@ const Game = (props) => {
 
   return (
     <div className='game-outer-container'>
-      <div className='game-container'>
         <TargetWord targetWord={targetWord.word} gameOver={gameOver} />
+          <LetterChart />
+      <div className='game-container'>
         {!gameOver && <>
           {guessedWordsMap}
           <Input
@@ -110,7 +111,6 @@ const Game = (props) => {
           <button onClick={() => newGame()}>Play again?</button>
         </>}
       </div>
-        <LetterChart />
     </div>
   );
 };

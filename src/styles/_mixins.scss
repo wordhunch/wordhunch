@@ -13,11 +13,11 @@
 @mixin letter-tile ($border-color, $text-color, $border-radius){
     @include flexCenter;
 
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 
     color: $text-color;
-    font-size: 50px;
+    font-size: 40px;
     border: 3px solid $border-color;
     border-radius: 10px;
     box-shadow: 0px 4px 4px grey;
