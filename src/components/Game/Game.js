@@ -95,8 +95,9 @@ const Game = (props) => {
 
   return (
     <div className='game-outer-container'>
-      <div className='game-container'>
         <TargetWord targetWord={targetWord.word} gameOver={gameOver} />
+          <LetterChart />
+      <div className='game-container'>
         {!gameOver && <>
           {guessedWordsMap}
           <Input
@@ -110,7 +111,6 @@ const Game = (props) => {
           <button onClick={() => newGame()}>Play again?</button>
         </>}
       </div>
-        <LetterChart />
     </div>
   );
 };
