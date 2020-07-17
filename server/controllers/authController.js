@@ -38,7 +38,7 @@ module.exports = {
 
         //send confirmation email
         transporter.sendMail({
-          from: 'wordhunchgame@gmail.com',
+          from: 'wordlogicinc@gmail.com',
           to: email,
           subject: 'Welcome!',
           html: emailHtml(username)
