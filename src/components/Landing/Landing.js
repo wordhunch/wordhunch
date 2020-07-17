@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import Game from '../Game/Game'
-import LetterChart from '../LetterChart/LetterChart'
 import './Landing.css'
 
 const Landing = () => {
   const [showGame, setGame] = useState(false)
   const [difficulty, setDifficulty] = useState('1')
 
-  const logicMap = 'LOGIC'.split('').map(item => <p className='letter-tile-landing'>{item}</p>)
+  const logicMap = 'LOGIC'.split('').map(item => <p className='letter-tile-landing' key={item}>{item}</p>)
 
   
 
