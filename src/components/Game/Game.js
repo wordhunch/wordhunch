@@ -10,15 +10,16 @@ import {setWord, setGameId, setReduxGuessedWords, emptyGuessedWords} from '../..
 import './Game.css'
 
 const Game = (props) => {
+  let {targetWord} = props.game
+  let {username} = props.auth
+  let {setGameId, setWord} = props
   const difficulty = props.difficulty
   
   const [gameOver, setGameOver] = useState(false)
   const [score, setScore] = useState(null)
 
   //adds guessed words and letter count to state in the guessed words array
-  const updateGuessedWords = (validatedWord) => {
-    props.setReduxGuessedWords(validatedWord)
-  }
+  
 
   const newGame = () => {
     generateWord(difficulty)
@@ -36,20 +37,21 @@ const Game = (props) => {
     generateWord(difficulty)
       .then(res => {
         const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
-        props.setWord(wordObj)
+        setWord(wordObj)
       })
-  }, [difficulty])
+  }, [difficulty, setWord])
 
   //adds a new game to the database once the target word has been set
+ 
   useEffect(() => {
-    if (props.auth.username && props.game.targetWord.wordId) {
+    if (username && targetWord.wordId) {
       console.log('creating new game', difficulty)
-      axios.post('/game/newGame', { targetWord: props.game.targetWord.wordId, difficulty })
+      axios.post('/game/newGame', { targetWord: targetWord.wordId, difficulty })
         .then(res => {
-          props.setGameId(res.data.game_id)
+          setGameId(res.data.game_id)
         })
     }
-  }, [props.game.targetWord, difficulty, props.auth.username])
+  }, [targetWord, difficulty, username, setGameId])
 
   //watches to see if the user guesses the correct word
   useEffect(() => {
@@ -61,7 +63,7 @@ const Game = (props) => {
   //watches to see if the game is over and if so, calculates a score. if the user is logged in, it will send the data to the gamehistory table
   useEffect(() => {
     if (gameOver) {
-      const scoreCalc = Math.ceil(100 - (guessedWords.length * 5))
+      const scoreCalc = Math.ceil(100 - (props.game.guessedWords.length * 5))
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
       if (props.auth.username && props.game.gameId) {
         axios.post('/game/moveToHistory', { gameId: props.game.gameId, score: scoreCalc })

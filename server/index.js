@@ -50,9 +50,9 @@ app.post('/game/moveToHistory', gameCtrl.moveToHistory)
 app.get('/api/targetword/:difficulty', wordCtrl.getTargetWord)
 app.post('/word', wordCtrl.checkInputWord)
 
-// //profile endpoints
-// app.get('/profile/view/:user_id', profileCtrl.getUser )
-// app.put('/profile/edit/:user_id', profileCtrl.editUser)
-// app.put('/profile/password/:user_id', profileCtrl.updatePassword)
+//profile endpoints
+app.get('/profile/view/:user_id', profileCtrl.getUser )
+app.put('/profile/edit/:user_id', profileCtrl.editUser)
+app.put('/profile/password/:user_id', profileCtrl.updatePassword)
 
 
