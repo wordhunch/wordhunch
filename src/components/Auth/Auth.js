@@ -12,6 +12,7 @@ const Auth = (props) => {
   const[password, setPassword] = useState('');
   const[username, setUsername] = useState('')
   const[profile_picture] = useState('https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg');
+  const [errorResponse, setErrorResponse] = useState('')
 
 
   const registerUser = (e) => {

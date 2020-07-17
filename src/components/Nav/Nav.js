@@ -9,6 +9,7 @@ import './Nav.css'
 const Nav = props => {
   const [loginValue, setValue] = useState('')
   const [password, setPassword] = useState('')
+  const [errorResponse, setErrorResponse] = useState('')
 
   const login = e => {
     e.preventDefault()
@@ -26,8 +27,9 @@ const Nav = props => {
         console.log('logged in')
         setValue('')
         setPassword('')
+        setErrorResponse('')
       })
-      .catch(err => alert(err.response.data))
+      .catch(err =>setErrorResponse(err.response.data))
         // console.log(err)
       
   }
@@ -52,18 +54,22 @@ const Nav = props => {
           style={{ width: '120px' }}
         />
       </Link>
+      
       </div>
+      <p className = 'error'>{errorResponse}</p>
       {!props.auth.username ? <div className='not-loggedin'>
+    
         <form onSubmit={e => login(e)}>
+        
           <input
-            className='login-input'
+            className= 'login-input'
             type='text'
             placeholder='username or email'
             value={loginValue}
             onChange={e => setValue(e.target.value)}
           />
           <input
-            className='login-input'
+            className= 'login-input'
             type='password'
             placeholder='password'
             value={password}
@@ -71,6 +77,7 @@ const Nav = props => {
           />
           <button className="login-btn" type='submit'>Login</button>
         </form>
+    
         <Link to='/auth'><button className="register-btn">Register</button></Link>
       </div> :
       <div className='logged-in'>

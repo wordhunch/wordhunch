@@ -72,7 +72,13 @@ const Game = (props) => {
   //watches to see if the game is over and if so, calculates a score. if the user is logged in, it will send the data to the gamehistory table
   useEffect(() => {
     if (gameOver) {
-      const scoreCalc = Math.ceil(100 - (props.game.guessedWords.length * 5))
+      let scoreMaker = 0
+      difficulty === 1 ? scoreMaker = 25 : difficulty === 2 ? scoreMaker = 20 : scoreMaker = 15
+      
+      let scoreCalc = Math.ceil(500 - (props.game.guessedWords.length * scoreMaker))
+      if (scoreCalc <= 0){
+        scoreCalc = 0
+      }
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
       if (props.auth.username && props.game.gameId) {
         axios.post('/game/moveToHistory', { gameId: props.game.gameId, score: scoreCalc })
