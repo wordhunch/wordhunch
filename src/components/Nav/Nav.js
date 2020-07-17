@@ -3,7 +3,7 @@ import axios from 'axios'
 import logo from '../../images/wordlogic-logo.png'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { setUser } from '../../redux/reducers/authReducer'
+import { setUser, logoutUser } from '../../redux/reducers/authReducer'
 import './Nav.css'
 
 const Nav = props => {
@@ -38,6 +38,7 @@ const Nav = props => {
       .then(res => {
         props.history.push('/')
       })
+    props.logoutUser()
   }
 
   return (
@@ -83,4 +84,4 @@ const Nav = props => {
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, { setUser })(withRouter(Nav))
+export default connect(mapStateToProps, { setUser, logoutUser })(withRouter(Nav))
