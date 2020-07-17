@@ -53,7 +53,7 @@ const Nav = props => {
         />
       </Link>
       </div>
-      {!props.username ? <div className='not-loggedin'>
+      {!props.auth.username ? <div className='not-loggedin'>
         <form onSubmit={e => login(e)}>
           <input
             className='login-input'

@@ -77,7 +77,6 @@ const Profile = (props) => {
   return (
     <div className="user-info">
       {/* <p>{highScores}</p> */}
-
       {toggled ? (
         <div>
           <form onSubmit={(event) => saveChanges(event)}>
