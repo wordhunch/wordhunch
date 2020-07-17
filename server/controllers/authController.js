@@ -82,13 +82,13 @@ module.exports = {
     },
 
 
-    // getUser: (req, res) => {
-    //   if(req.session.user){
-    //     return res.status(200).send(req.session.user)
-    //   }
+    getUser: (req, res) => {
+      if(req.session.user){
+        return res.status(200).send(req.session.user)
+      }
   
-    //   res.status(404).send('No user currently logged in.')
-    // },
+      // res.status(404).send('No user currently logged in.')
+    },
 
 
     logoutUser: (req, res) => {

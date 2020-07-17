@@ -36,6 +36,7 @@ app.use(
 );
 
 // auth endpoints
+app.get('/auth/getUser', authCtrl.getUser)
 app.post('/auth/register', authCtrl.registerUser)
 app.post('/auth/login', authCtrl.loginUser)
 app.delete('/auth/logout', authCtrl.logoutUser)

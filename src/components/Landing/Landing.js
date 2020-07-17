@@ -7,8 +7,6 @@ const Landing = () => {
   const [showGame, setGame] = useState(false)
   const [difficulty, setDifficulty] = useState('1')
 
-  const logicMap = 'LOGIC'.split('').map(item => <p className='letter-tile-landing'>{item}</p>)
-
   
 
   return (
@@ -17,7 +15,6 @@ const Landing = () => {
         ? <div className='landing'>
           <p className='title-word'>Word</p>
           <div className='logic-map'>
-            {logicMap}
           </div>
           <div className='difficulty-buttons-container'>
             <button onClick={() => setDifficulty('1')} className={`difficulty-button ${difficulty === '1' && 'difficulty-selected'}`}>Easy</button>
