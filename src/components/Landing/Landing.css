@@ -94,4 +94,14 @@
   border-radius: 10px;
   cursor: pointer;
 }
+
+.register-here {
+  margin-top: 5vh;
+  color: #235789;
+  text-decoration: none;
+}
+
+.register-here Link {
+  text-decoration: none;
+}
 /*# sourceMappingURL=Landing.css.map */

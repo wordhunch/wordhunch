@@ -40,6 +40,7 @@ const Auth = (props) => {
   return (
     <div>
       <form onSubmit={e => registerUser(e)}>
+        
       <input 
       className ="register-input email" 
       value = {email} 
@@ -58,6 +59,7 @@ const Auth = (props) => {
       name = "username" 
       placeholder = "username" 
       onChange={e => setUsername(e.target.value)}/>
+
     <button type='submit'>Register</button>
     </form>
     </div>
