@@ -60,7 +60,7 @@ const Game = (props) => {
       const scoreCalc = Math.ceil((1 / guessedWords.length) * 100 * difficulty)
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
       console.log(gameId, scoreCalc)
-      if (props.username) {
+      if (props.username && gameId) {
         axios.post('/game/moveToHistory', { gameId, score: scoreCalc })
         //after game is over, send game data to game history table
       }
