@@ -36,7 +36,6 @@ const Nav = props => {
     axios
       .delete('/auth/logout')
       .then(res => {
-        props.setUser(res.data)
         props.history.push('/')
       })
   }

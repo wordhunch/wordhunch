@@ -57,7 +57,7 @@ const Game = (props) => {
   //watches to see if the game is over and if so, calculates a score. if the user is logged in, it will send the data to the gamehistory table
   useEffect(() => {
     if (gameOver) {
-      const scoreCalc = Math.ceil((1 / guessedWords.length) * 100 * difficulty)
+      const scoreCalc = Math.ceil(100 - (guessedWords.length * 5))
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
       console.log(gameId, scoreCalc)
       if (props.username && gameId) {
