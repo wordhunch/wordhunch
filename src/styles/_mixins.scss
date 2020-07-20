@@ -25,5 +25,27 @@
 
 @mixin navBtnPlacer {
     position: absolute;
+<<<<<<< HEAD
     bottom: 12px;
+=======
+    bottom: 14px;
+}
+
+@mixin media($breakpoint) {
+    @if $breakpoint == mobile {
+        @media screen and (max-width: 414px) {
+            @content;
+        }
+    }
+    @else if $breakpoint == tablet {
+        @media screen and (min-width: 768px) and (max-width: 1024px)  {
+            @content;
+        }
+    }
+    @else if $breakpoint == desktop {
+        @media screen and (min-width: 1025) {
+            @content;
+        }
+    }
+>>>>>>> master
 }

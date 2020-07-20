@@ -17,6 +17,9 @@ const Auth = (props) => {
 
   const registerUser = (e) => {
     e.preventDefault()
+    if(username === '' || password === ''){
+      return setErrorResponse('Please enter username and password.')
+    }
     axios.post('/auth/register', {email, password, username, profile_picture})
         .then((res) => {
           const {username, user_id} = res.data
@@ -31,7 +34,7 @@ const Auth = (props) => {
           
            
            
-        }).catch((err)=> alert(err.response.data))
+        }).catch((err)=> setErrorResponse(err.response.data))
         
     }
    
@@ -39,30 +42,43 @@ const Auth = (props) => {
 
 
   return (
-    <div>
+    <div className= 'main-auth'>
+      <div className = 'auth-content'>
       <form onSubmit={e => registerUser(e)}>
-        
+        <div className = 'auth-div'>
+          <p>Email:</p>
       <input 
       className ="register-input email" 
       value = {email} 
       name = "email" 
       placeholder = "email" 
       onChange={e => setEmail(e.target.value)}/>
-      <input 
-      className ="register-input password" 
-      value = {password} 
-      name = "password" 
-      placeholder = "password" 
-      onChange={e => setPassword(e.target.value)}/>
+      </div>
+      <div className = 'auth-div'>
+        <p>Username:</p>
       <input 
       className ="register-input username"
       value = {username} 
       name = "username" 
       placeholder = "username" 
       onChange={e => setUsername(e.target.value)}/>
+      </div>
+      <div className = 'auth-div'>
+        <p>Password:</p>
+      <input 
+      className ="register-input password" 
+      value = {password} 
+      name = "password" 
+      placeholder = "password" 
+      onChange={e => setPassword(e.target.value)}/>
+      </div>
+
 
     <button type='submit'>Register</button>
+    <div>{errorResponse}</div>
     </form>
+   
+    </div>
     </div>
   )
 }

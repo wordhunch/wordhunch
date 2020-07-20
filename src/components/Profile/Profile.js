@@ -16,6 +16,7 @@ const Profile = (props) => {
   const [topScores, setTopScores] = useState([]);
   const [toggled, setToggled] = useState(false);
   const [togglePassword, setTogglePassword] = useState(false);
+  const [errResponse, setErrResponse] = useState('')
 
   useEffect(() => {
     axios
@@ -24,13 +25,16 @@ const Profile = (props) => {
     axios.get("/game/getTopScores").then((response) => {
       setTopScores(response.data);
     });
+    setErrResponse('')
   }, [userId]);
 
   const togglePasswordFn = () => {
     setTogglePassword(!togglePassword);
+    setErrResponse('')
   };
   const toggleFn = () => {
     setToggled(!toggled);
+    setErrResponse('')
     setEmail(email);
     setUsername(username);
     setProfilePicture(profilePicture);
@@ -46,8 +50,9 @@ const Profile = (props) => {
       .then((res) => {
         alert("Password Updated");
         togglePasswordFn();
+        
       })
-      .catch((err) => alert(err.response.data));
+      .catch((err) => setErrResponse(err.response.data));
   };
 
   const saveChanges = (e) => {
@@ -58,8 +63,10 @@ const Profile = (props) => {
       .then((res) => {
         props.editUser(newUsername, newProfilePicture, newEmail);
         toggleFn();
+        setErrResponse('')
       })
-      .catch((err) => alert(err.response.data));
+      .catch((err) => setErrResponse(err.response.data));
+     
   };
 
   const mapTopScores = topScores.map((e, i) => (
@@ -77,7 +84,11 @@ const Profile = (props) => {
 
   return (
     <div className="user-info">
-      {/* <p>{highScores}</p> */}
+     
+        <div className="main-profile">
+          <div className="main-user">
+            <div className= "profile-info">
+               {/* <p>{highScores}</p> */}
       {toggled ? (
         <div>
           <form onSubmit={(event) => saveChanges(event)}>
@@ -97,12 +108,13 @@ const Profile = (props) => {
                 name="email"
               />
             </div>
-            <div>
+            <div className = 'profile-picture'>
               <p>New Profile Picture</p>
               <input
                 value={newProfilePicture}
                 onChange={(e) => setProfilePicture(e.target.value)}
                 name="profilePicture"
+                
               />
             </div>
             <button type="submit">Save Changes</button>
@@ -112,35 +124,42 @@ const Profile = (props) => {
       ) : togglePassword ? (
         <div>
           <form onSubmit={(e) => savePassword(e)}>
+            <div>
+              <p>Old Password:</p>
             <input
               className="password-input"
               type="password"
-              placeholder="Old Password"
+              placeholder=""
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            </div>
+            <div>
+              <p>New Password</p>
             <input
               className="new-password1"
               type="password"
-              placeholder="New Password"
+              placeholder=""
               value={newPassword1}
               onChange={(e) => setNewPassword1(e.target.value)}
             />
+            </div>
+            <div>
+              <p>Retype New Password</p>
             <input
               className="new-password2"
               type="password"
-              placeholder="Retype new Password"
+              placeholder=""
               value={newPassword2}
               onChange={(e) => setNewPassword2(e.target.value)}
             />
+            </div>
             <button type="submit">Save Password</button>
             <button onClick={() => togglePasswordFn()}>Cancel</button>
           </form>
         </div>
       ) : (
-        <div className="main-profile">
-          <div className="main-user">
-            <div className= "profile-info">
+        <div>
             <img src={profilePicture} alt="user profile" />
             <h4>{username}</h4>
             <h4>{email}</h4>
@@ -152,6 +171,8 @@ const Profile = (props) => {
                 Edit Password
               </button>
             </div>
+            </div>)}
+            <div>{errResponse}</div>
             </div>
             <h5>Your Top Scores</h5>
             {/* {console.log(highScores)} */}
@@ -168,7 +189,7 @@ const Profile = (props) => {
             {mapTopScores}
           </div>
         </div>
-      )}
+      
     </div>
   );
 };

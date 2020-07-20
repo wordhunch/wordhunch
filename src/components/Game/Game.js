@@ -7,17 +7,17 @@ import LetterChart from '../LetterChart/LetterChart'
 import Instructions from "../Instructions/Instructions"
 import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
-import {setWord, setGameId, emptyGuessedWords, resetGame} from '../../redux/reducers/gameReducer'
+import { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp } from '../../redux/reducers/gameReducer'
 import './Game.css'
+import fireworks from '../../images/pewpew.png'
 
 const Game = (props) => {
-  let {targetWord} = props.game
-  let {username} = props.auth
-  let {setGameId, setWord, emptyGuessedWords, resetGame} = props
 
-  const [difficulty, setDifficulty] = useState(props.difficulty)
-  const [gameOver, setGameOver] = useState(false)
-  const [gaveUp, setGaveUp] = useState(false)
+  let { targetWord, gameStarted, guessedWords, gameOver, gaveUp } = props.game
+  let { username } = props.auth
+  let { setGameOver, setGaveUp, startGame, setGameId, setWord, resetGame } = props
+
+  const [difficulty, setDifficulty] = useState('1')
   const [score, setScore] = useState(null)
   const [instructions, setInstructions] = useState(false)
 
@@ -26,13 +26,10 @@ const Game = (props) => {
     setInstructions(!instructions)
   }
 
-  //adds guessed words and letter count to state in the guessed words array
-  
-
   //displays the target word with option to play again
   const giveUp = () => {
     setScore(0)
-    setGaveUp(true)
+    setGaveUp()
   }
 
   //resets values in state
@@ -41,9 +38,6 @@ const Game = (props) => {
     generateWord(difficulty)
       .then(res => {
         const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
-        emptyGuessedWords()
-        setGameOver(false)
-        setGaveUp(false)
         setScore(null)
         setWord(wordObj)
       })
@@ -51,19 +45,18 @@ const Game = (props) => {
 
   //generates the target word at the beginning of the game
   useEffect(() => {
-    generateWord(difficulty)
-      .then(res => {
-        const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
-        setWord(wordObj)
-      })
-        if (gameOver === true || gaveUp === true) {
-          return resetGame()
-      }
-      
-  }, [difficulty, setWord])
+    if (!gameStarted) {
+      generateWord(difficulty)
+        .then(res => {
+          const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
+          setWord(wordObj)
+        })
+    }
+
+  }, [difficulty, setWord, gameStarted])
 
   //adds a new game to the database once the target word has been set
- 
+
   useEffect(() => {
     if (username && targetWord.wordId) {
       console.log('creating new game', difficulty)
@@ -76,10 +69,10 @@ const Game = (props) => {
 
   //watches to see if the user guesses the correct word
   useEffect(() => {
-    if (props.game.guessedWords.length) {
-      setGameOver(determineWinner(props.game.targetWord.word, props.game.guessedWords[props.game.guessedWords.length - 1].word))
+    if (guessedWords.length) {
+      setGameOver(determineWinner(targetWord.word, guessedWords[guessedWords.length - 1].word))
     }
-  }, [props.game.guessedWords, props.game.targetWord])
+  }, [guessedWords, targetWord, setGameOver])
 
   //watches to see if the game is over and if so, calculates a score. if the user is logged in, it will send the data to the gamehistory table
   useEffect(() => {
@@ -87,9 +80,10 @@ const Game = (props) => {
       let scoreMaker = 0
       difficulty === 1 ? scoreMaker = 25 : difficulty === 2 ? scoreMaker = 20 : scoreMaker = 15
       
-      let scoreCalc = Math.ceil(500 - (props.game.guessedWords.length * scoreMaker))
-      if (scoreCalc <= 0){
-        scoreCalc = 0
+      let scoreCalc = Math.ceil(500 - ((props.game.guessedWords.length -1) * scoreMaker))
+      console.log(props.game.guessedWords.length, scoreCalc);
+      if (scoreCalc <= 30){
+        scoreCalc = 30
       }
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
       if (props.auth.username && props.game.gameId) {
@@ -97,9 +91,9 @@ const Game = (props) => {
         //after game is over, send game data to game history table
       }
     }
-  }, [gameOver, difficulty, props.game.gameId, props.game.guessedWords, props.auth.username])
+  }, [gameOver, difficulty, props.game.gameId, guessedWords, props.auth.username])
 
-  const guessedWordsMap = props.game.guessedWords.map((item, index, array) => {
+  const guessedWordsMap = guessedWords.map((item, index, array) => {
     let numberToRender
     //switches the number of guesses rendered
     switch (parseInt(difficulty)) {
@@ -125,38 +119,51 @@ const Game = (props) => {
     } return null
   })
 
-  return (
-    <div className='game-outer-container'>
-        <TargetWord gameOver={gameOver} gaveUp={gaveUp} />
-        <LetterChart gameOver={gameOver} gaveUp={gaveUp} />
+  return (<div>
+    {!gameStarted && <div className='difficulty-container'>
+        <p className='difficulty-text'>Choose your challenge:</p>
+      <div className='difficulty-buttons-container'>
+        <button onClick={() => setDifficulty('1')} className={`difficulty-button ${difficulty === '1' && 'difficulty-selected'}`}>Easy</button>
+        <button onClick={() => setDifficulty('2')} className={`difficulty-button ${difficulty === '2' && 'difficulty-selected'}`}>Medium</button>
+        <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
+      </div>
+        <button className='game-button' onClick={() => startGame()}>Start</button>
+    </div>}
+
+    {gameStarted && <div className='game-outer-container'>
+      <TargetWord gameOver={gameOver} gaveUp={gaveUp} />
+      <LetterChart gameOver={gameOver} gaveUp={gaveUp} />
       <div className='game-container'>
         {!gameOver && !gaveUp && <>
           {guessedWordsMap}
-          <Input/>
+          <Input />
           <button className='game-button' onClick={() => giveUp()}>Give up?</button>
         </>}
         {gameOver && <>
           <h2>YOU WIN!</h2>
           <h2>Score: {score}</h2>
-          <button className='game-button' onClick={() => newGame()}>Play again?</button>
-          <div className='difficulty-buttons-container'>
-            <button onClick={() => setDifficulty('1')} className={`difficulty-button ${difficulty === '1' && 'difficulty-selected'}`}>Easy</button>
-            <button onClick={() => setDifficulty('2')} className={`difficulty-button ${difficulty === '2' && 'difficulty-selected'}`}>Medium</button>
-            <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
+          <div>
+            <img className='temp-fireworks'
+              src={fireworks}
+              alt='temporary - pew pew you win'
+              style={{ width: '50px' }}
+            />
+            <img className='temp-fireworks'
+              src={fireworks}
+              alt='temporary - pew pew you win'
+              style={{ width: '50px' }}
+            />
           </div>
+          <button className='game-button' onClick={() => newGame()}>Play again?</button>
         </>}
         {gaveUp && <>
           <button className='game-button' onClick={() => newGame()}>Play again?</button>
-          <div className='difficulty-buttons-container'>
-            <button onClick={() => setDifficulty('1')} className={`difficulty-button ${difficulty === '1' && 'difficulty-selected'}`}>Easy</button>
-            <button onClick={() => setDifficulty('2')} className={`difficulty-button ${difficulty === '2' && 'difficulty-selected'}`}>Medium</button>
-            <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
-          </div>
         </>}
       </div>
-      <h2 className="Help" onClick={toggleInstructions}>?</h2>
+    <h2 className="Help" onClick={toggleInstructions}>?</h2>
       {instructions && <div className="help-container"><Instructions/></div>}
-    </div>
+    </div>}
+  </div>
   );
 };
 
@@ -164,4 +171,4 @@ const mapStateToProps = (reduxState) => reduxState
 
 
 
-export default connect(mapStateToProps, {setWord, setGameId, emptyGuessedWords, resetGame})(Game);
+export default connect(mapStateToProps, { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp })(Game);

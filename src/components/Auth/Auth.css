@@ -1,1 +1,59 @@
-/* No CSS *//*# sourceMappingURL=Auth.css.map */
+.main-auth {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 90vh;
+}
+
+.auth-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40%;
+  height: 50%;
+  background-color: #f49d6e;
+  background-color: #235789;
+  font-size: 30px;
+  color: #235789;
+  color: #93A3B1;
+  font-weight: bold;
+  border-radius: 40px;
+}
+
+.auth-content form {
+  width: 100%;
+}
+
+.auth-content button {
+  width: 30%;
+  height: 50px;
+  background-color: #f49d6e;
+  border-radius: 20px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #235789;
+}
+
+.register-input {
+  width: 50%;
+  height: 20px;
+  margin-bottom: 5%;
+}
+
+.auth-div {
+  width: 100%;
+}
+/*# sourceMappingURL=Auth.css.map */

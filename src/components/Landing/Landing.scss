@@ -1,93 +1,64 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.logic-map {
-    @include flexCenter;
-    width: 550px;
-    margin: auto;
-}
 
-.title-word {
-    @include flexCenter;
+.landing-container {
 
-    width: 550px;
-    height: 100px;
-    margin: 40px auto;
+    .letter-tile-landing {
+        @include letter-tile($tertiary, $secondary, 10px)
+    }
 
-    font-size: 80px;
-    color: $secondary;
-    font-weight: bold;
+    .landing-logo {
+        padding: 5vh;
+        width: 600px;
+    }
 
-    background-color: $tertiary;
-    border-radius: 10px;
+    .play-button {
+        display: block;
 
-    box-shadow: 0px 4px 4px;
-    text-shadow: 0px 4px 4px grey;
-}
+        margin:20px auto;
 
-.letter-tile-landing {
-    @include letter-tile($tertiary, $secondary, 10px)
-}
+        width: 130px;
+        height: 75px;
 
-.landing-logo {
-    padding: 5vh;
-}
+        font-size: 50px;
+        color: $tertiary;
+        text-decoration: none;
 
-.difficulty-buttons-container {
-    @include flexCenter;
+        background-color: $secondary;
 
-    width: 300px;
-
-    margin: 50px auto 10px;
-    .difficulty-button {
-        padding: 5px;
-
-        background-color: $tertiary;
-
-        font-size: 20px;
-        font-weight: bold;
-        color: $secondary;
-
-        border: 3px solid $secondary;
-        border-radius: 5px;
+        border: none;
+        border-radius: 10px;
 
         cursor: pointer;
     }
 
-    .difficulty-selected {
-        background-color: white;
-    }
-}
-
-
-
-
-.play-button {
-    width: 130px;
-    height: 75px;
-
-    font-size: 50px;
-    color: $tertiary;
-
-    background-color: $secondary;
-
-    border: none;
-    border-radius: 10px;
-
-    cursor: pointer;
-}
-
-.register-here {
-    margin-top: 5vh;
-    color: $secondary;
-    text-decoration: none;
-    .auth-link {
-        text-decoration: none;
+    .register-here {
+        margin-top: 5vh;
         color: $secondary;
-        font-weight: bold;
-    }
-    .auth-link:visited {
         text-decoration: none;
-        color: $secondary;
+        .auth-link {
+            text-decoration: none;
+            color: $secondary;
+            font-weight: bold;
+        }
+        .auth-link:visited {
+            text-decoration: none;
+            color: $secondary;
+        }
+    }
+    @include breakPoint(mobile) {
+        .landing-logo {
+            width: 300px;
+        }
+    }
+    @include breakPoint(tablet) {
+        .landing-logo {
+            width: 250px;
+        }
+        .register-here {
+            width: 250px;
+            margin: 20px auto;
+        }
     }
 }
