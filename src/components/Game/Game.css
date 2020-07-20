@@ -33,4 +33,16 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.Help {
+  font-size: 3vw;
+  color: #710627;
+  position: absolute;
+  right: 17vw;
+  top: 0vw;
+}
+
+.Help:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=Game.css.map */

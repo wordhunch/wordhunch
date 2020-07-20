@@ -1,0 +1,51 @@
+.Instructions {
+  height: 70vh;
+  width: 30vw;
+  background-color: #f49d6e;
+  position: absolute;
+  right: 1vw;
+  top: 3vw;
+  border-radius: 50px;
+}
+
+.Instructions h2 {
+  font-weight: 900;
+  font-size: 3vw;
+}
+
+.instructions-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: initial;
+  width: 20vw;
+  margin-left: 3vw;
+}
+
+.howto-header {
+  height: 3vw;
+  width: 11vw;
+}
+
+.howto-header h4 {
+  color: #710627;
+  font-weight: 700;
+  font-size: 2vw;
+}
+
+.howto-list {
+  list-style-type: circle;
+}
+
+.howto-list-item {
+  color: #235789;
+  font-weight: 700;
+  line-height: 3vh;
+}
+/*# sourceMappingURL=Instructions.css.map */
