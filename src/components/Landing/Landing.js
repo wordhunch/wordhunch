@@ -1,41 +1,29 @@
-import React, { useState } from 'react';
-import Game from '../Game/Game'
+import React, { } from 'react';
 import './Landing.css'
 import {Link} from 'react-router-dom'
-import {connect} from 'react-redux'
+import landingLogo from '../../images/wordlogic-logo-2.png'
 
-const Landing = (props) => {
-  const [showGame, setGame] = useState(false)
-  const [difficulty, setDifficulty] = useState('1')
-
-  const logicMap = 'LOGIC'.split('').map(item => <p className='letter-tile-landing'>{item}</p>)
-
-  
+const Landing = () => {
 
   return (
     <div className="landing-container">
-      {(!showGame)
-        ? <div className='landing'>
-          <p className='title-word'>Word</p>
-          <div className='logic-map'>
-            {logicMap}
+      <div>
+          <div className='landing'>
+                <img
+                  className='landing-logo'
+                  src={landingLogo}
+                  alt='WordLogic logo'
+                  style={{ width: '600px' }}
+                />
+              </div>
+              
+              <div>
+                <Link to='/play'><button className='play-button'>Play</button></Link>
+                <h4 className = "register-here"> If you want to save your scores, <Link to = '/Auth' className='auth-link'>sign up here!</Link></h4>
+              </div>
           </div>
-          <div className='difficulty-buttons-container'>
-            <button onClick={() => setDifficulty('1')} className={`difficulty-button ${difficulty === '1' && 'difficulty-selected'}`}>Easy</button>
-            <button onClick={() => setDifficulty('2')} className={`difficulty-button ${difficulty === '2' && 'difficulty-selected'}`}>Medium</button>
-            <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
-          </div>
-          <button className='play-button' onClick={() => setGame(true)}>Play</button>
-          {props.auth.username ?
-          <h4 className = "register-here"> If you want to save your score...<Link to = '/Auth'> Sign Up here!</Link></h4> : null}
-        </div>
-        : <div>
-          <Game difficulty={difficulty} />
-        </div>
-      }
     </div>
   );
 }
 
-const mapStateToProps = redux => redux
-export default connect(null, mapStateToProps)(Landing);
+export default Landing;
