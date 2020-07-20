@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Game from '../Game/Game'
+import React, { } from 'react';
 import './Landing.css'
 import {Link} from 'react-router-dom'
 import landingLogo from '../../images/wordlogic-logo-2.png'
