@@ -57,6 +57,9 @@ const Nav = props => {
       </Link>
       
       </div>
+      <div>
+        <Link to='/play'><button className="play-btn">Play Now</button></Link>
+      </div>
       <p className = 'error'>{errorResponse}</p>
       {!props.auth.username ? <div className='not-loggedin'>
     
