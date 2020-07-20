@@ -2,8 +2,9 @@ import React, { } from 'react';
 import './Landing.css'
 import { Link } from 'react-router-dom'
 import landingLogo from '../../images/wordlogic-logo-2.png'
+import {connect} from 'react-redux'
 
-const Landing = () => {
+const Landing = (props) => {
 
   return (
     <div className="landing-container">
@@ -18,4 +19,7 @@ const Landing = () => {
   );
 }
 
-export default Landing;
+
+const mapStateToProps = redux => redux
+
+export default connect(mapStateToProps)(Landing);

@@ -1,2 +1,47 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
+
+
+.main-auth{
+    @include flexCenter;
+    width: 100vw;
+    height: 90vh;
+}
+
+.auth-content{
+    @include flexCenter;
+    width: 40%;
+    height: 50%;
+    background-color: $tertiary ;
+    background-color: $secondary;
+    // background-color: $quaternary;
+    font-size: 30px;
+    color: $secondary;
+    color: $primary;
+    font-weight: bold;
+    border-radius: 40px;
+        form{
+            width: 100%;
+        }
+        button{
+            width: 30%;
+            height: 50px;
+            background-color: $tertiary;
+            border-radius: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color: $secondary;
+            // color: $quaternary;
+            // color: $primary;
+        }
+}
+
+.register-input{
+    width: 50%;
+    height: 20px;
+    margin-bottom: 5%;
+}
+
+.auth-div{
+    width: 100%;
+}
