@@ -14,7 +14,6 @@ const Input = (props) => {
   const currentWord = useSelector(state => state.game.targetWord.word)
   const dispatch = useDispatch()
   
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if (valid) {
@@ -46,7 +45,7 @@ const Input = (props) => {
   return (
     <div className='input-form-container'>
       <form className='input-form'>
-        <input  className='game-input' ref={textInput} autofocus='true' maxLength='5' value={input} onChange={(e) => { setInput(e.target.value) }} />
+        <input  className='game-input' ref={textInput} autoFocus maxLength='5' value={input} onChange={(e) => { setInput(e.target.value) }} />
         <br/>
         <input className='submit-button' onClick={(e) => handleSubmit(e)} type='submit' value='Try it!' />
       </form>

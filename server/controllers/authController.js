@@ -38,7 +38,7 @@ module.exports = {
 
         //send confirmation email
         transporter.sendMail({
-          from: 'wordhunchgame@gmail.com',
+          from: 'wordlogicinc@gmail.com',
           to: email,
           subject: 'Welcome!',
           html: emailHtml(username)
@@ -82,13 +82,13 @@ module.exports = {
     },
 
 
-    // getUser: (req, res) => {
-    //   if(req.session.user){
-    //     return res.status(200).send(req.session.user)
-    //   }
+    getUser: (req, res) => {
+      if(req.session.user){
+        return res.status(200).send(req.session.user)
+      }
   
-    //   res.status(404).send('No user currently logged in.')
-    // },
+      // res.status(404).send('No user currently logged in.')
+    },
 
 
     logoutUser: (req, res) => {
