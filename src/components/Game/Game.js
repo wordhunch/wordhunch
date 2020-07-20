@@ -6,15 +6,16 @@ import Input from "../Input/Input";
 import LetterChart from '../LetterChart/LetterChart'
 import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
-import {setWord, setGameId, setReduxGuessedWords, emptyGuessedWords} from '../../redux/reducers/gameReducer'
+import {setWord, setGameId, emptyGuessedWords, resetGame} from '../../redux/reducers/gameReducer'
 import './Game.css'
 
 const Game = (props) => {
   let {targetWord} = props.game
   let {username} = props.auth
-  let {setGameId, setWord} = props
-  const difficulty = props.difficulty
-  
+  let {setGameId, setWord, emptyGuessedWords, resetGame} = props
+  // const difficulty = props.difficulty
+
+  const [difficulty, setDifficulty] = useState(props.difficulty)
   const [gameOver, setGameOver] = useState(false)
   const [gaveUp, setGaveUp] = useState(false)
   const [score, setScore] = useState(null)
@@ -33,8 +34,9 @@ const Game = (props) => {
     generateWord(difficulty)
       .then(res => {
         const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
-        props.setWord(wordObj)
-        props.emptyGuessedWords()
+        setWord(wordObj)
+        emptyGuessedWords()
+        resetGame()
         setGameOver(false)
         setGaveUp(false)
         setScore(null)
@@ -92,7 +94,7 @@ const Game = (props) => {
         numberToRender = 5
         break;
       case 3:
-        numberToRender = 1
+        numberToRender = 3
         break;
       default:
         console.log('something is wrong')
@@ -121,8 +123,20 @@ const Game = (props) => {
           <h2>YOU WIN!</h2>
           <h2>Score: {score}</h2>
           <button className='game-button' onClick={() => newGame()}>Play again?</button>
+          <div className='difficulty-buttons-container'>
+            <button onClick={() => setDifficulty('1')} className={`difficulty-button ${difficulty === '1' && 'difficulty-selected'}`}>Easy</button>
+            <button onClick={() => setDifficulty('2')} className={`difficulty-button ${difficulty === '2' && 'difficulty-selected'}`}>Medium</button>
+            <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
+          </div>
         </>}
-        {gaveUp && <button className='game-button' onClick={() => newGame()}>Play again?</button>}
+        {gaveUp && <>
+          <button className='game-button' onClick={() => newGame()}>Play again?</button>
+          <div className='difficulty-buttons-container'>
+            <button onClick={() => setDifficulty('1')} className={`difficulty-button ${difficulty === '1' && 'difficulty-selected'}`}>Easy</button>
+            <button onClick={() => setDifficulty('2')} className={`difficulty-button ${difficulty === '2' && 'difficulty-selected'}`}>Medium</button>
+            <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
+          </div>
+        </>}
       </div>
     </div>
   );
@@ -132,4 +146,4 @@ const mapStateToProps = (reduxState) => reduxState
 
 
 
-export default connect(mapStateToProps, {setWord, setGameId, setReduxGuessedWords, emptyGuessedWords})(Game);
+export default connect(mapStateToProps, {setWord, setGameId, emptyGuessedWords, resetGame})(Game);
