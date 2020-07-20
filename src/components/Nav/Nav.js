@@ -4,7 +4,7 @@ import logo from '../../images/wordlogic-logo.png'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setUser, logoutUser } from '../../redux/reducers/authReducer'
-import {resetGame} from '../../redux/reducers/gameReducer'
+import { resetGame } from '../../redux/reducers/gameReducer'
 import './Nav.css'
 
 const Nav = props => {
@@ -17,7 +17,7 @@ const Nav = props => {
     axios
       .post('/auth/login', { loginValue, password })
       .then(res => {
-        const {username, user_id, profile_picture, email} = res.data
+        const { username, user_id, profile_picture, email } = res.data
         props.setUser(
           username,
           user_id,
@@ -30,9 +30,9 @@ const Nav = props => {
         setPassword('')
         setErrorResponse('')
       })
-      .catch(err =>setErrorResponse(err.response.data))
-        // console.log(err)
-      
+      .catch(err => setErrorResponse(err.response.data))
+    // console.log(err)
+
   }
 
   const logout = () => {
@@ -46,31 +46,31 @@ const Nav = props => {
 
   return (
     <div className='Nav'>
-      <div className="logo-container">
-      <Link to='/'>
-        <img
-          className='app-logo'
-          src={logo}
-          alt='WordLogic logo'
-          style={{ width: '120px' }}
-        />
-      </Link>
-      
+      <div onClick={() => props.resetGame()} className="logo-container">
+        <Link to='/'>
+          <img
+            className='app-logo'
+            src={logo}
+            alt='WordLogic logo'
+            style={{ width: '120px' }}
+          />
+        </Link>
+
       </div>
-      <p className = 'error'>{errorResponse}</p>
+      <p className='error'>{errorResponse}</p>
       {!props.auth.username ? <div className='not-loggedin'>
-    
+
         <form onSubmit={e => login(e)}>
-        
+
           <input
-            className= 'login-input'
+            className='login-input'
             type='text'
             placeholder='username or email'
             value={loginValue}
             onChange={e => setValue(e.target.value)}
           />
           <input
-            className= 'login-input'
+            className='login-input'
             type='password'
             placeholder='password'
             value={password}
@@ -78,13 +78,13 @@ const Nav = props => {
           />
           <button className="login-btn" type='submit'>Login</button>
         </form>
-    
+
         <Link to='/auth'><button className="register-btn">Register</button></Link>
       </div> :
-      <div className='logged-in'>
-        <Link to='/profile'><button className="profile-btn">Profile</button></Link>
-        <button className="logout-btn" onClick={logout}>Logout</button>
-      </div>}
+        <div className='logged-in'>
+          <Link to='/profile'><button className="profile-btn">Profile</button></Link>
+          <button className="logout-btn" onClick={logout}>Logout</button>
+        </div>}
       <Link to='/about'><button className="about-btn">About</button></Link>
     </div>
   )
@@ -92,4 +92,4 @@ const Nav = props => {
 
 const mapStateToProps = state => state
 
-export default connect(mapStateToProps, { setUser, logoutUser })(withRouter(Nav))
+export default connect(mapStateToProps, { setUser, logoutUser, resetGame })(withRouter(Nav))
