@@ -6,18 +6,16 @@ import Input from "../Input/Input";
 import LetterChart from '../LetterChart/LetterChart'
 import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
-import { setWord, setGameId, emptyGuessedWords, resetGame, startGame } from '../../redux/reducers/gameReducer'
+import { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp } from '../../redux/reducers/gameReducer'
 import './Game.css'
 
 const Game = (props) => {
 
-  let { targetWord, gameStarted } = props.game
+  let { targetWord, gameStarted, gameOver, gaveUp } = props.game
   let { username } = props.auth
-  let { startGame, setGameId, setWord, emptyGuessedWords, resetGame } = props
+  let { setGameOver, setGaveUp, startGame, setGameId, setWord, resetGame } = props
 
   const [difficulty, setDifficulty] = useState('1')
-  const [gameOver, setGameOver] = useState(false)
-  const [gaveUp, setGaveUp] = useState(false)
   const [score, setScore] = useState(null)
 
   //adds guessed words and letter count to state in the guessed words array
@@ -26,7 +24,7 @@ const Game = (props) => {
   //displays the target word with option to play again
   const giveUp = () => {
     setScore(0)
-    setGaveUp(true)
+    setGaveUp()
   }
 
   //resets values in state
@@ -35,9 +33,6 @@ const Game = (props) => {
     generateWord(difficulty)
       .then(res => {
         const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
-
-        setGameOver(false)
-        setGaveUp(false)
         setScore(null)
         setWord(wordObj)
       })
@@ -156,4 +151,4 @@ const mapStateToProps = (reduxState) => reduxState
 
 
 
-export default connect(mapStateToProps, { setWord, setGameId, emptyGuessedWords, resetGame, startGame })(Game);
+export default connect(mapStateToProps, { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp })(Game);
