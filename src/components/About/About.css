@@ -1,57 +1,60 @@
 .About {
-  height: 92vh;
-  width: 100vw;
-  position: -webkit-sticky;
-  position: sticky;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 20px auto;
 }
 
 .About h2 {
   font-weight: 800;
   font-size: 4rem;
   color: #235789;
-  position: absolute;
-  top: 1vh;
-  right: 44.85vw;
+}
+
+.About h3 {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.About .code-link {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #235789;
 }
 
 .about-container {
-  margin-top: 10vh;
-  width: 100vw;
-  height: 70vh;
-  background-color: #93A3B1;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
 }
 
-.about-container .sub-header {
-  height: 5vh;
+.about-container .creator-info .creator-picure {
+  width: 150px;
+  border-radius: 50%;
 }
 
-.about-container .sub-header h4 {
-  font-weight: 600;
-  font-size: 2rem;
-  color: #710627;
-  position: absolute;
-  left: 5vw;
+.about-container .creator-info {
+  width: 30%;
+  margin: 20px;
+  border: 3px solid #235789;
+  border-radius: 10px;
 }
 
-.about-container .sub-content {
-  width: 75vw;
-  position: relative;
-  left: 7vw;
-  text-align: start;
-}
-
-.about-container .sub-content p {
-  word-spacing: .15vw;
-  line-height: 3vh;
+.about-container .creator-info p {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 30px;
+  margin: 3px auto;
+  color: #235789;
 }
 /*# sourceMappingURL=About.css.map */
