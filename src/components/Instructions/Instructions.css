@@ -1,5 +1,5 @@
 .Instructions {
-  height: 70vh;
+  height: 81vh;
   width: 30vw;
   background-color: #f49d6e;
   position: absolute;
@@ -24,7 +24,7 @@
       -ms-flex-align: center;
           align-items: center;
   text-align: initial;
-  width: 20vw;
+  width: 25vw;
   margin-left: 3vw;
 }
 
@@ -46,6 +46,10 @@
 .howto-list-item {
   color: #235789;
   font-weight: 700;
+  line-height: 3vh;
+}
+
+.note {
   line-height: 3vh;
 }
 /*# sourceMappingURL=Instructions.css.map */

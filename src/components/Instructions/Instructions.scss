@@ -2,7 +2,7 @@
 @import '../../styles/mixins';
 
 .Instructions {
-    height: 70vh;
+    height: 81vh;
     width: 30vw;
     background-color: $tertiary;
     position: absolute;
@@ -18,7 +18,7 @@
 .instructions-container {
     @include flexEvenly();
     text-align: initial;
-    width: 20vw;
+    width: 25vw;
     margin-left: 3vw;
 }
 
@@ -39,5 +39,9 @@
 .howto-list-item {
     color: $secondary;
     font-weight: 700;
+    line-height: 3vh;
+}
+
+.note{
     line-height: 3vh;
 }
