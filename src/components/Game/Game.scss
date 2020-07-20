@@ -12,21 +12,63 @@
         justify-content: center;
         align-items: center;
 
-        .game-button {
-            margin: 10px;
+        
+    }
+
+}
+
+
+.difficulty-container {
+    margin-top: 40px;
+    .difficulty-text {
+        font-size:50px;
+        font-weight: bold;
+        color: $quaternary;
+    }
+
+    .difficulty-buttons-container {
+        @include flexCenter;
+
+        width: 300px;
+
+        margin: 50px auto 10px;
+        .difficulty-button {
             padding: 5px;
 
-            background-color: $secondary;
+            background-color: $tertiary;
 
             font-size: 20px;
             font-weight: bold;
-            color: $tertiary;
+            color: $secondary;
 
-            border: 3px solid $tertiary;
+            border: 3px solid $secondary;
             border-radius: 5px;
 
             cursor: pointer;
         }
+
+        .difficulty-selected {
+            background-color: white;
+        }
     }
+}
+
+.game-button {
+    margin: 10px;
+    padding: 5px;
+
+    background-color: $secondary;
+
+    font-size: 20px;
+    font-weight: bold;
+    color: $tertiary;
+
+    border: 3px solid $tertiary;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.difficulty-text {
 
 }

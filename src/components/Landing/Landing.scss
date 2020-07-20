@@ -33,31 +33,7 @@
     padding: 5vh;
 }
 
-.difficulty-buttons-container {
-    @include flexCenter;
 
-    width: 300px;
-
-    margin: 50px auto 10px;
-    .difficulty-button {
-        padding: 5px;
-
-        background-color: $tertiary;
-
-        font-size: 20px;
-        font-weight: bold;
-        color: $secondary;
-
-        border: 3px solid $secondary;
-        border-radius: 5px;
-
-        cursor: pointer;
-    }
-
-    .difficulty-selected {
-        background-color: white;
-    }
-}
 
 
 
