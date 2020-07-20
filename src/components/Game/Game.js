@@ -18,9 +18,6 @@ const Game = (props) => {
   const [difficulty, setDifficulty] = useState('1')
   const [score, setScore] = useState(null)
 
-  //adds guessed words and letter count to state in the guessed words array
-
-
   //displays the target word with option to play again
   const giveUp = () => {
     setScore(0)
@@ -65,7 +62,7 @@ const Game = (props) => {
   //watches to see if the user guesses the correct word
   useEffect(() => {
     if (props.game.guessedWords.length) {
-      setGameOver(determineWinner(props.game.targetWord.word, props.game.guessedWords[props.game.guessedWords.length - 1].word))
+      setGameOver(determineWinner(targetWord.word, props.game.guessedWords[props.game.guessedWords.length - 1].word))
     }
   }, [props.game.guessedWords, props.game.targetWord])
 

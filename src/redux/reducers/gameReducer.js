@@ -23,7 +23,6 @@ export const startGame = () => {
 }
 
 export const setWord = (targetWord) => {
-    console.log('setword working')
     return {
         type: SET_WORD,
         payload: {targetWord}
@@ -50,9 +49,10 @@ export const emptyGuessedWords = () => {
     }
 }
 
-export const setGameOver = () => {
+export const setGameOver = (value) => {
     return {
-        type: GAME_OVER
+        type: GAME_OVER,
+        payload: value
     }
 }
 
@@ -87,7 +87,7 @@ export default function (state = initialState, action) {
         case START_GAME:
             return {...state, gameStarted: true}
         case GAME_OVER:
-            return {...state, gameOver: true}
+            return {...state, gameOver: action.payload}
         case GAVE_UP:
             return {...state, gaveUp: true}
         default:
