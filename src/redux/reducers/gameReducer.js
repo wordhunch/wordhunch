@@ -37,6 +37,12 @@ export const emptyGuessedWords = () => {
     }
 }
 
+export const resetGame = () => {
+    return {
+        type: RESET_GAME
+    }
+}
+
 export default function (state = initialState, action) {
     switch (action.type) {
         case SET_WORD:
@@ -52,7 +58,7 @@ export default function (state = initialState, action) {
         case EMPTY_GUESSED_WORDS:
             return {...state, guessedWords: []}
         case RESET_GAME:
-            return {...state, initialState}
+            return initialState
         default:
             return state
     }

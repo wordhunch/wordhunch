@@ -2,30 +2,45 @@
 @import '../../styles/mixins';
 
 .About {
-    height: 84vh;
+    height: 92vh;
     width: 100vw;
     position: sticky;
+    h2 {
+        font-weight: 800;
+        font-size: 4rem;
+        color: $secondary;
+        position: absolute;
+        top: 1vh;
+        right: 44.85vw;
+    };
 }
 
 .about-container {
-    height: 100vh;
+    margin-top: 10vh;
     width: 100vw;
-    @include flexCenter();
-    position: fixed;
-}
-
-.about-content {
-    height: 50vh;
-    width: 30vw;
-    position: fixed;
-    background-color: magenta;
-    font-size: 20px;
-}
-
-.transparent {
-    height: 100vh;
-    width: 100vw;
-    background-color: grey;
-    opacity: .5;
-    position: fixed;
+    height: 70vh;
+    background-color: $primary;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    .sub-header {
+        height: 5vh;
+        h4 {
+            font-weight: 600;
+            font-size: 2rem;
+            color: $quaternary;
+            position: absolute;
+            left: 5vw;
+        }
+    }
+    .sub-content {
+        width: 75vw;
+        position: relative;
+        left: 7vw;
+        text-align: start;
+        p {
+            word-spacing: .15vw;
+            line-height: 3vh;
+        }
+    }
 }

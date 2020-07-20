@@ -23,7 +23,7 @@ export const editUser = (newUsername, newProfilePicture, newEmail) => {
     }
 }
 
-export const logoutUser = (user) => {
+export const logoutUser = () => {
     return {
         type: LOGOUT_USER,
         payload: initialState

@@ -2,22 +2,19 @@ import React/*, {useState}*/ from 'react'
 import './LetterChart.css'
 import Letter from '../Letter/Letter'
 
-const LetterChart = props => {
+const LetterChart = ({gameOver, gaveUp}) => {
     
     const letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
-    const lettersMap = letters.map( elem => {
-        return <Letter key='elem' value={elem} />
+    const lettersMap = letters.map( (e) => {
+        return (
+            <div>
+                {gameOver || gaveUp
+                ? <Letter key={e} value={e} className='unknown' />
+                : <Letter key={e} value={e} />
+                }
+            </div>
+        )
     })
-    
-    // const [cssClass, setClass] = useState('unknown')
-
-    // const click = () => {
-    //     (cssClass === 'unknown') 
-    //     ? setClass('no')
-    //     : ((cssClass === 'no') 
-    //     ? setClass('yes')
-    //     : setClass('unknown'))
-    // }
     
     return (
         <div 

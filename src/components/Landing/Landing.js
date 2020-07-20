@@ -26,7 +26,7 @@ const Landing = (props) => {
             <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
           </div>
           <button className='play-button' onClick={() => setGame(true)}>Play</button>
-          {!props.auth.username ?
+          {props.auth.username ?
           <h4 className = "register-here"> If you want to save your score...<Link to = '/Auth'> Sign Up here!</Link></h4> : null}
         </div>
         : <div>
@@ -38,4 +38,4 @@ const Landing = (props) => {
 }
 
 const mapStateToProps = redux => redux
-export default connect(mapStateToProps)(Landing);
+export default connect(null, mapStateToProps)(Landing);
