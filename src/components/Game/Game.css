@@ -22,7 +22,46 @@
           align-items: center;
 }
 
-.game-outer-container .game-container .game-button {
+.difficulty-container {
+  margin-top: 40px;
+}
+
+.difficulty-container .difficulty-text {
+  font-size: 50px;
+  font-weight: bold;
+  color: #710627;
+}
+
+.difficulty-container .difficulty-buttons-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 300px;
+  margin: 50px auto 10px;
+}
+
+.difficulty-container .difficulty-buttons-container .difficulty-button {
+  padding: 5px;
+  background-color: #f49d6e;
+  font-size: 20px;
+  font-weight: bold;
+  color: #235789;
+  border: 3px solid #235789;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.difficulty-container .difficulty-buttons-container .difficulty-selected {
+  background-color: white;
+}
+
+.game-button {
   margin: 10px;
   padding: 5px;
   background-color: #235789;

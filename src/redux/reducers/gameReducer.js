@@ -1,4 +1,5 @@
 const initialState = {
+    gameStarted: false,
     targetWord: {},
     gameId: null,
     guessedWords: []
@@ -9,6 +10,13 @@ const SET_GAME_ID = 'SET_GAME_ID'
 const SET_GUESSED_WORDS = 'SET_GUESSED_WORDS'
 const EMPTY_GUESSED_WORDS = 'EMPTY_GUESSED_WORDS'
 const RESET_GAME = 'RESET_GAME'
+const START_GAME = 'START_GAME'
+
+export const startGame = () => {
+    return {
+        type: START_GAME
+    }
+}
 
 export const setWord = (targetWord) => {
     console.log('setword working')
@@ -17,6 +25,7 @@ export const setWord = (targetWord) => {
         payload: {targetWord}
     }
 }
+
 export const setGameId = (gameId) => {
     return {
         type: SET_GAME_ID,
@@ -59,6 +68,8 @@ export default function (state = initialState, action) {
             return {...state, guessedWords: []}
         case RESET_GAME:
             return initialState
+        case START_GAME:
+            return {...state, gameStarted: true}
         default:
             return state
     }

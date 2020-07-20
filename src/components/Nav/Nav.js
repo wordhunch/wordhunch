@@ -4,6 +4,7 @@ import logo from '../../images/wordlogic-logo.png'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { setUser, logoutUser } from '../../redux/reducers/authReducer'
+import {resetGame} from '../../redux/reducers/gameReducer'
 import './Nav.css'
 
 const Nav = props => {
