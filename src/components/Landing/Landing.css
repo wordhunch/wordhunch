@@ -1,41 +1,4 @@
-.logic-map {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 550px;
-  margin: auto;
-}
-
-.title-word {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 550px;
-  height: 100px;
-  margin: 40px auto;
-  font-size: 80px;
-  color: #235789;
-  font-weight: bold;
-  background-color: #f49d6e;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 4px 4px;
-          box-shadow: 0px 4px 4px;
-  text-shadow: 0px 4px 4px grey;
-}
-
-.letter-tile-landing {
+.landing-container .letter-tile-landing {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -55,35 +18,55 @@
           box-shadow: 0px 4px 4px grey;
 }
 
-.landing-logo {
+.landing-container .landing-logo {
   padding: 5vh;
+  width: 600px;
 }
 
-.play-button {
+.landing-container .play-button {
+  display: block;
+  margin: 20px auto;
   width: 130px;
   height: 75px;
   font-size: 50px;
   color: #f49d6e;
+  text-decoration: none;
   background-color: #235789;
   border: none;
   border-radius: 10px;
   cursor: pointer;
 }
 
-.register-here {
+.landing-container .register-here {
   margin-top: 5vh;
   color: #235789;
   text-decoration: none;
 }
 
-.register-here .auth-link {
+.landing-container .register-here .auth-link {
   text-decoration: none;
   color: #235789;
   font-weight: bold;
 }
 
-.register-here .auth-link:visited {
+.landing-container .register-here .auth-link:visited {
   text-decoration: none;
   color: #235789;
+}
+
+@media screen and (max-width: 768px) {
+  .landing-container .landing-logo {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .landing-container .landing-logo {
+    width: 250px;
+  }
+  .landing-container .register-here {
+    width: 250px;
+    margin: 20px auto;
+  }
 }
 /*# sourceMappingURL=Landing.css.map */
