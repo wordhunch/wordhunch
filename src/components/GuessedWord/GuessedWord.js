@@ -4,7 +4,7 @@ import './GuessedWord.css'
 
 const GuessedWord = ({ word, sharedLetterCount }) => {
 
-  const guessedWordMap = word.split('').map(item => <p className='letter-tile-guessed'>{item}</p>)
+  const guessedWordMap = word.split('').map((item, index) => <p key={`guessed-word-${index}`} className='letter-tile-guessed'>{item}</p>)
 
   return (
     <div className='guessed-word-container'>

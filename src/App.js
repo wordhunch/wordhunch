@@ -18,7 +18,7 @@ function App() {
       dispatch(setUser(username, user_id, profile_picture, email))
     })
     
-  }, [])
+  }, [dispatch])
   return (
     <div className="App">
       <Nav/>
