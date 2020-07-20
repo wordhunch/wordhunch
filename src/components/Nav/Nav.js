@@ -49,7 +49,8 @@ const Nav = props => {
 
   return (
     <div className='Nav'>
-      <div onClick={() => props.resetGame()} className="logo-container">
+
+      <div className="logo-container" onClick={() => props.resetGame()} >
         <Link to='/'>
           <img
             className='app-logo'
@@ -58,37 +59,44 @@ const Nav = props => {
             style={{ width: '120px' }}
           />
         </Link>
-
       </div>
+
+      <div className='play-container'>
+        <Link to='/play'><button className="play-btn">Play Now</button></Link>
+      </div>
+
       <p className='error'>{errorResponse}</p>
-      {!props.auth.username ? <div className='not-loggedin'>
-
-        <form onSubmit={e => login(e)}>
-
-          <input
-            className='login-input'
-            type='text'
-            placeholder='username or email'
-            value={loginValue}
-            onChange={e => setValue(e.target.value)}
-          />
-          <input
-            className='login-input'
-            type='password'
-            placeholder='password'
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-          />
-          <button className="login-btn" type='submit'>Login</button>
-        </form>
-
+      
+      {!props.auth.username 
+        ? 
+        <div className='not-loggedin'>
+          <form onSubmit={e => login(e)}>
+            <input
+              className='login-input'
+              type='text'
+              placeholder='username or email'
+              value={loginValue}
+              onChange={e => setValue(e.target.value)}
+            />
+            <input
+              className='login-input'
+              type='password'
+              placeholder='password'
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+            <button className="login-btn" type='submit'>Login</button>
+          </form>
         <Link to='/auth'><button className="register-btn">Register</button></Link>
-      </div> :
+        </div> 
+        :
         <div className='logged-in'>
           <Link to='/profile'><button className="profile-btn">Profile</button></Link>
           <button className="logout-btn" onClick={logout}>Logout</button>
         </div>}
+
       <Link to='/about'><button className="about-btn">About</button></Link>
+    
     </div>
   )
 }
