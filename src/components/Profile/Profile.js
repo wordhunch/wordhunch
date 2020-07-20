@@ -68,6 +68,18 @@ const Profile = (props) => {
       .catch((err) => setErrResponse(err.response.data));
      
   };
+// console.log(profilePicture)
+  const handleImageError = (e) =>{
+    // console.log('image error');
+    setProfilePicture(`https://robohash.org/${username}`)
+    const body = { newUsername, newProfilePicture, newEmail };
+    axios
+      .put(`/profile/edit/${userId}`, body)
+      .then((res) => {
+        props.editUser(newUsername, newProfilePicture, newEmail);
+      })
+      // .catch((err) => setErrResponse(err.response.data));
+  }
 
   const mapTopScores = topScores.map((e, i) => (
     <div key={e.history_id}>
@@ -160,7 +172,9 @@ const Profile = (props) => {
         </div>
       ) : (
         <div>
-            <img src={profilePicture} alt="user profile" />
+            <img 
+            onError={handleImageError}
+            src={profilePicture} alt="user profile" />
             <h4>{username}</h4>
             <h4>{email}</h4>
             <div>

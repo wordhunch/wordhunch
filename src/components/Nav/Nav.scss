@@ -59,6 +59,10 @@
 
 
 .error{
+display: flex;
+position: absolute;
+bottom: 5px;
+right: 20%;
 color: $tertiary;
 font-weight: bold;
 
