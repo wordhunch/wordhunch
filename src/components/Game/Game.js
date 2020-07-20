@@ -8,10 +8,11 @@ import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
 import { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp } from '../../redux/reducers/gameReducer'
 import './Game.css'
+import fireworks from '../../images/pewpew.png'
 
 const Game = (props) => {
 
-  let { targetWord, gameStarted, gameOver, gaveUp } = props.game
+  let { targetWord, gameStarted, guessedWords, gameOver, gaveUp } = props.game
   let { username } = props.auth
   let { setGameOver, setGaveUp, startGame, setGameId, setWord, resetGame } = props
 
@@ -45,7 +46,7 @@ const Game = (props) => {
         })
     }
 
-  }, [difficulty, setWord])
+  }, [difficulty, setWord, gameStarted])
 
   //adds a new game to the database once the target word has been set
 
@@ -61,10 +62,10 @@ const Game = (props) => {
 
   //watches to see if the user guesses the correct word
   useEffect(() => {
-    if (props.game.guessedWords.length) {
-      setGameOver(determineWinner(targetWord.word, props.game.guessedWords[props.game.guessedWords.length - 1].word))
+    if (guessedWords.length) {
+      setGameOver(determineWinner(targetWord.word, guessedWords[guessedWords.length - 1].word))
     }
-  }, [props.game.guessedWords, props.game.targetWord])
+  }, [guessedWords, targetWord, setGameOver])
 
   //watches to see if the game is over and if so, calculates a score. if the user is logged in, it will send the data to the gamehistory table
   useEffect(() => {
@@ -72,7 +73,7 @@ const Game = (props) => {
       let scoreMaker = 0
       difficulty === 1 ? scoreMaker = 25 : difficulty === 2 ? scoreMaker = 20 : scoreMaker = 15
 
-      let scoreCalc = Math.ceil(500 - (props.game.guessedWords.length * scoreMaker))
+      let scoreCalc = Math.ceil(500 - (guessedWords.length * scoreMaker))
       if (scoreCalc <= 0) {
         scoreCalc = 0
       }
@@ -82,9 +83,9 @@ const Game = (props) => {
         //after game is over, send game data to game history table
       }
     }
-  }, [gameOver, difficulty, props.game.gameId, props.game.guessedWords, props.auth.username])
+  }, [gameOver, difficulty, props.game.gameId, guessedWords, props.auth.username])
 
-  const guessedWordsMap = props.game.guessedWords.map((item, index, array) => {
+  const guessedWordsMap = guessedWords.map((item, index, array) => {
     let numberToRender
     //switches the number of guesses rendered
     switch (parseInt(difficulty)) {
@@ -133,6 +134,18 @@ const Game = (props) => {
         {gameOver && <>
           <h2>YOU WIN!</h2>
           <h2>Score: {score}</h2>
+          <div>
+            <img className='temp-fireworks'
+              src={fireworks}
+              alt='temporary - pew pew you win'
+              style={{ width: '50px' }}
+            />
+            <img className='temp-fireworks'
+              src={fireworks}
+              alt='temporary - pew pew you win'
+              style={{ width: '50px' }}
+            />
+          </div>
           <button className='game-button' onClick={() => newGame()}>Play again?</button>
         </>}
         {gaveUp && <>
