@@ -14,7 +14,9 @@
     height: 100vh;
     text-align: center;
     background-color: $primary;
-    font-family: 'Roboto'
+    font-family: 'Roboto';
+    display: flex;
+    flex-direction: column;
 }
 
 
