@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Game from '../Game/Game'
 import './Landing.css'
 import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-const Landing = () => {
+const Landing = (props) => {
   const [showGame, setGame] = useState(false)
   const [difficulty, setDifficulty] = useState('1')
 
@@ -25,7 +26,8 @@ const Landing = () => {
             <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
           </div>
           <button className='play-button' onClick={() => setGame(true)}>Play</button>
-          <h4 className = "register-here"> If you want to save your score...<Link to = '/Auth'> Sign Up here!</Link></h4>
+          {!props.auth.username ?
+          <h4 className = "register-here"> If you want to save your score...<Link to = '/Auth'> Sign Up here!</Link></h4> : null}
         </div>
         : <div>
           <Game difficulty={difficulty} />
@@ -35,4 +37,5 @@ const Landing = () => {
   );
 }
 
-export default Landing;
+const mapStateToProps = redux => redux
+export default connect(mapStateToProps)(Landing);

@@ -75,9 +75,10 @@ const Game = (props) => {
       let scoreMaker = 0
       difficulty === 1 ? scoreMaker = 25 : difficulty === 2 ? scoreMaker = 20 : scoreMaker = 15
       
-      let scoreCalc = Math.ceil(500 - (props.game.guessedWords.length * scoreMaker))
-      if (scoreCalc <= 0){
-        scoreCalc = 0
+      let scoreCalc = Math.ceil(500 - ((props.game.guessedWords.length -1) * scoreMaker))
+      console.log(props.game.guessedWords.length, scoreCalc);
+      if (scoreCalc <= 30){
+        scoreCalc = 30
       }
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
       if (props.auth.username && props.game.gameId) {
