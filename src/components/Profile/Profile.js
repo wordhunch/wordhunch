@@ -22,9 +22,9 @@ const Profile = (props) => {
     axios
       .get(`/game/getHighScores/${userId}`)
       .then((res) => setHighScores(res.data));
-    axios.get("/game/getTopScores").then((response) => {
-      setTopScores(response.data);
-    });
+    axios
+      .get("/game/getTopScores")
+      .then((res) => setTopScores(res.data));
     setErrResponse('')
   }, [userId]);
 
@@ -50,7 +50,6 @@ const Profile = (props) => {
       .then((res) => {
         alert("Password Updated");
         togglePasswordFn();
-        
       })
       .catch((err) => setErrResponse(err.response.data));
   };
@@ -66,7 +65,6 @@ const Profile = (props) => {
         setErrResponse('')
       })
       .catch((err) => setErrResponse(err.response.data));
-     
   };
 
   const mapTopScores = topScores.map((e, i) => (
@@ -84,112 +82,111 @@ const Profile = (props) => {
 
   return (
     <div className="user-info">
-     
-        <div className="main-profile">
-          <div className="main-user">
-            <div className= "profile-info">
-               {/* <p>{highScores}</p> */}
-      {toggled ? (
-        <div>
-          <form onSubmit={(event) => saveChanges(event)}>
-            <div>
-              <p>New Username</p>
-              <input
-                value={newUsername}
-                onChange={(e) => setUsername(e.target.value)}
-                name="username"
-              />
-            </div>
-            <div>
-              <p> New Email </p>
-              <input
-                value={newEmail}
-                onChange={(e) => setEmail(e.target.value)}
-                name="email"
-              />
-            </div>
-            <div className = 'profile-picture'>
-              <p>New Profile Picture</p>
-              <input
-                value={newProfilePicture}
-                onChange={(e) => setProfilePicture(e.target.value)}
-                name="profilePicture"
-                
-              />
-            </div>
-            <button type="submit">Save Changes</button>
-            <button onClick={() => toggleFn()}>Cancel</button>
-          </form>
-        </div>
-      ) : togglePassword ? (
-        <div>
-          <form onSubmit={(e) => savePassword(e)}>
-            <div>
-              <p>Old Password:</p>
-            <input
-              className="password-input"
-              type="password"
-              placeholder=""
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            </div>
-            <div>
-              <p>New Password</p>
-            <input
-              className="new-password1"
-              type="password"
-              placeholder=""
-              value={newPassword1}
-              onChange={(e) => setNewPassword1(e.target.value)}
-            />
-            </div>
-            <div>
-              <p>Retype New Password</p>
-            <input
-              className="new-password2"
-              type="password"
-              placeholder=""
-              value={newPassword2}
-              onChange={(e) => setNewPassword2(e.target.value)}
-            />
-            </div>
-            <button type="submit">Save Password</button>
-            <button onClick={() => togglePasswordFn()}>Cancel</button>
-          </form>
-        </div>
-      ) : (
-        <div>
-            <img src={profilePicture} alt="user profile" />
-            <h4>{username}</h4>
-            <h4>{email}</h4>
-            <div>
-              <button className="edit-user" onClick={() => toggleFn()}>
-                Edit User
-              </button>
-              <button className="edit-user" onClick={() => togglePasswordFn()}>
-                Edit Password
-              </button>
-            </div>
-            </div>)}
+      <div className="main-profile">
+        <div className="main-user">
+          <div className= "profile-info">
+            {/* <p>{highScores}</p> */}
+
+            {toggled 
+              ? (
+                <div>
+                  <form onSubmit={(event) => saveChanges(event)}>
+                    <div>
+                      <p>New Username</p>
+                      <input
+                        value={newUsername}
+                        onChange={(e) => setUsername(e.target.value)}
+                        name="username"
+                      />
+                    </div>
+                    <div>
+                      <p> New Email </p>
+                      <input
+                        value={newEmail}
+                        onChange={(e) => setEmail(e.target.value)}
+                        name="email"
+                      />
+                    </div>
+                    <div className = 'profile-picture'>
+                      <p>New Profile Picture</p>
+                      <input
+                        value={newProfilePicture}
+                        onChange={(e) => setProfilePicture(e.target.value)}
+                        name="profilePicture"
+                      />
+                    </div>
+                    <button type="submit">Save Changes</button>
+                    <button onClick={() => toggleFn()}>Cancel</button>
+                  </form>
+                </div>
+              ) 
+              : togglePassword 
+              ? (
+                <div>
+                  <form onSubmit={(e) => savePassword(e)}>
+                    <div>
+                      <p>Old Password:</p>
+                      <input
+                        className="password-input"
+                        type="password"
+                        placeholder=""
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <p>New Password</p>
+                      <input
+                        className="new-password1"
+                        type="password"
+                        placeholder=""
+                        value={newPassword1}
+                        onChange={(e) => setNewPassword1(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <p>Retype New Password</p>
+                      <input
+                        className="new-password2"
+                        type="password"
+                        placeholder=""
+                        value={newPassword2}
+                        onChange={(e) => setNewPassword2(e.target.value)}
+                      />
+                    </div>
+                    <button type="submit">Save Password</button>
+                    <button onClick={() => togglePasswordFn()}>Cancel</button>
+                  </form>
+                </div>
+              ) 
+              : (
+                <div>
+                  <img src={profilePicture} alt="user profile" />
+                  <h4>{username}</h4>
+                  <h4>{email}</h4>
+                  <div>
+                    <button className="edit-user" onClick={() => toggleFn()}>
+                      Edit User
+                    </button>
+                    <button className="edit-user" onClick={() => togglePasswordFn()}>
+                      Edit Password
+                    </button>
+                  </div>
+                </div>
+              )
+            }
             <div>{errResponse}</div>
             </div>
-            <h5>Your Top Scores</h5>
-            {/* {console.log(highScores)} */}
-            <p>
-              {userId && highScores[0]
-                ? <p>1. {highScores[0].score}</p>
-                : "You need to play first!"}
-            </p>
+          <h5>Your Top Scores</h5>
+            {userId && highScores[0] ? <p>1. {highScores[0].score}</p> : <p>You need to play first!</p>}
             {userId && highScores[1] ? <p>2. {highScores[1].score}</p> : null}
-            {userId && highScores[1] ? <p>3. {highScores[1].score}</p> : null}
-          </div>
-          <div className = 'top-scores'>
-            <h5>Leaderboard:</h5>
-            {mapTopScores}
-          </div>
+            {userId && highScores[2] ? <p>3. {highScores[2].score}</p> : null}
         </div>
-      
+        <div className = 'top-scores'>
+          <h5>Leaderboard:</h5>
+          {mapTopScores}
+        </div>
+      </div>
     </div>
   );
 };
