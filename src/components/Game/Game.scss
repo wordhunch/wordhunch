@@ -71,6 +71,9 @@
         font-size:50px;
         font-weight: bold;
         color: $quaternary;
+        @include media(tablet) {
+            font-size: 30px;
+        }
     }
 
     .difficulty-buttons-container {
