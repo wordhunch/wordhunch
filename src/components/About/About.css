@@ -24,7 +24,7 @@
 }
 
 .About h3 {
-  margin-top: .5vw;
+  margin: 1vw;
   font-weight: bold;
   font-size: 3vw;
 }
@@ -33,6 +33,7 @@
   font-size: 5vw;
   font-weight: 800;
   color: #235789;
+  margin-top: 5vh;
 }
 
 .About .about-container {
@@ -76,7 +77,18 @@
   width: 7vw;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 414px) and (max-width: 767px) {
+  .About .about-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
+
+@media screen and (max-width: 414px) {
   .About .about-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

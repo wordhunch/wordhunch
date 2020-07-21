@@ -8,7 +8,7 @@ import Instructions from "../Instructions/Instructions"
 import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
 import { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp } from '../../redux/reducers/gameReducer'
-import {resetClass} from '../../redux/reducers/letterReducer'
+import { resetClass } from '../../redux/reducers/letterReducer'
 import './Game.css'
 import fireworks from '../../images/pewpew.png'
 
@@ -81,9 +81,9 @@ const Game = (props) => {
     if (gameOver) {
       let scoreMaker = 0
       difficulty === 1 ? scoreMaker = 25 : difficulty === 2 ? scoreMaker = 20 : scoreMaker = 15
-      
-      let scoreCalc = Math.ceil(500 - ((guessedWords.length -1) * scoreMaker))
-      if (scoreCalc <= 30){
+
+      let scoreCalc = Math.ceil(500 - ((guessedWords.length - 1) * scoreMaker))
+      if (scoreCalc <= 30) {
         scoreCalc = 30
       }
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
@@ -116,29 +116,55 @@ const Game = (props) => {
         key={`guessed-word-${index}`}
         word={item.word}
         sharedLetterCount={item.sharedLetterCount}
+        instructions={instructions}
       />)
     } return null
   })
 
   return (<div>
     {!gameStarted && <div className='difficulty-container'>
-        <p className='difficulty-text'>Choose your challenge:</p>
+      <p className='difficulty-text'>Choose your challenge:</p>
       <div className='difficulty-buttons-container'>
         <button onClick={() => setDifficulty('1')} className={`difficulty-button ${difficulty === '1' && 'difficulty-selected'}`}>Easy</button>
         <button onClick={() => setDifficulty('2')} className={`difficulty-button ${difficulty === '2' && 'difficulty-selected'}`}>Medium</button>
         <button onClick={() => setDifficulty('3')} className={`difficulty-button ${difficulty === '3' && 'difficulty-selected'}`}>Hard</button>
       </div>
-        <button className='game-button' onClick={() => startGame()}>Start</button>
+      <button className='game-button' onClick={() => startGame()}>Start</button>
     </div>}
 
     {gameStarted && <div className='game-outer-container'>
-      <TargetWord gameOver={gameOver} gaveUp={gaveUp} />
-      <LetterChart gameOver={gameOver} gaveUp={gaveUp} />
+      <div className='target-word-container'>
+        <TargetWord gameOver={gameOver} gaveUp={gaveUp} />
+        {instructions && <div className="help-bubble target-word-help">
+          <p>The word you're trying to guess</p>
+        </div>}
+      </div>
+      <div className='letter-chart-container'>
+        <LetterChart gameOver={gameOver} gaveUp={gaveUp} />
+        {instructions && <div className="help-bubble letter-chart-help">
+          A chart to help you keep track of which letters are or are not in the target word.  Click them to toggle their color to red, green, and back to blank.
+        </div>}
+      </div>
       <div className='game-container'>
         {!gameOver && !gaveUp && <>
+        <div className='guessed-word-container'>
           {guessedWordsMap}
-          <Input />
-          <button className='game-button' onClick={() => giveUp()}>Give up?</button>
+        {instructions && guessedWords.length ? <div className="help-bubble guessed-word-number-help">
+              The number of letters this word has in common with the target
+        </div> : null}
+        </div>
+          <div className='input-container'>
+            <Input />
+            {instructions && <div className="help-bubble input-help">
+              Type your guesses in here.  Remember, they must be 5 letters and real words!
+        </div>}
+          </div>
+          <div className='give-up-container'>
+            <button className='game-button give-up-button' onClick={() => giveUp()}>Give up?</button>
+            {instructions && <div className="help-bubble give-up-help">
+              Click here to see the word you're trying to guess and end the game.  Careful, though!  You'll forefeit the game.
+        </div>}
+          </div>
         </>}
         {gameOver && <>
           <h2>YOU WIN!</h2>
@@ -161,8 +187,8 @@ const Game = (props) => {
           <button className='game-button' onClick={() => newGame()}>Play again?</button>
         </>}
       </div>
-    <h2 className="Help" onClick={toggleInstructions}>?</h2>
-      {instructions && <div className="help-container"><Instructions/></div>}
+      <h2 className="Help" onClick={toggleInstructions}>?</h2>
+      {instructions && <div className="help-container"><Instructions /></div>}
     </div>}
   </div>
   );

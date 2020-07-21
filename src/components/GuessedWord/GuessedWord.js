@@ -2,7 +2,7 @@ import React from 'react';
 
 import './GuessedWord.css'
 
-const GuessedWord = ({ word, sharedLetterCount }) => {
+const GuessedWord = ({ word, sharedLetterCount, instructions }) => {
 
   const guessedWordMap = word.split('').map((item, index) => <p key={`guessed-word-${index}`} className='letter-tile-guessed'>{item}</p>)
 
