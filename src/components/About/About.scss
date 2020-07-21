@@ -3,59 +3,56 @@
 
 .About {
     width: fit-content;
-    margin: 20px auto;
+    @include flexEvenly();
+    flex-direction: column;
     h2 {
         font-weight: 800;
-        font-size: 4rem;
+        font-size: 6vw;
         color: $secondary;
     };
     h3 {
-        margin: 10px;
+        margin-top: .5vw;
         font-weight: bold;
-        font-size: 30px;
+        font-size: 3vw;
     }
     .code-link {
-        font-size: 4rem;
+        font-size: 5vw;
         font-weight: 800;
         color: $secondary;
     }
 
     .about-container {
-        width: 1000px;
-        display: flex;
+        width: 75vw;
+        @include flexCenter();
         flex-wrap: wrap;
-        justify-content: space-evenly;
         .creator-info {
-            width: 40%;
-            margin: 20px;
+            width: 28vw;
+            margin: 1vw;
             border: 3px solid $secondary;
             border-radius: 10px;
 
             p {
                 width: fit-content;
-                font-size: 30px;
+                font-size: 2vw;
                 margin: 3px auto;
                 color: $secondary;
                 
             }
             .creator-picure {
-                width: 100px;
+                width: 7vw;
                 border-radius: 50%;
                 margin-right: 10px;
             }
             .github-icon {
-                width: 100px;
+                width: 7vw;
             }
-        }
-        
-
+        }  
     }
+    
     @include media(tablet) {
          .about-container {
             flex-direction: column;
             flex-wrap: nowrap;
          }
     }
-    
-
 }
