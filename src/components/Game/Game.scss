@@ -146,6 +146,10 @@
     border: 5px solid $secondary;
     border-radius: 50%;
 
+    @include media(tablet) {
+        left: 1vw;
+    }
+
     @include media(small-tablet) {
         top: -40px;
         width: 40px;

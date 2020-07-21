@@ -167,6 +167,12 @@
   border-radius: 50%;
 }
 
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .Help {
+    left: 1vw;
+  }
+}
+
 @media screen and (min-width: 414px) and (max-width: 767px) {
   .Help {
     top: -40px;
