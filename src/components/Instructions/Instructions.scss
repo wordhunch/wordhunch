@@ -2,12 +2,11 @@
 @import '../../styles/mixins';
 
 .Instructions {
-    height: 80vh;
     width: 30vw;
     background-color: $tertiary;
     position: absolute;
     right: 1vw;
-    top: 3vw;
+    top: 4vw;
     border-radius: 50px;
     h2 {
         font-weight: 900;
@@ -22,26 +21,22 @@
     margin-left: 3vw;
 }
 
-.howto-header {
-    height: 3vw;
-    width: 11vw;
-    h4 {
-        color: $quaternary;
-        font-weight: 700;
-        font-size: 2vw;
-    }
-}
+
 
 .howto-list {
-    list-style-type: circle;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .howto-list-item {
+    margin: 10px;
+    padding: 3px;
+
     color: $secondary;
     font-weight: 700;
     line-height: 3vh;
-}
 
-.note{
-    line-height: 3vh;
+    border-left: 2px solid $secondary;
+    border-right: 2px solid $secondary;
+    border-radius: 10px;
 }

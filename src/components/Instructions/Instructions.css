@@ -1,10 +1,9 @@
 .Instructions {
-  height: 80vh;
   width: 30vw;
   background-color: #f49d6e;
   position: absolute;
   right: 1vw;
-  top: 3vw;
+  top: 4vw;
   border-radius: 50px;
 }
 
@@ -28,28 +27,19 @@
   margin-left: 3vw;
 }
 
-.howto-header {
-  height: 3vw;
-  width: 11vw;
-}
-
-.howto-header h4 {
-  color: #710627;
-  font-weight: 700;
-  font-size: 2vw;
-}
-
 .howto-list {
-  list-style-type: circle;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .howto-list-item {
+  margin: 10px;
+  padding: 3px;
   color: #235789;
   font-weight: 700;
   line-height: 3vh;
-}
-
-.note {
-  line-height: 3vh;
+  border-left: 2px solid #235789;
+  border-right: 2px solid #235789;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=Instructions.css.map */
