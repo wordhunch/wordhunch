@@ -43,12 +43,15 @@ const Profile = (props) => {
   const savePassword = (event) => {
     event.preventDefault();
     if (newPassword1 !== newPassword2) {
-      return alert("New Passwords do not match!");
+      return setErrResponse("New Passwords do not match!");
     }
     axios
       .put(`/profile/password/${userId}`, { password, newPassword1 })
       .then((res) => {
         alert("Password Updated");
+        setPassword('')
+        setNewPassword1('')
+        setNewPassword2('')
         togglePasswordFn();
       })
       .catch((err) => setErrResponse(err.response.data));
