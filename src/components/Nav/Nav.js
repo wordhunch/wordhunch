@@ -63,9 +63,7 @@ const Nav = props => {
 
       <div className='play-container'>
         <Link to='/play'><button className="play-btn">
-          { 
-          !props.game.gameStarted
-          // props.game.gameOver || props.game.gaveUp
+          { !props.game.gameStarted || props.game.gameOver || props.game.gaveUp
           ? 'Play Now'
           : 'Continue Game'}
         </button></Link>
