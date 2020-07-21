@@ -71,7 +71,7 @@
         font-size:50px;
         font-weight: bold;
         color: $quaternary;
-        @include media(tablet) {
+        @include media(small-tablet) {
             font-size: 30px;
         }
     }
