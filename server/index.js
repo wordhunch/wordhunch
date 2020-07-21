@@ -7,6 +7,7 @@ const authCtrl = require("./controllers/authController");
 const gameCtrl = require("./controllers/gameController");
 const wordCtrl = require("./controllers/wordController");
 const profileCtrl = require("./controllers/profileController")
+const path = require('path')
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env;
 
@@ -22,7 +23,7 @@ massive({
     );
   })
   .catch((err) => console.log(err));
-
+  
 app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
@@ -57,3 +58,9 @@ app.put('/profile/edit/:user_id', profileCtrl.editUser)
 app.put('/profile/password/:user_id', profileCtrl.updatePassword)
 
 
+//Hosting information
+app.use(express.static(__dirname + '/../build'))
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '../build/index.html'))
+})
