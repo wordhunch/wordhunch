@@ -2,7 +2,7 @@
 @import '../../styles/mixins';
 
 .Instructions {
-    height: 81vh;
+    height: 80vh;
     width: 30vw;
     background-color: $tertiary;
     position: absolute;
@@ -18,7 +18,7 @@
 .instructions-container {
     @include flexEvenly();
     text-align: initial;
-    width: 25vw;
+    width: 26vw;
     margin-left: 3vw;
 }
 
