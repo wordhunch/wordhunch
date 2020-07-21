@@ -11,10 +11,57 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
-        
+    }
+    
+    .target-word-container,
+    .letter-chart-container,
+    .input-container,
+    .give-up-container,
+    .guessed-word-container {
+        position: relative;
+        width: fit-content;
+        margin: auto;
     }
 
+    .help-bubble {
+        width: 200px;
+        padding: 3px;
+        background-color: rgba(white, .3);
+        border: 1px solid black;
+        border-radius: 10px 10px 10px 0px;
+        position: absolute;
+        z-index: 5;
+    }
+
+    .target-word-help {
+        top: -35px;
+        left: 300px;
+    }
+
+    .letter-chart-help {
+        bottom: -425px;
+        left: -275px;
+        border-radius: 0px 10px 10px 10px;
+    }    
+
+    .guessed-word-number-help {
+        width: 125px;
+        bottom: -70px;
+        left: 235px;
+        border-radius: 10px 0px 10px 10px;
+    }
+    .input-help {
+        width: 150px;
+        top: 45px;
+        left: -155px;
+        border-radius: 10px 0px 10px 10px;
+    }
+
+    .give-up-help {
+        top: 75%;
+        left: 110px;
+        border-radius: 0px 10px 10px 10px;
+    }
 }
 
 
@@ -24,6 +71,9 @@
         font-size:50px;
         font-weight: bold;
         color: $quaternary;
+        @include media(small-tablet) {
+            font-size: 30px;
+        }
     }
 
     .difficulty-buttons-container {
@@ -69,16 +119,23 @@
     cursor: pointer;
 }
 
-.difficulty-text {
 
-}
 
 .Help {
+    @include flexCenter;
+
+    width: 75px;
+    height: 75px;
+
     font-size: 3vw;
     color: $quaternary;
     position: absolute;
-    right: 17vw;
-    top: 0vw;
+    right: 1vw;
+    top: -2vw;
+
+    border: 5px solid $secondary;
+    border-radius: 50%;
+
 }
 
 .Help:hover {
