@@ -43,12 +43,15 @@ const Profile = (props) => {
   const savePassword = (event) => {
     event.preventDefault();
     if (newPassword1 !== newPassword2) {
-      return alert("New Passwords do not match!");
+      return setErrResponse("New Passwords do not match!");
     }
     axios
       .put(`/profile/password/${userId}`, { password, newPassword1 })
       .then((res) => {
         alert("Password Updated");
+        setPassword('')
+        setNewPassword1('')
+        setNewPassword2('')
         togglePasswordFn();
       })
       .catch((err) => setErrResponse(err.response.data));
@@ -66,12 +69,24 @@ const Profile = (props) => {
       })
       .catch((err) => setErrResponse(err.response.data));
   };
+// console.log(profilePicture)
+  const handleImageError = (e) =>{
+    // console.log('image error');
+    setProfilePicture(`https://robohash.org/${username}`)
+    const body = { newUsername, newProfilePicture, newEmail };
+    axios
+      .put(`/profile/edit/${userId}`, body)
+      .then((res) => {
+        props.editUser(newUsername, newProfilePicture, newEmail);
+      })
+      // .catch((err) => setErrResponse(err.response.data));
+  }
 
   const mapTopScores = topScores.map((e, i) => (
-    <div key={e.history_id}>
+    <div className = 'position' key={e.history_id}>
       {userId && topScores[0] ? (
         <div className = 'top-score-user'>
-          <p>#{1 + i} </p>
+          <p className = 'number'>#{1 + i} </p>
           <img src={e.profile_picture} alt="user profile" />
           <p>{e.username}</p>
           <p className= 'score'>Score: {e.score}</p>
@@ -154,14 +169,16 @@ const Profile = (props) => {
                         onChange={(e) => setNewPassword2(e.target.value)}
                       />
                     </div>
-                    <button type="submit">Save Password</button>
+                    <button type="submit">Save Changes</button>
                     <button onClick={() => togglePasswordFn()}>Cancel</button>
                   </form>
                 </div>
               ) 
               : (
                 <div>
-                  <img src={profilePicture} alt="user profile" />
+                  <img
+                  onError = {handleImageError}
+                   src={profilePicture} alt="user profile" />
                   <h4>{username}</h4>
                   <h4>{email}</h4>
                   <div>
