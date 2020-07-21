@@ -32,12 +32,12 @@
   cursor: pointer;
 }
 
-.logo-container {
+.Nav .logo-container {
   position: absolute;
   left: 3vw;
 }
 
-.not-loggedin {
+.Nav .not-loggedin {
   width: 50vw;
   height: 8vh;
   display: -webkit-box;
@@ -56,35 +56,147 @@
   right: 8vw;
 }
 
-.login-input,
-.login-btn,
-.register-btn,
-.profile-btn,
-.logout-btn {
+.Nav .login-input,
+.Nav .login-btn,
+.Nav .register-btn,
+.Nav .profile-btn,
+.Nav .logout-btn {
   margin-right: 1rem;
 }
 
-.about-btn {
+.Nav .about-btn {
   position: absolute;
   bottom: 12px;
   right: 3vw;
   top: 21%;
 }
 
-.logged-in {
+.Nav .logged-in {
   position: absolute;
   bottom: 12px;
   right: 8vw;
 }
 
-.error {
+.Nav .play-btn {
+  width: 6vw;
+}
+
+.Nav .error {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: absolute;
   bottom: 5px;
-  right: 20%;
+  right: 22%;
   color: #f49d6e;
   font-weight: bold;
+}
+
+.Nav .menu {
+  display: none;
+}
+
+@media (max-width: 1025px) {
+  .Nav .menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    right: 0px;
+    top: 7vh;
+    height: 93vh;
+    width: 100vw;
+    background-color: #93A3B1;
+    z-index: 50;
+    border: solid #710627 3px;
+  }
+  .Nav .menu .menu-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .Nav .logged-in {
+    display: none;
+  }
+  .Nav .about-btn {
+    display: none;
+  }
+  .Nav .form {
+    display: none;
+  }
+  .Nav .error {
+    display: none;
+  }
+  .Nav .register-btn {
+    display: none;
+  }
+  .Nav .play-btn {
+    z-index: 50;
+    position: absolute;
+    width: 8vw;
+    top: 1.25vh;
+    right: 10vw;
+  }
+  .Nav .hamburger-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    position: absolute;
+    width: 5vw;
+    height: 5vh;
+    right: 3.5vw;
+    top: 1vh;
+  }
+  .Nav .hamburger-menu div {
+    border-radius: 3px;
+    width: 4vw;
+    height: .7vh;
+    background-color: #f49d6e;
+  }
+}
+
+@media screen and (min-width: 414px) and (max-width: 767px) {
+  .Nav .play-btn {
+    width: 14vw;
+    font-size: 12;
+    z-index: 50;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .Nav .play-btn {
+    width: 14vw;
+    height: 5vh;
+    font-size: 12px;
+    right: 12vw;
+    z-index: 50;
+  }
+  .Nav .hamburger-menu {
+    right: .3vw;
+    width: 10vw;
+  }
+  .Nav .hamburger-menu div {
+    width: 7vw;
+  }
 }
 /*# sourceMappingURL=Nav.css.map */
