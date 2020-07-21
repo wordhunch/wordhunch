@@ -83,10 +83,10 @@ const Profile = (props) => {
   }
 
   const mapTopScores = topScores.map((e, i) => (
-    <div key={e.history_id}>
+    <div className = 'position' key={e.history_id}>
       {userId && topScores[0] ? (
         <div className = 'top-score-user'>
-          <p>#{1 + i} </p>
+          <p className = 'number'>#{1 + i} </p>
           <img src={e.profile_picture} alt="user profile" />
           <p>{e.username}</p>
           <p className= 'score'>Score: {e.score}</p>
@@ -169,7 +169,7 @@ const Profile = (props) => {
                         onChange={(e) => setNewPassword2(e.target.value)}
                       />
                     </div>
-                    <button type="submit">Save Password</button>
+                    <button type="submit">Save Changes</button>
                     <button onClick={() => togglePasswordFn()}>Cancel</button>
                   </form>
                 </div>

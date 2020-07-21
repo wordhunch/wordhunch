@@ -80,6 +80,11 @@
   margin-left: 5px;
 }
 
+.position {
+  width: 70vw;
+  height: 80px;
+}
+
 .top-scores {
   width: 70vw;
 }
@@ -114,13 +119,13 @@
   width: 70%;
   border: solid 1px #235789;
   margin-top: .5vh;
-  height: 7.5vh;
+  height: 70px;
 }
 
 .top-score-user img {
   width: 50px;
   height: 50px;
-  margin-right: 100px;
+  margin-right: 10%;
 }
 
 .top-score-user p {
@@ -171,6 +176,16 @@
         -ms-flex-align: center;
             align-items: center;
   }
+  .position {
+    width: 100vw;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-bottom: 5px;
+  }
   .top-score-user {
     width: 95%;
   }
@@ -180,6 +195,47 @@
   .main-user {
     height: 70%;
     width: 50vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-user {
+    width: 90vw;
+  }
+  .position {
+    height: 20vh;
+  }
+  .top-score-user {
+    height: 100%;
+  }
+  .score {
+    left: 1%;
+    bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .number {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+  }
+  .position {
+    height: 25vh;
+  }
+  .top-score-user img {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 5px;
+    left: 70px;
+  }
+  .profile-info button {
+    font-size: 12px;
   }
 }
 /*# sourceMappingURL=Profile.css.map */
