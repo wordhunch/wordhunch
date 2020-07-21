@@ -11,7 +11,7 @@
   position: relative;
   background-color: #93A3B1;
   width: 100vw;
-  height: 92vh;
+  height: xx;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -152,5 +152,30 @@
 
 .profile-picture {
   margin-bottom: 10%;
+}
+
+@media (max-width: 1275px) {
+  .main-profile {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .top-score-user {
+    width: 95%;
+  }
+  .top-scores {
+    width: 100vw;
+  }
+  .main-user {
+    height: 70%;
+    width: 50vw;
+  }
 }
 /*# sourceMappingURL=Profile.css.map */

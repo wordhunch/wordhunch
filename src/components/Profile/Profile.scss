@@ -13,7 +13,7 @@
     position: relative;
     background-color: $primary;
     width: 100vw;
-    height: 92vh;
+    height: xx;
     flex-direction: row;
     // margin-right: none;
 }
@@ -126,3 +126,23 @@
 .profile-picture{
     margin-bottom: 10%;
 }
+
+@media(max-width: 1275px){
+.main-profile{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.top-score-user{
+    width: 95%;
+}
+.top-scores{
+    width: 100vw;
+}
+.main-user{
+    height: 70%;
+    width: 50vw;
+}
+}
+
+// @include media()
