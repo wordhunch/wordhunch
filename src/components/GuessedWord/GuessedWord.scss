@@ -24,5 +24,11 @@
         position: absolute;
         right: -110px;
         top: 0px;
+        @include media(small-tablet) {
+            right: -30px;
+        }
+        @include media(mobile) {
+            right: 0px;
+        }
     }
 }

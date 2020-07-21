@@ -2,42 +2,58 @@
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 20px auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .About h2 {
   font-weight: 800;
-  font-size: 4rem;
+  font-size: 6vw;
   color: #235789;
 }
 
 .About h3 {
-  margin: 10px;
+  margin: 1vw;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 3vw;
 }
 
 .About .code-link {
-  font-size: 4rem;
+  font-size: 5vw;
   font-weight: 800;
   color: #235789;
+  margin-top: 5vh;
 }
 
 .About .about-container {
-  width: 1000px;
+  width: 75vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
 }
 
 .About .about-container .creator-info {
-  width: 40%;
-  margin: 20px;
+  width: 28vw;
+  margin: 1vw;
   border: 3px solid #235789;
   border-radius: 10px;
 }
@@ -46,22 +62,33 @@
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  font-size: 30px;
+  font-size: 2vw;
   margin: 3px auto;
   color: #235789;
 }
 
 .About .about-container .creator-info .creator-picure {
-  width: 100px;
+  width: 7vw;
   border-radius: 50%;
   margin-right: 10px;
 }
 
 .About .about-container .creator-info .github-icon {
-  width: 100px;
+  width: 7vw;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 414px) and (max-width: 767px) {
+  .About .about-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+  }
+}
+
+@media screen and (max-width: 414px) {
   .About .about-container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

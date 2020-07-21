@@ -15,4 +15,11 @@
     font-size: 80px;
     color: $secondary;
 
+    @include media(mobile) {
+        width: 200px;
+        height: 40px;
+        font-size: 40px;
+
+    }
+
 }

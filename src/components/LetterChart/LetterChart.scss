@@ -3,17 +3,16 @@
 
 .letter-chart {
     @include flexCenter;
-    height: 14vw;
-    width: 14vw;
+    width: 14vh;
     justify-content: center;
     flex-wrap: wrap;
     border: 1px solid $secondary;
-    border-radius: 10%;
+    border-radius: 10px;
     position: absolute;
-    left: -500px;
+    left: -400px;
     top: 200px;
     transform: translate(0, -50%);
-    padding: 5px;
+    padding: 20px;
    
     h6 {
         height: 16px;
@@ -27,5 +26,11 @@
     }    
     h6:hover {
         cursor: pointer;
+    }
+    @include media(small-tablet) {
+        width: 90vw;
+        top: 700px;
+        left: 50%;
+        transform: translate(-50%, 0%)
     }
 }

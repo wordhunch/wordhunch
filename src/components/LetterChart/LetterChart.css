@@ -8,19 +8,18 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 14vw;
-  width: 14vw;
+  width: 14vh;
   justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   border: 1px solid #235789;
-  border-radius: 10%;
+  border-radius: 10px;
   position: absolute;
-  left: -500px;
+  left: -400px;
   top: 200px;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  padding: 5px;
+  padding: 20px;
 }
 
 .letter-chart h6 {
@@ -36,5 +35,15 @@
 
 .letter-chart h6:hover {
   cursor: pointer;
+}
+
+@media screen and (min-width: 414px) and (max-width: 767px) {
+  .letter-chart {
+    width: 90vw;
+    top: 700px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+  }
 }
 /*# sourceMappingURL=LetterChart.css.map */

@@ -187,8 +187,10 @@ const Game = (props) => {
           <button className='game-button' onClick={() => newGame()}>Play again?</button>
         </>}
       </div>
-      <h2 className="Help" onClick={toggleInstructions}>?</h2>
-      {instructions && <div className="help-container"><Instructions /></div>}
+      <h2 className="Help mobile-help" onClick={toggleInstructions}>?</h2>
+      {instructions && <div className="help-container">
+        <Instructions />
+        </div>}
     </div>}
   </div>
   );
