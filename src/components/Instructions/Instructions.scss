@@ -2,26 +2,41 @@
 @import '../../styles/mixins';
 
 .Instructions {
-    width: 30vw;
+    width: 28vw;
     background-color: $tertiary;
     position: absolute;
     right: 1vw;
-    top: 4vw;
+    top: 150px;
     border-radius: 50px;
     h2 {
         font-weight: 900;
         font-size: 3vw;
     }
+    @include media(tablet) {
+        width: 300px;
+    }
+    @include media(small-tablet) {
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 60%;
+        background-color: rgba($tertiary, 0.9);
+        border: 3px solid $secondary;
+    }
+    @include media(mobile) {
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        width: 70%;
+        background-color: rgba($tertiary, 0.9);
+        border: 3px solid $secondary;
+    }
 }
 
 .instructions-container {
     @include flexEvenly();
-    text-align: initial;
-    width: 26vw;
-    margin-left: 3vw;
+    margin: 20px;
 }
-
-
 
 .howto-list {
     margin-top: 20px;
@@ -29,7 +44,7 @@
 }
 
 .howto-list-item {
-    margin: 10px;
+    margin: 10px 0px;
     padding: 3px;
 
     color: $secondary;
@@ -39,4 +54,8 @@
     border-left: 2px solid $secondary;
     border-right: 2px solid $secondary;
     border-radius: 10px;
+    
+    @include media(small-tablet) {
+        line-height: initial;
+    }
 }

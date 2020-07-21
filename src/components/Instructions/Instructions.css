@@ -1,15 +1,45 @@
 .Instructions {
-  width: 30vw;
+  width: 28vw;
   background-color: #f49d6e;
   position: absolute;
   right: 1vw;
-  top: 4vw;
+  top: 150px;
   border-radius: 50px;
 }
 
 .Instructions h2 {
   font-weight: 900;
   font-size: 3vw;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .Instructions {
+    width: 300px;
+  }
+}
+
+@media screen and (min-width: 414px) and (max-width: 767px) {
+  .Instructions {
+    top: 20%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+    width: 60%;
+    background-color: rgba(244, 157, 110, 0.9);
+    border: 3px solid #235789;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .Instructions {
+    top: 10%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+    width: 70%;
+    background-color: rgba(244, 157, 110, 0.9);
+    border: 3px solid #235789;
+  }
 }
 
 .instructions-container {
@@ -22,9 +52,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-align: initial;
-  width: 26vw;
-  margin-left: 3vw;
+  margin: 20px;
 }
 
 .howto-list {
@@ -33,7 +61,7 @@
 }
 
 .howto-list-item {
-  margin: 10px;
+  margin: 10px 0px;
   padding: 3px;
   color: #235789;
   font-weight: 700;
@@ -41,5 +69,11 @@
   border-left: 2px solid #235789;
   border-right: 2px solid #235789;
   border-radius: 10px;
+}
+
+@media screen and (min-width: 414px) and (max-width: 767px) {
+  .howto-list-item {
+    line-height: initial;
+  }
 }
 /*# sourceMappingURL=Instructions.css.map */
