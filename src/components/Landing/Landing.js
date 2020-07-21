@@ -8,13 +8,21 @@ const Landing = (props) => {
 
   return (
     <div className="landing-container">
-        <img
-          className='landing-logo'
-          src={landingLogo}
-          alt='WordLogic logo'
-        />
-        <Link className='play-button' to='/play'><button className='play-button'>Play</button></Link>
-        <h4 className="register-here"> If you want to save your scores, <Link to='/Auth' className='auth-link'>sign up here!</Link></h4>
+      <img
+        className='landing-logo'
+        src={landingLogo}
+        alt='WordLogic logo'
+      />
+      <Link to='/play'><button className='play-button'>
+        { 
+        !props.game.gameStarted
+        // props.game.gameOver || props.game.gaveUp
+        ? 'Play Now'
+        : 'Continue Game'}
+      </button></Link>
+      {!props.auth.username ?
+      <h4 className="register-here"> If you want to save your scores, <Link to='/Auth' className='auth-link'>sign up here!</Link></h4>
+      : null }
     </div>
   );
 }
