@@ -18,6 +18,10 @@
           flex-direction: row;
 }
 
+.main-profile button:hover {
+  cursor: pointer;
+}
+
 .main-user {
   display: -webkit-box;
   display: -ms-flexbox;

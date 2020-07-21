@@ -176,7 +176,9 @@ const Profile = (props) => {
               ) 
               : (
                 <div>
-                  <img src={profilePicture} alt="user profile" />
+                  <img
+                  onError = {handleImageError}
+                   src={profilePicture} alt="user profile" />
                   <h4>{username}</h4>
                   <h4>{email}</h4>
                   <div>

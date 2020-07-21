@@ -15,6 +15,9 @@
     width: 100vw;
     height: xx;
     flex-direction: row;
+    button:hover {
+        cursor: pointer;
+    }
     // margin-right: none;
 }
 
@@ -145,4 +148,4 @@
 }
 }
 
-// @include media()
+@include media()

@@ -51,6 +51,7 @@ const Auth = (props) => {
             <input 
               className ="register-input username"
               value = {username} 
+              maxLength = '12'
               name = "username" 
               placeholder = "username" 
               onChange={e => setUsername(e.target.value)}/>
