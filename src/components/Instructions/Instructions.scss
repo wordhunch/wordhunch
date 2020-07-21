@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.Instructions {
+    height: 80vh;
+    width: 30vw;
+    background-color: $tertiary;
+    position: absolute;
+    right: 1vw;
+    top: 3vw;
+    border-radius: 50px;
+    h2 {
+        font-weight: 900;
+        font-size: 3vw;
+    }
+}
+
+.instructions-container {
+    @include flexEvenly();
+    text-align: initial;
+    width: 26vw;
+    margin-left: 3vw;
+}
+
+.howto-header {
+    height: 3vw;
+    width: 11vw;
+    h4 {
+        color: $quaternary;
+        font-weight: 700;
+        font-size: 2vw;
+    }
+}
+
+.howto-list {
+    list-style-type: circle;
+}
+
+.howto-list-item {
+    color: $secondary;
+    font-weight: 700;
+    line-height: 3vh;
+}
+
+.note{
+    line-height: 3vh;
+}
