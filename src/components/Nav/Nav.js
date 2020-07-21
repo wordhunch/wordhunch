@@ -14,6 +14,9 @@ const Nav = props => {
 
   const login = e => {
     e.preventDefault()
+    if(loginValue === '' || password === ''){
+      return setErrorResponse('Please enter username and password.')
+    }
     axios
       .post('/auth/login', { loginValue, password })
       .then(res => {
@@ -24,7 +27,7 @@ const Nav = props => {
           profile_picture,
           email
         )
-        // props.history.push('/profile')
+        props.history.push('/')
         console.log('logged in')
         setValue('')
         setPassword('')
@@ -60,7 +63,9 @@ const Nav = props => {
 
       <div className='play-container'>
         <Link to='/play'><button className="play-btn">
-          { props.game.gameOver || props.game.gaveUp
+          { 
+          !props.game.gameStarted
+          // props.game.gameOver || props.game.gaveUp
           ? 'Play Now'
           : 'Continue Game'}
         </button></Link>
