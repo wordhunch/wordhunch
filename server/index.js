@@ -62,5 +62,5 @@ app.put('/profile/password/:user_id', profileCtrl.updatePassword)
 app.use(express.static(__dirname + '/../build'))
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '../build/index.html'))
+  res.sendFile(path.join(__dirname, '../build/index.html'))
 })
