@@ -38,11 +38,11 @@
 }
 
 .auth-content button {
-  width: 30%;
+  width: 20vw;
   height: 50px;
   background-color: #f49d6e;
   border-radius: 20px;
-  font-size: 30px;
+  font-size: 90%;
   font-weight: bold;
   color: #235789;
 }
@@ -55,5 +55,37 @@
 
 .auth-div {
   width: 100%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .auth-content {
+    width: 50%;
+    height: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .auth-content {
+    width: 80%;
+    height: 70%;
+  }
+  .auth-content button {
+    width: 40vw;
+  }
+  .auth-content input {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .auth-content {
+    width: 90%;
+  }
+  .auth-content button {
+    width: 60vw;
+  }
+  .auth-content input {
+    width: 65vw;
+  }
 }
 /*# sourceMappingURL=Auth.css.map */

@@ -17,53 +17,157 @@
         box-shadow: $quaternary .10rem .25rem;
         color: $secondary;
         font-weight: 700;
+        // font-size: 14px;
     }
     button:hover {
         cursor: pointer;
     }
-}
 
-.logo-container {
+    .logo-container {
+        position: absolute;
+        left: 3vw;
+    
+    }
+    
+    .not-loggedin {
+        width: 50vw;
+        height: 8vh;
+        @include flexCenter();
+        justify-content: flex-end;
+        position: absolute;
+        right: 8vw;
+    }
+    
+    .login-input,
+    .login-btn,
+    .register-btn,
+    .profile-btn,
+    .logout-btn {
+        margin-right: 1rem;
+    }
+    
+    .about-btn {
+        @include navBtnPlacer();
+        right: 3vw;
+        top: 21%;
+    }
+    
+    .logged-in {
+        @include navBtnPlacer();
+        right: 8vw;
+    }
+    
+    .play-btn{
+        width: 6vw;
+    }
+    
+    .error{
+    display: flex;
     position: absolute;
-    left: 3vw;
+    bottom: 5px;
+    right: 22%;
+    color: $tertiary;
+    font-weight: bold;
+    
+    }
+    
+    .menu{
+    display: none;
+    }
+    
+    
+    
+    
+    @media(max-width: 1025px){
+        .menu{
+            @include flexCenter();
+            flex-direction: column;
+            position: absolute;
+            right: 0px;
+            top: 7vh;
+            height: 93vh;
+            width: 100vw;
+            background-color:$primary;
+            z-index: 50;
+            
+            border: solid $quaternary 3px;
+            
+            .menu-form{
+                display: flex;
+            }
+        }
 
+        .logged-in{
+            display: none;
+        }
+        .about-btn{
+            display: none;
+        }
+        .form{
+            display: none;
+        }
+        .error{
+            display: none;
+        }
+        .register-btn{
+            display: none;
+        }
+        .play-btn{
+            // display: flex;
+            z-index: 50;
+            position: absolute;
+            width: 8vw;
+            top: 1.25vh;
+            right: 10vw;
+        }
+        .hamburger-menu{
+            @include flexEvenly();
+            flex-direction: column;
+            position: absolute;
+            // background-color: blanchedalmond;
+            width: 5vw;
+            height: 5vh;
+            right: 3.5vw;
+            top: 1vh;
+            div{
+                border-radius: 3px;
+                 width: 4vw;
+                 height: .7vh;
+                background-color: $tertiary;
+               
+            }
+        }
+    }
+    
+    
+
+    @include media(small-tablet){
+        .play-btn{
+            width: 14vw;
+            font-size: 12;  
+            z-index: 50;
+        }
+    }
+
+    @include media(mobile){
+        .play-btn{
+            width: 14vw;
+            height: 5vh;
+            font-size: 12px;
+            right: 12vw;
+            z-index: 50;
+        }
+        .hamburger-menu{
+            right: .3vw;
+            width: 10vw;
+                div{
+                    width: 7vw;
+                }
+
+        }
+    }
+
+    
 }
 
-.not-loggedin {
-    width: 40vw;
-    height: 8vh;
-    @include flexCenter();
-    justify-content: flex-end;
-    position: absolute;
-    right: 8vw;
-}
 
-.login-input,
-.login-btn,
-.register-btn,
-.profile-btn,
-.logout-btn {
-    margin-right: 1rem;
-}
-
-.about-btn {
-    @include navBtnPlacer();
-    right: 3vw;
-}
-
-.logged-in {
-    @include navBtnPlacer();
-    right: 8vw;
-}
-
-
-
-.error{
-display: flex;
-position: absolute;
-bottom: 5px;
-right: 20%;
-color: $tertiary;
-font-weight: bold;
-
-}
