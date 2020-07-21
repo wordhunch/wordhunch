@@ -38,6 +38,14 @@
           box-shadow: 0px 4px 4px grey;
 }
 
+@media screen and (max-width: 414px) {
+  .guessed-word-container .word-map-container .letter-tile-guessed {
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+  }
+}
+
 .guessed-word-container .shared-letter-count {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -59,5 +67,25 @@
   position: absolute;
   right: -110px;
   top: 0px;
+}
+
+@media screen and (max-width: 414px) {
+  .guessed-word-container .shared-letter-count {
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 414px) and (max-width: 767px) {
+  .guessed-word-container .shared-letter-count {
+    right: -30px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .guessed-word-container .shared-letter-count {
+    right: 0px;
+  }
 }
 /*# sourceMappingURL=GuessedWord.css.map */
