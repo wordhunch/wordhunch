@@ -4,6 +4,7 @@ import TargetWord from "../TargetWord/TargetWord";
 import GuessedWord from "../GuessedWord/GuessedWord";
 import Input from "../Input/Input";
 import LetterChart from '../LetterChart/LetterChart'
+import Instructions from "../Instructions/Instructions"
 import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
 import { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp } from '../../redux/reducers/gameReducer'
@@ -19,6 +20,12 @@ const Game = (props) => {
 
   const [difficulty, setDifficulty] = useState('1')
   const [score, setScore] = useState(null)
+  const [instructions, setInstructions] = useState(false)
+
+  //toggles the instructions boolean
+  const toggleInstructions = () => {
+    setInstructions(!instructions)
+  }
 
   //displays the target word with option to play again
   const giveUp = () => {
@@ -154,6 +161,8 @@ const Game = (props) => {
           <button className='game-button' onClick={() => newGame()}>Play again?</button>
         </>}
       </div>
+    <h2 className="Help" onClick={toggleInstructions}>?</h2>
+      {instructions && <div className="help-container"><Instructions/></div>}
     </div>}
   </div>
   );
