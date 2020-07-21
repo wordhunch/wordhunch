@@ -2,45 +2,60 @@
 @import '../../styles/mixins';
 
 .About {
-    height: 92vh;
-    width: 100vw;
-    position: sticky;
+    width: fit-content;
+    margin: 20px auto;
     h2 {
         font-weight: 800;
         font-size: 4rem;
         color: $secondary;
-        position: absolute;
-        top: 1vh;
-        right: 44.85vw;
     };
-}
+    h3 {
+        margin: 10px;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    .code-link {
+        font-size: 4rem;
+        font-weight: 800;
+        color: $secondary;
+    }
 
-.about-container {
-    margin-top: 10vh;
-    width: 100vw;
-    height: 70vh;
-    background-color: $primary;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    .sub-header {
-        height: 5vh;
-        h4 {
-            font-weight: 600;
-            font-size: 2rem;
-            color: $quaternary;
-            position: absolute;
-            left: 5vw;
+    .about-container {
+        width: 1000px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        .creator-info {
+            width: 40%;
+            margin: 20px;
+            border: 3px solid $secondary;
+            border-radius: 10px;
+
+            p {
+                width: fit-content;
+                font-size: 30px;
+                margin: 3px auto;
+                color: $secondary;
+                
+            }
+            .creator-picure {
+                width: 100px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+            .github-icon {
+                width: 100px;
+            }
         }
+        
+
     }
-    .sub-content {
-        width: 75vw;
-        position: relative;
-        left: 7vw;
-        text-align: start;
-        p {
-            word-spacing: .15vw;
-            line-height: 3vh;
-        }
+    @include media(tablet) {
+         .about-container {
+            flex-direction: column;
+            flex-wrap: nowrap;
+         }
     }
+    
+
 }
