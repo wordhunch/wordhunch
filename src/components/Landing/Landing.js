@@ -14,9 +14,7 @@ const Landing = (props) => {
         alt='WordLogic logo'
       />
       <Link to='/play'><button className='play-button'>
-        { 
-        !props.game.gameStarted
-        // props.game.gameOver || props.game.gaveUp
+        { !props.game.gameStarted || props.game.gameOver || props.game.gaveUp
         ? 'Play Now'
         : 'Continue Game'}
       </button></Link>
