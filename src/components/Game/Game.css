@@ -22,6 +22,59 @@
           align-items: center;
 }
 
+.game-outer-container .target-word-container,
+.game-outer-container .letter-chart-container,
+.game-outer-container .input-container,
+.game-outer-container .give-up-container,
+.game-outer-container .guessed-word-container {
+  position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+}
+
+.game-outer-container .help-bubble {
+  width: 200px;
+  padding: 3px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 0px;
+  position: absolute;
+  z-index: 5;
+}
+
+.game-outer-container .target-word-help {
+  top: -35px;
+  left: 300px;
+}
+
+.game-outer-container .letter-chart-help {
+  bottom: -425px;
+  left: -275px;
+  border-radius: 0px 10px 10px 10px;
+}
+
+.game-outer-container .guessed-word-number-help {
+  width: 125px;
+  bottom: -70px;
+  left: 235px;
+  border-radius: 10px 0px 10px 10px;
+}
+
+.game-outer-container .input-help {
+  width: 150px;
+  top: 45px;
+  left: -155px;
+  border-radius: 10px 0px 10px 10px;
+}
+
+.game-outer-container .give-up-help {
+  top: 75%;
+  left: 110px;
+  border-radius: 0px 10px 10px 10px;
+}
+
 .difficulty-container {
   margin-top: 40px;
 }
@@ -74,11 +127,24 @@
 }
 
 .Help {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 75px;
+  height: 75px;
   font-size: 3vw;
   color: #710627;
   position: absolute;
-  right: 17vw;
-  top: 0vw;
+  right: 1vw;
+  top: -2vw;
+  border: 5px solid #235789;
+  border-radius: 50%;
 }
 
 .Help:hover {
