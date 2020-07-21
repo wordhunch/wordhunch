@@ -47,7 +47,7 @@ const Nav = props => {
   return (
     <div className='Nav'>
 
-      <div className="logo-container" onClick={() => props.resetGame()} >
+      <div className="logo-container" >
         <Link to='/'>
           <img
             className='app-logo'
@@ -59,7 +59,11 @@ const Nav = props => {
       </div>
 
       <div className='play-container'>
-        <Link to='/play'><button className="play-btn">Play Now</button></Link>
+        <Link to='/play'><button className="play-btn">
+          { props.game.gameOver || props.game.gaveUp
+          ? 'Play Now'
+          : 'Continue Game'}
+        </button></Link>
       </div>
 
       <p className='error'>{errorResponse}</p>

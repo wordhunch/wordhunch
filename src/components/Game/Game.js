@@ -7,6 +7,7 @@ import LetterChart from '../LetterChart/LetterChart'
 import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
 import { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp } from '../../redux/reducers/gameReducer'
+import {resetClass} from '../../redux/reducers/letterReducer'
 import './Game.css'
 import fireworks from '../../images/pewpew.png'
 
@@ -28,6 +29,7 @@ const Game = (props) => {
   //resets values in state
   const newGame = () => {
     resetGame()
+    props.resetClass()
     generateWord(difficulty)
       .then(res => {
         const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
@@ -161,4 +163,4 @@ const mapStateToProps = (reduxState) => reduxState
 
 
 
-export default connect(mapStateToProps, { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp })(Game);
+export default connect(mapStateToProps, { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp, resetClass })(Game);

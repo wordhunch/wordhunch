@@ -1,23 +1,36 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './Letter.css'
+import {connect} from 'react-redux'
+import { setClass, resetClass } from '../../redux/reducers/letterReducer'
 
 const Letter = props => {
 
-    const [cssClass, setClass] = useState('unknown')
+    // const [cssClass, setClass] = useState('unknown')
+    const {setClass} = props
 
     const click = () => {
-        (cssClass === 'unknown') 
-        ? setClass('no')
-        : ((cssClass === 'no') 
-        ? setClass('yes')
-        : setClass('unknown'))
+        switch (props.letter[props.value]){
+            case 'unknown':
+                setClass('no', props.value)
+            break
+            case 'no':
+                setClass('yes', props.value)
+            break
+            case 'yes':
+                setClass('unknown', props.value)
+            break
+            default:
+                return null
+        }
     }
 
     return (
-        <h6 className={`letter-${cssClass}`} onClick={click}>
+        <h6 className={`letter-${props.letter[props.value]}`} onClick={click}>
             {props.value}
         </h6>
     )
 }
 
-export default Letter
+const mapStateToProps = state => state
+
+export default connect(mapStateToProps, {setClass, resetClass})(Letter)
