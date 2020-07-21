@@ -30,7 +30,7 @@
 }
 
 .not-loggedin {
-    width: 40vw;
+    width: 50vw;
     height: 8vh;
     @include flexCenter();
     justify-content: flex-end;
@@ -49,6 +49,7 @@
 .about-btn {
     @include navBtnPlacer();
     right: 3vw;
+    top: 21%;
 }
 
 .logged-in {

@@ -38,7 +38,7 @@
 }
 
 .not-loggedin {
-  width: 40vw;
+  width: 50vw;
   height: 8vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,6 +68,7 @@
   position: absolute;
   bottom: 12px;
   right: 3vw;
+  top: 21%;
 }
 
 .logged-in {

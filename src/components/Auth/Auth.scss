@@ -24,11 +24,11 @@
             width: 100%;
         }
         button{
-            width: 30%;
+            width: 20vw;
             height: 50px;
             background-color: $tertiary;
             border-radius: 20px;
-            font-size: 30px;
+            font-size: 90%;
             font-weight: bold;
             color: $secondary;
             // color: $quaternary;
@@ -36,6 +36,9 @@
         }
 }
 
+.form{
+    height: 80%;
+}
 .register-input{
     width: 50%;
     height: 20px;
@@ -44,4 +47,37 @@
 
 .auth-div{
     width: 100%;
+}
+
+@include media(tablet){
+    .auth-content{
+        width: 70%;
+        height: 50vh%;
+    }
+}
+
+@media(max-width: 768px){
+    .auth-content{
+        width: 80%;
+        height: 70%;
+        button{
+            width: 40vw;
+        }
+        input{
+            width: 50vw;
+        }
+    }
+}
+
+@include media(mobile){
+    .auth-content{
+        width: 90%;
+        button{
+            width: 60vw;
+        }
+        input{
+            width: 65vw;
+        }
+    }
+
 }
