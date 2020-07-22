@@ -3,23 +3,35 @@
 
 .About {
     width: fit-content;
+    margin: auto;
     @include flexEvenly();
     flex-direction: column;
+    
     h2 {
         font-weight: 800;
-        font-size: 6vw;
-        color: $secondary;
+        font-size: 2.5vw;
+        // color: $secondary;
     };
     h3 {
         margin: 1vw;
         font-weight: bold;
-        font-size: 3vw;
+        font-size: 2vw;
+    }
+    .devmtn-link {
+        text-decoration: none;
+        color: $secondary;
+    }
+    .devmtn-link:visited {
+        text-decoration: none;
+        color: $secondary;
+
     }
     .code-link {
-        font-size: 5vw;
-        font-weight: 800;
+        font-size: 2.5vw;
+        font-weight: 600;
         color: $secondary;
         margin-top: 5vh;
+        text-decoration: none;
     }
 
     .about-container {
@@ -27,7 +39,7 @@
         @include flexCenter();
         flex-wrap: wrap;
         .creator-info {
-            width: 28vw;
+            width: 25vw;
             margin: 1vw;
             border: 3px solid $secondary;
             border-radius: 10px;
@@ -44,10 +56,10 @@
                 border-radius: 50%;
                 margin-right: 10px;
             }
-            .github-icon {
-                width: 7vw;
-            }
         }  
+    }
+    .github-icon {
+        width: 7vw;
     }
     
     @include media(small-tablet) {

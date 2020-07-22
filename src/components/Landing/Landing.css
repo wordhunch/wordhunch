@@ -18,6 +18,14 @@
           box-shadow: 0px 4px 4px grey;
 }
 
+@media screen and (max-width: 414px) {
+  .landing-container .letter-tile-landing {
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+  }
+}
+
 .landing-container .landing-logo {
   padding: 5vh;
   width: 600px;
@@ -25,8 +33,9 @@
 
 .landing-container .play-button {
   display: block;
+  padding: 10px;
   margin: 20px auto;
-  width: 130px;
+  width: 240px;
   height: 75px;
   font-size: 50px;
   color: #f49d6e;
@@ -34,7 +43,20 @@
   background-color: #235789;
   border: none;
   border-radius: 10px;
+}
+
+.landing-container .play-button:hover {
   cursor: pointer;
+}
+
+.landing-container .play-button:visited,
+.landing-container .play-button:active {
+  text-decoration: none;
+}
+
+.landing-container .play-link {
+  text-decoration: none;
+  width: 240px;
 }
 
 .landing-container .register-here {
@@ -54,13 +76,13 @@
   color: #235789;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .landing-container .landing-logo {
     width: 300px;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .landing-container .landing-logo {
     width: 250px;
   }
