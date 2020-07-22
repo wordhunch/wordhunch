@@ -9,6 +9,7 @@ const Input = (props) => {
   const [input, setInput] = useState('')
   const [valid, setValid] = useState(false)
   const [sharedLetterCount, setSharedLetterCount] = useState(null)
+  const [invalidMessage, setInvalidMessage] = useState(false)
 
   const textInput = useRef(null)
   const currentWord = useSelector(state => state.game.targetWord.word)
@@ -21,6 +22,9 @@ const Input = (props) => {
       setInput('')
       setSharedLetterCount(null)
       setValid(false)
+      setInvalidMessage(false)
+    } else {
+      setInvalidMessage(true)
     }
     //could add text response if word is not valid
     //empty input to make entering next word simple
@@ -44,6 +48,7 @@ const Input = (props) => {
 
   return (
     <div className='input-form-container'>
+      {invalidMessage && <p className='invalid-message help-bubble'>Must be a real, 5-letter word with only letters</p>}
       <form className='input-form'>
         <input  className='game-input' ref={textInput} autoFocus maxLength='5' value={input} onChange={(e) => { setInput(e.target.value) }} />
         <br/>

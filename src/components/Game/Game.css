@@ -1,5 +1,6 @@
 .game-outer-container {
   position: relative;
+  margin-top: 11.5vh;
 }
 
 .game-outer-container .game-container {
@@ -39,7 +40,6 @@
   padding: 3px;
   background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid black;
-  border-radius: 10px 10px 10px 0px;
   position: absolute;
   z-index: 10;
 }
@@ -59,6 +59,7 @@
 .game-outer-container .target-word-help {
   top: -35px;
   left: 300px;
+  border-radius: 10px 10px 10px 0px;
 }
 
 .game-outer-container .letter-chart-help {
@@ -95,7 +96,7 @@
 }
 
 .difficulty-container {
-  margin-top: 40px;
+  margin-top: 12vh;
 }
 
 .difficulty-container .difficulty-text {

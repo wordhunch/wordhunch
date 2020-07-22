@@ -1,6 +1,12 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+.invalid-message{
+    top: 45px;
+    left: 150px;
+    border-radius: 0px 10px 10px 10px;
+}
+
 .input-form {
     width: 100%;
 
