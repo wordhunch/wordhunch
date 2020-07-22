@@ -20,7 +20,7 @@
         padding: 10px;
         margin:20px auto;
 
-        width: 240px;
+        width: fit-content;
         height: 75px;
 
         font-size: 50px;
@@ -39,10 +39,6 @@
     .play-button:visited,
     .play-button:active {
         text-decoration: none;
-    }
-    .play-link {
-        text-decoration: none;
-        width: 240px;
     }
 
     .register-here {
