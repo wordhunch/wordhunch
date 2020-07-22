@@ -1,6 +1,7 @@
 .Nav {
   height: 7vh;
   width: 100vw;
+  z-index: 20;
   position: -webkit-sticky;
   position: sticky;
   background-color: #235789;
@@ -70,14 +71,13 @@
 
 .Nav .about-btn {
   position: absolute;
-  bottom: 10px;
+  bottom: 11px;
   right: 3vw;
-  top: 21%;
 }
 
 .Nav .logged-in {
   position: absolute;
-  bottom: 10px;
+  bottom: 11px;
   right: 8vw;
 }
 
