@@ -28,7 +28,6 @@
         padding: 3px;
         background-color: rgba(white, .3);
         border: 1px solid black;
-        border-radius: 10px 10px 10px 0px;
         position: absolute;
         z-index: 5;
 
@@ -43,6 +42,7 @@
     .target-word-help {
         top: -35px;
         left: 300px;
+        border-radius: 10px 10px 10px 0px;
     }
 
     .letter-chart-help {
