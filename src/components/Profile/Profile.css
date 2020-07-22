@@ -164,25 +164,6 @@
   margin-bottom: 10%;
 }
 
-.Nav {
-  width: 100vw;
-  height: 7vh;
-  position: fixed;
-  background-color: #235789;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: solid #710627 3px;
-  margin-bottom: 20px;
-  z-index: 50;
-}
-
 @media (max-width: 1275px) {
   .main-profile {
     -webkit-box-orient: vertical;
