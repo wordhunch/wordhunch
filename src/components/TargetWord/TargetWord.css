@@ -11,11 +11,14 @@
   width: 300px;
   height: 75px;
   margin: 40px auto 0px;
+  padding-bottom: 3px;
   background-color: #f49d6e;
   border-radius: 10px;
   -webkit-box-shadow: 0px 4px 4px;
           box-shadow: 0px 4px 4px;
   font-size: 80px;
+  letter-spacing: 5px;
+  font-stretch: ultra-expanded;
   color: #235789;
 }
 

@@ -8,7 +8,7 @@ const TargetWord = ({gameOver, gaveUp}) => {
 
   return (
     <div className='target-word-container'>
-      {gameOver || gaveUp? <p className='target-word'>{currentWord}</p> : <p className='target-word'>_______</p>}
+      {gameOver || gaveUp? <p className='target-word'>{currentWord}</p> : <p className='target-word'>_____</p>}
     </div>
   );
 }

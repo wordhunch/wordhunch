@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './LetterChart.css'
 import Letter from '../Letter/Letter'
 
