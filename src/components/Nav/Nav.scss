@@ -43,7 +43,7 @@
     .register-btn,
     .profile-btn,
     .logout-btn {
-        margin-right: 1rem;
+        margin-right: 1vw;
     }
     
     .about-btn {
@@ -68,14 +68,17 @@
     right: 22%;
     color: $tertiary;
     font-weight: bold;
-    
     }
     
     .menu{
     display: none;
     }
     
-    
+    .menu-error{
+        color: $quaternary;
+        font-weight: bold;
+        font-size: 3vw;
+    }
     
     
     @media(max-width: 1025px){
@@ -83,7 +86,6 @@
             @include flexCenter();
             flex-direction: column;
             position: absolute;
-            right: 0px;
             top: 7vh;
             height: 93vh;
             width: 100vw;
@@ -147,6 +149,105 @@
             font-size: 12;  
             z-index: 50;
         }
+        .menu-no-user{
+            height: 75vh;
+            width: 50vw;
+            @include flexEvenly();
+            flex-direction: column;
+            .menu-form{
+                position: absolute;
+                top: 0vh;
+                height: 52vh;
+                width: 30vh;
+                @include flexEvenly();
+                flex-direction: column;
+                margin-bottom: 2vh;
+            }
+            .menu-register{
+                position: absolute;
+                right: 35vw;
+                top: 55vh;
+            }
+        }
+        .menu-about{
+            position: absolute;
+            bottom: 10vh;
+            right: 35vw;
+        }
+        .menu-uesr{
+            @include flexEvenly();
+            flex-direction: column;
+        }
+        .menu-profile{
+            position: absolute;
+            top: 10vh;
+        }
+        .menu-profile,
+        .menu-logout,
+        .menu-about,
+        .menu-register,
+        .menu-login{
+            height: 10vh;
+            width: 30vw;
+            font-size: 6vw;
+        }
+        input{
+            height: 7vh;
+            width: 40vw;
+            font-size: 4vw;
+            border-radius: 10px;
+        }
+    }
+
+    @include media(tablet) {
+        .menu-no-user{
+            height: 75vh;
+            width: 50vw;
+            @include flexEvenly();
+            flex-direction: column;
+            .menu-form{
+                position: absolute;
+                top: 0vh;
+                height: 52vh;
+                width: 30vh;
+                @include flexEvenly();
+                flex-direction: column;
+                margin-bottom: 2vh;
+            }
+            .menu-register{
+                position: absolute;
+                right: 35vw;
+                top: 55vh;
+            }
+        }
+        .menu-about{
+            position: absolute;
+            bottom: 10vh;
+            right: 35vw;
+        }
+        .menu-uesr{
+            @include flexEvenly();
+            flex-direction: column;
+        }
+        .menu-profile{
+            position: absolute;
+            top: 10vh;
+        }
+        .menu-profile,
+        .menu-logout,
+        .menu-about,
+        .menu-register,
+        .menu-login{
+            height: 10vh;
+            width: 30vw;
+            font-size: 6vw;
+        }
+        input{
+            height: 8vh;
+            width: 40vw;
+            font-size: 4vw;
+            border-radius: 10px;
+        }
     }
 
     @include media(mobile){
@@ -165,9 +266,55 @@
                 }
 
         }
+        .menu-no-user{
+            height: 75vh;
+            width: 50vw;
+            @include flexEvenly();
+            flex-direction: column;
+            .menu-form{
+                position: absolute;
+                top: 0vh;
+                height: 52vh;
+                width: 30vh;
+                @include flexEvenly();
+                flex-direction: column;
+                margin-bottom: 2vh;
+            }
+            .menu-register{
+                position: absolute;
+                right: 35vw;
+                top: 55vh;
+            }
+        }
+        .menu-about{
+            position: absolute;
+            bottom: 10vh;
+            right: 35vw;
+        }
+        .menu-uesr{
+            @include flexEvenly();
+            flex-direction: column;
+        }
+        .menu-profile{
+            position: absolute;
+            top: 10vh;
+        }
+        .menu-profile,
+        .menu-logout,
+        .menu-about,
+        .menu-register,
+        .menu-login{
+            height: 10vh;
+            width: 30vw;
+            font-size: 6vw;
+        }
+        input{
+            height: 6vh;
+            width: 40vw;
+            font-size: 4vw;
+            border-radius: 10px;
+        }
     }
-
-    
 }
 
 
