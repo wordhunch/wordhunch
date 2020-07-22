@@ -43,6 +43,6 @@ export const checkUserInput = async (targetWord, inputWord) => {
 export const determineWinner = (target, input) => {
     //returns the status of gameOver
     if (input) {
-    return target === input ? true : false
+    return target.toLowerCase() === input.toLowerCase() ? true : false
     }
 }
