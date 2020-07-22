@@ -55,14 +55,20 @@
             color: $secondary;
         }
     }
-    @include media(mobile) {
-        .landing-logo {
-            width: 300px;
-        }
-    }
     @include media(tablet) {
         .landing-logo {
-            width: 250px;
+            width: 70vw;
+            max-width: 600px;
+        }
+    }
+    @include media(small-tablet) {
+        .landing-logo {
+            width: 70vw;
+        }
+    }
+    @include media(mobile) {
+        .landing-logo {
+            width: 70vw;
         }
         .register-here {
             width: 250px;

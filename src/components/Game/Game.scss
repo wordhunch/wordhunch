@@ -30,7 +30,7 @@
         border: 1px solid black;
         border-radius: 10px 10px 10px 0px;
         position: absolute;
-        z-index: 5;
+        z-index: 10;
 
         @include media(small-tablet) {
             display: none;
@@ -208,11 +208,9 @@
         
         z-index: 10;
         border: 3px solid $secondary;
-
     }
 
 }
-
 
 
 .Help:hover {

@@ -17,10 +17,10 @@ const Auth = (props) => {
   const [passwordToggle, setPasswordImg] = useState(false)
   const [type, setType] = useState('password')
 
-   const togglePassword = () => {
-     setPasswordImg(!passwordToggle)
-     {type === 'password' ? setType('username'): setType('password')} 
-   }
+  const togglePassword = () => {
+    setPasswordImg(!passwordToggle)
+    type === 'password' ? setType('username') : setType('password')
+  }
 
   const registerUser = (e) => {
     e.preventDefault()
@@ -71,9 +71,9 @@ const Auth = (props) => {
             <p>Password:</p>
             <div className = 'input-container'>
             {passwordToggle ?  
-            <img onClick= {togglePassword} src = {passwordImg}/>
+            <img onClick= {togglePassword} src = {passwordImg} alt='show password'/>
             :
-            <img  onClick= {togglePassword} src = {passwordImg2}/>}
+            <img onClick= {togglePassword} src = {passwordImg2} alt='show password'/>}
             <input 
               className ="register-input password" 
               value = {password} 
