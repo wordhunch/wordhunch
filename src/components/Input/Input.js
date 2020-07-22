@@ -24,10 +24,8 @@ const Input = (props) => {
       setValid(false)
       setInvalidMessage(false)
     } else {
-      setInvalidMessage(true)
+      // setInvalidMessage(true)
     }
-    //could add text response if word is not valid
-    //empty input to make entering next word simple
   }
 
   useEffect(() => {
