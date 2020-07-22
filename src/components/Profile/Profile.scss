@@ -9,11 +9,13 @@
     }
 }
 .main-profile{
+    margin-top: 7vh;
     display: flex;
     position: relative;
     background-color: $primary;
     width: 100vw;
-    height: xx;
+    height: yy;
+    // margin-top: vh;
     flex-direction: row;
     button:hover {
         cursor: pointer;
@@ -26,7 +28,7 @@
     position: relative;
     align-items: flex-start;
     font-size: 20px;
-    height: 92vh;
+    height: 85vh;
     width: 30vw;
     background-color: $primary;
     flex-direction: column;
@@ -66,7 +68,7 @@
 }
 .position{
     width: 70vw;
-    height: 80px;
+    height: 72px;
 }
 
 .top-scores{
@@ -75,7 +77,7 @@
     h5{
         display: flex;
         align-self: flex-start;
-        margin-top: 20px;
+        margin-top: 5px;
         margin-left: 20px;
             font-size: 40px;
             color: $quaternary;
@@ -133,12 +135,27 @@
 .profile-picture{
     margin-bottom: 10%;
 }
+.Nav{
+    // width: 100vw;
+    // height: 7vh;
+    // position: fixed;
+    // background-color: #235789;
+    // display: flex;
+    // justify-content: space-evenly;
+    // align-items: center;
+    // border-bottom: solid #710627 3px;
+    // margin-bottom: 20px;
+    // z-index: 50;
+}
 
 @media(max-width: 1275px){
+
 .main-profile{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: yy;
+    margin-top: 20vh;
 }
 .position{
     width: 100vw;

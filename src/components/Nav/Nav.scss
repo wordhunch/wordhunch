@@ -4,6 +4,7 @@
 .Nav {
     height: 7vh;
     width: 100vw;
+    
     position: sticky;
     background-color: $secondary;
     @include flexEvenly();
@@ -28,6 +29,7 @@
         left: 3vw;
     
     }
+    
     
     .not-loggedin {
         width: 50vw;

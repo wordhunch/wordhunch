@@ -4,6 +4,8 @@ import {withRouter} from 'react-router-dom'
 import {setUser} from '../../redux/reducers/authReducer'
 import {connect} from 'react-redux'
 import './Auth.css'
+import passwordImg from '../../images/password.png'
+import passwordImg2 from '../../images/password2.png'
 
 const Auth = (props) => {
 
@@ -12,6 +14,13 @@ const Auth = (props) => {
   const[username, setUsername] = useState('')
   const[profile_picture] = useState('https://moonvillageassociation.org/wp-content/uploads/2018/06/default-profile-picture1.jpg');
   const [errorResponse, setErrorResponse] = useState('')
+  const [passwordToggle, setPasswordImg] = useState(false)
+  const [type, setType] = useState('password')
+
+   const togglePassword = () => {
+     setPasswordImg(!passwordToggle)
+     {type === 'password' ? setType('username'): setType('password')} 
+   }
 
   const registerUser = (e) => {
     e.preventDefault()
@@ -48,6 +57,7 @@ const Auth = (props) => {
 
           <div className = 'auth-div'>
             <p>Username:</p>
+           
             <input 
               className ="register-input username"
               value = {username} 
@@ -59,12 +69,19 @@ const Auth = (props) => {
 
           <div className = 'auth-div'>
             <p>Password:</p>
+            <div className = 'input-container'>
+            {passwordToggle ?  
+            <img onClick= {togglePassword} src = {passwordImg}/>
+            :
+            <img  onClick= {togglePassword} src = {passwordImg2}/>}
             <input 
               className ="register-input password" 
               value = {password} 
-              name = "password" 
+              name = 'password'
+              type = {type}
               placeholder = "password" 
               onChange={e => setPassword(e.target.value)}/>
+              </div>
           </div>
 
           <button type='submit'>Register</button>

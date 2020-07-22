@@ -16,7 +16,7 @@
         width: 300px;
     }
     @include media(small-tablet) {
-        top: 20%;
+        top: 15%;
         left: 50%;
         transform: translate(-50%, 0%);
         width: 60%;
@@ -24,7 +24,7 @@
         border: 3px solid $secondary;
     }
     @include media(mobile) {
-        top: 10%;
+        top: -5%;
         left: 50%;
         transform: translate(-50%, 0%);
         width: 70%;
