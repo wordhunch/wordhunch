@@ -1,6 +1,8 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
+
+
 .letter-chart {
     @include flexCenter;
     width: 14vh;
@@ -12,7 +14,8 @@
     left: -400px;
     top: 200px;
     transform: translate(0, -50%);
-    padding: 20px;
+    padding: 5px;
+
    
     h6 {
         height: 16px;
@@ -24,13 +27,26 @@
         margin: 5px;
         padding: 4px;
     }    
+
     h6:hover {
         cursor: pointer;
     }
     @include media(small-tablet) {
-        width: 90vw;
-        top: 700px;
         left: 50%;
-        transform: translate(-50%, 0%)
+        top: -120px;
+        transform: translate(-50%, 0%);
+        z-index:10;
+        background-color: rgba($primary, .9);
+        width: 220px;
     }
+
+    @include media(mobile) {
+        left: 50%;
+        top: -80px;
+        transform: translate(-50%, 0%);
+        z-index:10;
+        background-color: rgba($primary, .9);
+        width: 220px;
+    }
+    
 }
