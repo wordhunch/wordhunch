@@ -1,3 +1,7 @@
+.landing-container {
+  margin-top: 7vh;
+}
+
 .landing-container .letter-tile-landing {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -18,6 +22,14 @@
           box-shadow: 0px 4px 4px grey;
 }
 
+@media screen and (max-width: 414px) {
+  .landing-container .letter-tile-landing {
+    width: 25px;
+    height: 25px;
+    font-size: 25px;
+  }
+}
+
 .landing-container .landing-logo {
   padding: 5vh;
   width: 600px;
@@ -26,7 +38,10 @@
 .landing-container .play-button {
   display: block;
   margin: 20px auto;
-  width: 130px;
+  padding: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 75px;
   font-size: 50px;
   color: #f49d6e;
@@ -35,6 +50,10 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.landing-container .play-button-link {
+  text-decoration: none;
 }
 
 .landing-container .register-here {
@@ -54,13 +73,13 @@
   color: #235789;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 414px) {
   .landing-container .landing-logo {
     width: 300px;
   }
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .landing-container .landing-logo {
     width: 250px;
   }

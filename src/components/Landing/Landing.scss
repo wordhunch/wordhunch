@@ -19,8 +19,9 @@
         display: block;
 
         margin:20px auto;
+        padding: 5px;
 
-        width: 130px;
+        width: fit-content;
         height: 75px;
 
         font-size: 50px;
@@ -34,6 +35,12 @@
 
         cursor: pointer;
     }
+    
+    .play-button-link {
+        text-decoration: none;
+    }
+
+
 
     .register-here {
         margin-top: 5vh;
@@ -49,12 +56,12 @@
             color: $secondary;
         }
     }
-    @include breakPoint(mobile) {
+    @include media(mobile) {
         .landing-logo {
             width: 300px;
         }
     }
-    @include breakPoint(tablet) {
+    @include media(tablet) {
         .landing-logo {
             width: 250px;
         }

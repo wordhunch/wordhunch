@@ -13,10 +13,10 @@ const Landing = (props) => {
         src={landingLogo}
         alt='WordLogic logo'
       />
-      <Link to='/play'><button className='play-button'>
+      <Link className='play-button-link' to='/play'><button className='play-button'>
         { !props.game.gameStarted || props.game.gameOver || props.game.gaveUp
-        ? 'Play Now'
-        : 'Continue Game'}
+        ? 'Play'
+        : 'Continue'}
       </button></Link>
       {!props.auth.username ?
       <h4 className="register-here"> If you want to save your scores, <Link to='/Auth' className='auth-link'>sign up here!</Link></h4>
