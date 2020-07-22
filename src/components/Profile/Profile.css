@@ -5,13 +5,14 @@
 }
 
 .main-profile {
+  margin-top: 7vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: relative;
   background-color: #93A3B1;
   width: 100vw;
-  height: xx;
+  height: yy;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -31,7 +32,7 @@
       -ms-flex-align: start;
           align-items: flex-start;
   font-size: 20px;
-  height: 92vh;
+  height: 85vh;
   width: 30vw;
   background-color: #93A3B1;
   -webkit-box-orient: vertical;
@@ -82,7 +83,7 @@
 
 .position {
   width: 70vw;
-  height: 80px;
+  height: 72px;
 }
 
 .top-scores {
@@ -95,7 +96,7 @@
   display: flex;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin-top: 20px;
+  margin-top: 5px;
   margin-left: 20px;
   font-size: 40px;
   color: #710627;
@@ -163,6 +164,25 @@
   margin-bottom: 10%;
 }
 
+.Nav {
+  width: 100vw;
+  height: 7vh;
+  position: fixed;
+  background-color: #235789;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: solid #710627 3px;
+  margin-bottom: 20px;
+  z-index: 50;
+}
+
 @media (max-width: 1275px) {
   .main-profile {
     -webkit-box-orient: vertical;
@@ -175,6 +195,8 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    height: yy;
+    margin-top: 20vh;
   }
   .position {
     width: 100vw;
