@@ -57,16 +57,7 @@
         height: 50px;
     }
 }
-// .password{
-//     height: 30px;
-//         border-color: #28a745;
-//         padding-right: 30px;
-//         background-image: url('../../images/password2.png');
-//         background-repeat: no-repeat;
-//         background-size: 30px 30px;
-//         background-position: right center;
- 
-// }
+
 
 @include media(tablet){
     .auth-content{
