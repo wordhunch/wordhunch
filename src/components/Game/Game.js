@@ -21,6 +21,7 @@ const Game = (props) => {
   const [difficulty, setDifficulty] = useState('1')
   const [score, setScore] = useState(null)
   const [instructions, setInstructions] = useState(false)
+  const [displayLC, setDisplayLC] = useState(true)
 
   //toggles the instructions boolean
   const toggleInstructions = () => {
@@ -140,7 +141,7 @@ const Game = (props) => {
         </div>}
       </div>
       <div className='letter-chart-container'>
-        <LetterChart gameOver={gameOver} gaveUp={gaveUp} />
+        <LetterChart displayLC={displayLC} gameOver={gameOver} gaveUp={gaveUp} />
         {instructions && <div className="help-bubble letter-chart-help">
           A chart to help you keep track of which letters are or are not in the target word.  Click them to toggle their color to red, green, and back to blank.
         </div>}
@@ -188,6 +189,7 @@ const Game = (props) => {
         </>}
       </div>
       <h2 className="Help mobile-help" onClick={toggleInstructions}>?</h2>
+      <button onClick={() => setDisplayLC(!displayLC)}  className='letter-chart-toggle'>AZ</button>
       {instructions && <div className="help-container">
         <Instructions />
         </div>}

@@ -19,7 +19,7 @@
   top: 200px;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  padding: 20px;
+  padding: 5px;
 }
 
 .letter-chart h6 {
@@ -39,11 +39,25 @@
 
 @media screen and (min-width: 414px) and (max-width: 767px) {
   .letter-chart {
-    width: 90vw;
-    top: 700px;
     left: 50%;
+    top: -120px;
     -webkit-transform: translate(-50%, 0%);
             transform: translate(-50%, 0%);
+    z-index: 10;
+    background-color: rgba(147, 163, 177, 0.9);
+    width: 220px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .letter-chart {
+    left: 50%;
+    top: -80px;
+    -webkit-transform: translate(-50%, 0%);
+            transform: translate(-50%, 0%);
+    z-index: 10;
+    background-color: rgba(147, 163, 177, 0.9);
+    width: 220px;
   }
 }
 /*# sourceMappingURL=LetterChart.css.map */

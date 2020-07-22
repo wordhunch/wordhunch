@@ -31,7 +31,7 @@
 
 @mixin navBtnPlacer {
     position: absolute;
-    bottom: 12px;
+    bottom: 10px;
 }
 
 @mixin media($breakpoint) {
@@ -51,7 +51,7 @@
         }
     }
     @else if $breakpoint == desktop {
-        @media screen and (min-width: 1025) {
+        @media screen and (min-width: 1025px)  {
             @content;
         }
     }

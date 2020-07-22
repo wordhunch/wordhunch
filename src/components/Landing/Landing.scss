@@ -3,6 +3,7 @@
 
 
 .landing-container {
+    margin-top: 7vh;
 
     .letter-tile-landing {
         @include letter-tile($tertiary, $secondary, 10px)
@@ -11,6 +12,7 @@
     .landing-logo {
         padding: 5vh;
         width: 600px;
+        
     }
 
     .play-button {
