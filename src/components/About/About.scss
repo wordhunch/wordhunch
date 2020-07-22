@@ -2,6 +2,7 @@
 @import '../../styles/mixins';
 
 .About {
+    margin-top: 11vh;
     width: fit-content;
     margin: auto;
     @include flexEvenly();
