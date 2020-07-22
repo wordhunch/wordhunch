@@ -40,6 +40,11 @@ const Nav = props => {
 
   }
 
+  const resetInputs = () => {
+    setValue('')
+    setPassword('')
+  }
+
   const toggleMenu = () => setMenu(!menu)
     
 
@@ -48,6 +53,8 @@ const Nav = props => {
     if(menu === true){
       setMenu(false)
     }
+    setValue('')
+    setPassword('')
   }
 
   
@@ -58,6 +65,7 @@ const Nav = props => {
         props.history.push('/')
       })
     props.logoutUser()
+    handleMenu()
   }
 
   return (
@@ -105,7 +113,7 @@ const Nav = props => {
             />
             <button className="login-btn" type='submit'>Login</button>
           </form>
-        <Link to='/auth'><button className="register-btn">Register</button></Link>
+        <Link to='/auth'><button className="register-btn" onClick={resetInputs}>Register</button></Link>
         </div> 
         :
         <div className='logged-in'>
@@ -113,7 +121,7 @@ const Nav = props => {
           <button className="logout-btn" onClick={logout}>Logout</button>
         </div>}
 
-      <Link to='/about'><button className="about-btn">About</button></Link>
+      <Link to='/about'><button className="about-btn" onClick={resetInputs}>About</button></Link>
     <div className = 'hamburger-menu' onClick= {toggleMenu}>
       <div className = 'hamburger-line'></div>
       <div className = 'hamburger-line'></div>
@@ -138,6 +146,7 @@ const Nav = props => {
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
+            <p className='menu-error'>{errorResponse}</p>
             <button className="menu-login" type='submit'>Login</button>
           </form>
         <Link to='/auth'><button onClick = {handleMenu} className="menu-register">Register</button></Link>
@@ -151,7 +160,6 @@ const Nav = props => {
       <Link to='/about'><button onClick = {handleMenu} className="menu-about">About</button></Link>
 </div>
     }
-   
     </div>
   )
 }
