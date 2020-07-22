@@ -56,6 +56,10 @@
   right: 8vw;
 }
 
+.Nav .not-loggedin form {
+  margin-top: 2.5vh;
+}
+
 .Nav .login-input,
 .Nav .login-btn,
 .Nav .register-btn,
@@ -86,10 +90,11 @@
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  bottom: 5px;
-  right: 22%;
+  bottom: 3px;
+  right: 23vw;
   color: #f49d6e;
   font-weight: bold;
+  font-size: .75vw;
 }
 
 .Nav .menu {
