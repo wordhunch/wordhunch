@@ -28,8 +28,7 @@
         position: absolute;
         left: 3vw;
     
-    }
-    
+    }    
     
     .not-loggedin {
         width: 50vw;
@@ -38,6 +37,9 @@
         justify-content: flex-end;
         position: absolute;
         right: 8vw;
+        form{
+            margin-top: 2.5vh;
+        }
     }
     
     .login-input,
@@ -66,11 +68,11 @@
     .error{
     display: flex;
     position: absolute;
-    bottom: 5px;
-    right: 22%;
+    bottom: 3px;
+    right: 23vw;
     color: $tertiary;
     font-weight: bold;
-    
+    font-size: .75vw;
     }
     
     .menu{
