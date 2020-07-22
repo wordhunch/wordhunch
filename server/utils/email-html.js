@@ -12,8 +12,8 @@ module.exports = (username) => {
         <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="margin-top: 100px; border: 1px solid #cccccc; border-collapse: collapse;">
             <tr>
                 <td align="center" bgcolor="#ffffff" style="padding: 0px 0 0px 0; color: #cccccc; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
-                    <a href="http://localhost:3000/#/" style="color: #ffffff;">
-                    <img src='http://localhost:3000/static/media/templogo.e20848d7.png'
+                    <a href="wordlogic.net" style="color: #ffffff;">n
+                    <img src='wordlogic.net/images/wordlogic-logo.png'
                      alt="Word Logic" width="500" height="200" />
                     </a>
                 </td>
