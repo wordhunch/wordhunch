@@ -61,10 +61,6 @@
   margin-top: 2.5vh;
 }
 
-.Nav .not-loggedin form input {
-  width: 120px;
-}
-
 .Nav .login-input,
 .Nav .login-btn,
 .Nav .register-btn,
