@@ -1,6 +1,6 @@
 .game-outer-container {
   position: relative;
-  margin-top: 11.5vh;
+  margin-top: 12vh;
 }
 
 .game-outer-container .game-container {
@@ -194,8 +194,10 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 75px;
-  height: 75px;
+  width: 80px;
+  height: 80px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-size: 60px;
   color: #710627;
   font-weight: bold;
@@ -210,8 +212,8 @@
 @media screen and (min-width: 414px) and (max-width: 767px) {
   .Help {
     top: -35px;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     font-size: 40px;
     border: 3px solid #235789;
   }
@@ -220,8 +222,8 @@
 @media screen and (max-width: 414px) {
   .Help {
     top: -35px;
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     font-size: 30px;
     z-index: 10;
     border: 3px solid #235789;
