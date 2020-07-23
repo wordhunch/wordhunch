@@ -114,14 +114,16 @@ const Nav = props => {
             <button className="login-btn" type='submit'>Login</button>
           </form>
         <Link to='/auth'><button className="register-btn" onClick={resetInputs}>Register</button></Link>
+        <Link to='/about'><button className="about-btn" onClick={resetInputs}>About</button></Link>
         </div> 
         :
         <div className='logged-in'>
           <Link to='/profile'><button className="profile-btn">Profile</button></Link>
           <button className="logout-btn" onClick={logout}>Logout</button>
+          <Link to='/about'><button className="about-btn" onClick={resetInputs}>About</button></Link>
         </div>}
 
-      <Link to='/about'><button className="about-btn" onClick={resetInputs}>About</button></Link>
+      
     <div className = 'hamburger-menu' onClick= {toggleMenu}>
       <div className = 'hamburger-line'></div>
       <div className = 'hamburger-line'></div>
@@ -150,14 +152,14 @@ const Nav = props => {
             <button className="menu-login" type='submit'>Login</button>
           </form>
         <Link to='/auth'><button onClick = {handleMenu} className="menu-register">Register</button></Link>
+        <Link to='/about'><button onClick = {handleMenu} className="menu-about">About</button></Link>
         </div> 
         :
         <div className='menu-user'>
           <Link to='/profile'><button onClick = {handleMenu} className="menu-profile">Profile</button></Link>
           <button className="menu-logout" onClick={logout}>Logout</button>
+          <Link to='/about'><button onClick = {handleMenu} className="menu-about">About</button></Link>
         </div>}
-
-      <Link to='/about'><button onClick = {handleMenu} className="menu-about">About</button></Link>
 </div>
     </div>
   )
