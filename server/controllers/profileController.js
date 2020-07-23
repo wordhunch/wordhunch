@@ -36,13 +36,10 @@ module.exports = {
     }
 
         
-        // console.log(newUsername, newProfilePicture, newEmail);
         const [registered] = await db.edit_user([user_id, newUsername, newProfilePicture, newEmail])
-        console.log(req.session.user)
 
         if (registered) {
             req.session.user = registered
-            console.log(req.session.user)
             return res.sendStatus(200)
         }
         console.log(error)
@@ -74,7 +71,6 @@ module.exports = {
     
         const salt = bcryptjs.genSaltSync(10);
         const hash = bcryptjs.hashSync(newPassword1, salt);
-        // console.log(user_id, hash);
         db.edit_password([user_id, hash])
           .then(() => res.status(200).send("Password updated"))
           .catch((err) => res.status(500).send('Something went wrong please try again later.',
