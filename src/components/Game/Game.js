@@ -14,7 +14,7 @@ import fireworks from '../../images/pewpew.png'
 
 const Game = (props) => {
 
-  let { targetWord, gameStarted, guessedWords, gameOver, gaveUp } = props.game
+  let { targetWord, gameStarted, guessedWords, gameOver, gaveUp, gameId} = props.game
   let { username } = props.auth
   let { setGameOver, setGaveUp, startGame, setGameId, setWord, resetGame } = props
 
@@ -38,12 +38,12 @@ const Game = (props) => {
   const newGame = () => {
     resetGame()
     props.resetClass()
-    generateWord(difficulty)
-      .then(res => {
-        const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
-        setScore(null)
-        setWord(wordObj)
-      })
+    // generateWord(difficulty)
+    //   .then(res => {
+    //     const wordObj = { word: res.data[0].word, wordId: res.data[0].word_id }
+    //     setScore(null)
+    //     setWord(wordObj)
+    //   })
   }
 
   //looks for screen width to toggle display letter chart
@@ -62,26 +62,25 @@ const Game = (props) => {
           setWord(wordObj)
         })
     }
-
   }, [difficulty, setWord, gameStarted])
 
   //adds a new game to the database once the target word has been set
 
   useEffect(() => {
-    if (username && targetWord.wordId) {
+    if (username && targetWord.wordId && !gameId) {
       axios.post('/game/newGame', { targetWord: targetWord.wordId, difficulty })
         .then(res => {
           setGameId(res.data.game_id)
         })
     }
-  }, [targetWord, difficulty, username, setGameId])
+  }, [targetWord, difficulty, username, setGameId, gameId])
 
   //watches to see if the user guesses the correct word
   useEffect(() => {
-    if (guessedWords.length) {
+    if (guessedWords.length && !gameOver) {
       setGameOver(determineWinner(targetWord.word, guessedWords[guessedWords.length - 1].word))
     }
-  }, [guessedWords, targetWord, setGameOver])
+  }, [guessedWords, targetWord, setGameOver, gameOver])
 
   //watches to see if the game is over and if so, calculates a score. if the user is logged in, it will send the data to the gamehistory table
   useEffect(() => {
@@ -95,11 +94,19 @@ const Game = (props) => {
       }
       setScore(scoreCalc) //score accounts for word difficulty and number of guesses
       if (props.auth.username && props.game.gameId) {
+        console.log('sending game to db')
         axios.post('/game/moveToHistory', { gameId: props.game.gameId, score: scoreCalc })
         //after game is over, send game data to game history table
       }
     }
   }, [gameOver, difficulty, props.game.gameId, guessedWords, props.auth.username])
+
+  //cleanup
+  useEffect(() => {
+    if (gameOver) {
+    return () => resetGame()
+    }
+  }, [resetGame, gameOver])
 
   const guessedWordsMap = guessedWords.map((item, index, array) => {
     let numberToRender

@@ -38,6 +38,10 @@
   left: 3vw;
 }
 
+.Nav .logo-container img {
+  max-height: 5.5vh;
+}
+
 .Nav .not-loggedin {
   width: 50vw;
   height: 8vh;

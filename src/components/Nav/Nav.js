@@ -28,7 +28,7 @@ const Nav = props => {
           profile_picture,
           email
         )
-        props.history.push('/')
+        // props.history.push('/')
         setValue('')
         setPassword('')
         setErrorResponse('')
@@ -77,7 +77,6 @@ const Nav = props => {
             className='app-logo'
             src={logo}
             alt='WordLogic logo'
-            style={{ width: '120px' }}
           />
         </Link>
       </div>
