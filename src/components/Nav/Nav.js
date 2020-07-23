@@ -77,7 +77,6 @@ const Nav = props => {
             className='app-logo'
             src={logo}
             alt='WordLogic logo'
-            style={{ width: '120px' }}
           />
         </Link>
       </div>
