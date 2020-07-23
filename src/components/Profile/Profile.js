@@ -88,7 +88,7 @@ const Profile = (props) => {
         <div className = 'top-score-user'>
           <p className = 'number'>#{1 + i} </p>
           <img src={e.profile_picture} alt="user profile" />
-          <p>{e.username}</p>
+          <p className = 'mobile-user'>{e.username}</p>
           <p className= 'score'>Score: {e.score}</p>
         </div>
       ) : null}
@@ -203,7 +203,7 @@ const Profile = (props) => {
             }
             <div>{errResponse}</div>
             </div>
-          <h5>Your Top Scores</h5>
+          <h5 className = 'user-top-score'>Your Top Scores</h5>
             {userId && highScores[0] ? <p>1. {highScores[0].score}</p> : <p>You need to play first!</p>}
             {userId && highScores[1] ? <p>2. {highScores[1].score}</p> : null}
             {userId && highScores[2] ? <p>3. {highScores[2].score}</p> : null}

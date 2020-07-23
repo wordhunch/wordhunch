@@ -11,9 +11,10 @@
     @include flexEvenly();
     border-bottom: solid $quaternary 3px;
     button {
+
         background-color: $tertiary;
         height: 4vh;
-        width: 5vw;
+        width:  5vw;
         border: none;
         border-radius: 10px;
         box-shadow: $quaternary .10rem .25rem;
@@ -267,9 +268,11 @@
 
     @include media(mobile){
         .play-btn{
-            width: 14vw;
-            height: 5vh;
-            font-size: 12px;
+            width: fit-content;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: 4vh;
+            font-size: 13px;
             right: 12vw;
             z-index: 50;
         }

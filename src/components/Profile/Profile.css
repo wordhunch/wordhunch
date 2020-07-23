@@ -5,7 +5,7 @@
 }
 
 .main-profile {
-  margin-top: 11vh;
+  margin-top: 12vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,14 +44,14 @@
 
 .main-user h4 {
   margin-bottom: 30px;
-  font-size: 25px;
+  font-size: 120%;
 }
 
 .main-user h5 {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  margin-top: 100px;
+  margin-top: 50px;
   font-size: 30px;
   color: #710627;
   font-weight: bold;
@@ -149,7 +149,9 @@
       -ms-flex-align: center;
           align-items: center;
   width: 80%;
-  height: 40%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   border: 1px solid #235789;
   border-radius: 30px;
   padding: 20px;
@@ -184,6 +186,12 @@
 }
 
 @media (max-width: 1275px) {
+  .number {
+    margin-left: 5px;
+  }
+  .user-top-score {
+    margin-top: none;
+  }
   .main-profile {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -196,7 +204,7 @@
         -ms-flex-align: center;
             align-items: center;
     height: yy;
-    margin-top: 20vh;
+    margin-top: 12vh;
   }
   .position {
     width: 100vw;
@@ -214,9 +222,15 @@
   .top-scores {
     width: 100vw;
   }
+  .top-scores h5 {
+    margin-top: 100px;
+  }
   .main-user {
     height: 70%;
     width: 50vw;
+  }
+  .main-user h5 {
+    margin-top: none;
   }
 }
 
@@ -224,29 +238,14 @@
   .main-user {
     width: 90vw;
   }
+  .main-user h4 {
+    font-size: 90%;
+  }
   .position {
     height: 20vh;
   }
   .top-score-user {
     height: 100%;
-  }
-  .score {
-    left: 1%;
-    bottom: 10px;
-  }
-}
-
-@media screen and (max-width: 414px) {
-  .number {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    position: absolute;
-    top: 10px;
-    left: 5px;
-  }
-  .position {
-    height: 25vh;
   }
   .top-score-user img {
     display: -webkit-box;
@@ -256,7 +255,36 @@
     top: 5px;
     left: 70px;
   }
-  .profile-info button {
+  .top-score-user .number {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+  .top-score-user .mobile-user {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 15px;
+    left: 130px;
+  }
+  .score {
+    left: 1%;
+    bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .position {
+    height: 20vh;
+  }
+  .main-user h4 {
+    font-size: 80%;
+  }
+  .main-user button {
     font-size: 12px;
   }
 }
