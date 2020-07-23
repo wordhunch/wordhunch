@@ -12,7 +12,7 @@
 .auth-content{
     @include flexCenter;
     width: 40%;
-    height: 50%;
+    height: 65%;
     background-color: $tertiary ;
     background-color: $secondary;
     // background-color: $quaternary;
@@ -53,9 +53,10 @@
     position: relative;
     img{
         position: absolute;
+        top: 5%;
         right: 5vw;
-        width: 50px;
-        height: 50px;
+        width: 35px;
+        height: 35px;
     }
 }
 
@@ -63,7 +64,7 @@
 @include media(tablet){
     .auth-content{
         width: 70%;
-        height: 50vh;
+        height: 60vh;
     }
 }
 
@@ -89,6 +90,17 @@
         input{
             width: 65vw;
         }
+        img{
+            top:15%;
+            right: 3vw;
+            width: 25px;
+            height: 25px;
+        }
     }
 
+}
+.err-message {
+    font-size: 20px;
+    padding: 10px;
+    color: $quaternary;
 }

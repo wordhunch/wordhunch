@@ -4,8 +4,8 @@ import {withRouter} from 'react-router-dom'
 import {setUser} from '../../redux/reducers/authReducer'
 import {connect} from 'react-redux'
 import './Auth.css'
-import passwordImg from '../../images/password.png'
-import passwordImg2 from '../../images/password2.png'
+import eye from '../../images/eye.svg'
+import eye2 from '../../images/eye-off.svg'
 
 const Auth = (props) => {
 
@@ -71,9 +71,9 @@ const Auth = (props) => {
             <p>Password:</p>
             <div className = 'input-container'>
             {passwordToggle ?  
-            <img onClick= {togglePassword} src = {passwordImg} alt='show password'/>
+            <img onClick= {togglePassword} src = {eye} alt='show password'/>
             :
-            <img onClick= {togglePassword} src = {passwordImg2} alt='show password'/>}
+            <img onClick= {togglePassword} src = {eye2} alt='show password'/>}
             <input 
               className ="register-input password" 
               value = {password} 
@@ -86,7 +86,7 @@ const Auth = (props) => {
 
           <button type='submit'>Register</button>
 
-          <div>{errorResponse}</div>
+          <div className='err-message'>{errorResponse}</div>
         </form>
       </div>
     </div>
