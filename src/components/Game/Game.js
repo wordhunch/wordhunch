@@ -51,7 +51,7 @@ const Game = (props) => {
     if (window.innerWidth < 767) {
       setDisplayLC(false)
     }
-  }, [window.innerWidth])
+  }, [])
 
   //generates the target word at the beginning of the game
   useEffect(() => {
