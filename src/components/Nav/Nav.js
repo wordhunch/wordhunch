@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import logo from '../../images/wordlogic-logo.png'
 import { Link, withRouter } from 'react-router-dom'
@@ -39,6 +39,7 @@ const Nav = props => {
 
   }
 
+
   const resetInputs = () => {
     setValue('')
     setPassword('')
@@ -46,7 +47,8 @@ const Nav = props => {
 
   const toggleMenu = () => setMenu(!menu)
     
-
+  useEffect(() => {props.auth.username && setErrorResponse('')},[props.auth.username])
+  
 
   const handleMenu = () => {
     if(menu === true){
