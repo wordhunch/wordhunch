@@ -95,6 +95,12 @@ const Profile = (props) => {
     </div>
   ));
 
+  const selectText= () => {
+    const input = document.getElementById('text-box');
+    input.focus();
+    input.select();
+  }
+
   return (
     <div className="user-info">
       <div className="main-profile">
@@ -125,6 +131,9 @@ const Profile = (props) => {
                     <div className = 'profile-picture'>
                       <p>New Profile Picture</p>
                       <input
+                      id="text-box"
+                      onClick ={selectText}
+                      className = 'profile-text'
                         value={newProfilePicture}
                         onChange={(e) => setProfilePicture(e.target.value)}
                         name="profilePicture"
