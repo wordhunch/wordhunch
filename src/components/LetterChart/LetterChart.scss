@@ -6,7 +6,7 @@
 .letter-chart {
     // margin-top: 8vh;
     @include flexCenter;
-    width: 14vh;
+    width: 150px;
     justify-content: center;
     flex-wrap: wrap;
     border: 1px solid $secondary;
@@ -16,7 +16,6 @@
     top: 200px;
     transform: translate(0, -50%);
     padding: 5px;
-
    
     h6 {
         height: 16px;

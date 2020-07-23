@@ -54,7 +54,7 @@
       -ms-flex-pack: end;
           justify-content: flex-end;
   position: absolute;
-  right: 8vw;
+  right: 3vw;
 }
 
 .Nav .not-loggedin form {
@@ -69,16 +69,10 @@
   margin-right: 1vw;
 }
 
-.Nav .about-btn {
-  position: absolute;
-  bottom: 11px;
-  right: 3vw;
-}
-
 .Nav .logged-in {
   position: absolute;
   bottom: 11px;
-  right: 8vw;
+  right: 3vw;
 }
 
 .Nav .play-btn {
@@ -109,6 +103,8 @@
 
 @media (max-width: 1025px) {
   .Nav .menu {
+    position: absolute;
+    top: 12vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -122,18 +118,28 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    position: absolute;
-    top: 7vh;
-    height: 93vh;
-    width: 100vw;
+    height: 0vh;
+    overflow: hidden;
+    width: 80vw;
     background-color: #93A3B1;
     z-index: 50;
-    border: solid #710627 3px;
+    border-radius: 20px;
+    -webkit-transition: height 1s;
+    transition: height 1s;
   }
   .Nav .menu .menu-form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    border: solid #235789 2px;
+    border-radius: 15px;
+  }
+  .Nav .menu-active {
+    height: 80vh;
+    top: 12vh;
+    border: solid #710627 3px;
+    -webkit-box-shadow: 10px 10px 10px #235789;
+            box-shadow: 10px 10px 10px #235789;
   }
   .Nav .logged-in {
     display: none;
@@ -210,9 +216,9 @@
   }
   .Nav .menu-no-user .menu-form {
     position: absolute;
-    top: 0vh;
-    height: 52vh;
-    width: 30vh;
+    top: 4vh;
+    height: 30vh;
+    width: 35vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -230,13 +236,13 @@
   }
   .Nav .menu-no-user .menu-register {
     position: absolute;
-    right: 35vw;
-    top: 55vh;
+    right: 25vw;
+    top: 40vh;
   }
   .Nav .menu-about {
     position: absolute;
     bottom: 10vh;
-    right: 35vw;
+    right: 25vw;
   }
   .Nav .menu-uesr {
     display: -webkit-box;
@@ -268,7 +274,7 @@
   }
   .Nav input {
     height: 7vh;
-    width: 40vw;
+    width: 30vw;
     font-size: 4vw;
     border-radius: 10px;
   }
@@ -293,10 +299,11 @@
             flex-direction: column;
   }
   .Nav .menu-no-user .menu-form {
+    padding: 1vw;
     position: absolute;
-    top: 0vh;
-    height: 52vh;
-    width: 30vh;
+    top: 2vh;
+    height: 32vh;
+    width: 40vh;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -314,15 +321,15 @@
   }
   .Nav .menu-no-user .menu-register {
     position: absolute;
-    right: 35vw;
-    top: 55vh;
+    right: 25vw;
+    top: 42vh;
   }
   .Nav .menu-about {
     position: absolute;
     bottom: 10vh;
-    right: 35vw;
+    right: 25vw;
   }
-  .Nav .menu-uesr {
+  .Nav .menu-user {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -339,6 +346,7 @@
   }
   .Nav .menu-profile {
     position: absolute;
+    right: 25vw;
     top: 10vh;
   }
   .Nav .menu-profile,
@@ -352,7 +360,7 @@
   }
   .Nav input {
     height: 8vh;
-    width: 40vw;
+    width: 30vw;
     font-size: 4vw;
     border-radius: 10px;
   }
@@ -392,8 +400,8 @@
   }
   .Nav .menu-no-user .menu-form {
     position: absolute;
-    top: 0vh;
-    height: 52vh;
+    top: 3vh;
+    height: 30vh;
     width: 30vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -412,13 +420,13 @@
   }
   .Nav .menu-no-user .menu-register {
     position: absolute;
-    right: 35vw;
-    top: 55vh;
+    right: 25vw;
+    top: 40vh;
   }
   .Nav .menu-about {
     position: absolute;
     bottom: 10vh;
-    right: 35vw;
+    right: 25vw;
   }
   .Nav .menu-uesr {
     display: -webkit-box;

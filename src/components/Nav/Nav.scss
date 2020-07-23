@@ -37,7 +37,7 @@
         @include flexCenter();
         justify-content: flex-end;
         position: absolute;
-        right: 8vw;
+        right: 3vw;
         form{
             margin-top: 2.5vh;
         }
@@ -51,14 +51,9 @@
         margin-right: 1vw;
     }
     
-    .about-btn {
-        @include navBtnPlacer();
-        right: 3vw;
-    }
-    
     .logged-in {
         @include navBtnPlacer();
-        right: 8vw;
+        right: 3vw;
     }
     
     .play-btn{
@@ -76,7 +71,7 @@
     }
     
     .menu{
-    display: none;
+        display: none;
     }
     
     .menu-error{
@@ -88,20 +83,29 @@
     
     @media(max-width: 1025px){
         .menu{
+            position: absolute;
+            top: 12vh;
             @include flexCenter();
             flex-direction: column;
-            position: absolute;
-            top: 7vh;
-            height: 93vh;
-            width: 100vw;
+            height: 0vh;
+            overflow: hidden;
+            width: 80vw;
             background-color:$primary;
             z-index: 50;
-            
-            border: solid $quaternary 3px;
-            
+            border-radius: 20px;
+            transition: height 1s;
             .menu-form{
                 display: flex;
+                border: solid $secondary 2px;
+                border-radius: 15px;
             }
+        }
+
+        .menu-active{
+            height: 80vh;
+            top: 12vh;
+            border: solid $quaternary 3px;
+            box-shadow: 10px 10px 10px $secondary;
         }
 
         .logged-in{
@@ -161,23 +165,23 @@
             flex-direction: column;
             .menu-form{
                 position: absolute;
-                top: 0vh;
-                height: 52vh;
-                width: 30vh;
+                top: 4vh;
+                height: 30vh;
+                width: 35vh;
                 @include flexEvenly();
                 flex-direction: column;
                 margin-bottom: 2vh;
             }
             .menu-register{
                 position: absolute;
-                right: 35vw;
-                top: 55vh;
+                right: 25vw;
+                top: 40vh;
             }
         }
         .menu-about{
             position: absolute;
             bottom: 10vh;
-            right: 35vw;
+            right: 25vw;
         }
         .menu-uesr{
             @include flexEvenly();
@@ -198,7 +202,7 @@
         }
         input{
             height: 7vh;
-            width: 40vw;
+            width: 30vw;
             font-size: 4vw;
             border-radius: 10px;
         }
@@ -211,31 +215,33 @@
             @include flexEvenly();
             flex-direction: column;
             .menu-form{
+                padding: 1vw;
                 position: absolute;
-                top: 0vh;
-                height: 52vh;
-                width: 30vh;
+                top: 2vh;
+                height: 32vh;
+                width: 40vh;
                 @include flexEvenly();
                 flex-direction: column;
                 margin-bottom: 2vh;
             }
             .menu-register{
                 position: absolute;
-                right: 35vw;
-                top: 55vh;
+                right: 25vw;
+                top: 42vh;
             }
         }
         .menu-about{
             position: absolute;
             bottom: 10vh;
-            right: 35vw;
+            right: 25vw;
         }
-        .menu-uesr{
+        .menu-user{
             @include flexEvenly();
             flex-direction: column;
         }
         .menu-profile{
             position: absolute;
+            right: 25vw;
             top: 10vh;
         }
         .menu-profile,
@@ -249,7 +255,7 @@
         }
         input{
             height: 8vh;
-            width: 40vw;
+            width: 30vw;
             font-size: 4vw;
             border-radius: 10px;
         }
@@ -278,8 +284,8 @@
             flex-direction: column;
             .menu-form{
                 position: absolute;
-                top: 0vh;
-                height: 52vh;
+                top: 3vh;
+                height: 30vh;
                 width: 30vh;
                 @include flexEvenly();
                 flex-direction: column;
@@ -287,14 +293,14 @@
             }
             .menu-register{
                 position: absolute;
-                right: 35vw;
-                top: 55vh;
+                right: 25vw;
+                top: 40vh;
             }
         }
         .menu-about{
             position: absolute;
             bottom: 10vh;
-            right: 35vw;
+            right: 25vw;
         }
         .menu-uesr{
             @include flexEvenly();
