@@ -13,7 +13,7 @@ module.exports = (username) => {
             <tr>
                 <td align="center" bgcolor="#ffffff" style="padding: 0px 0 0px 0; color: #cccccc; font-size: 28px; font-weight: bold; font-family: Arial, sans-serif;">
                     <a href="wordlogic.net" style="color: #ffffff;">n
-                    <img src='wordlogic.net/images/wordlogic-logo.png'
+                    <img src='http://wordlogic.net/images/wordlogic-logo.png'
                      alt="WordLogic" width="500" height="200" />
                     </a>
                 </td>
