@@ -9,7 +9,7 @@
     }
 }
 .main-profile{
-    margin-top: 11vh;
+    margin-top: 12vh;
     display: flex;
     position: relative;
     background-color: $primary;
@@ -37,11 +37,12 @@
         h4{
             margin-bottom: 30px;
             // margin-left: 30px;
-            font-size: 25px;
+            font-size: 120%
         }
         h5{
             align-self: center;
-            margin-top: 100px;
+            margin-top: 50px;
+            
             font-size: 30px;
             color: $quaternary;
             font-weight: bold;
@@ -121,7 +122,7 @@
 .profile-info{
     align-items: center;
     width: 80%;
-    height: 40%;
+    height: fit-content;
     border: 1px solid $secondary;
     border-radius: 30px;
     padding: 20px;
@@ -137,6 +138,7 @@
 .profile-picture{
     margin-bottom: 10%;
 }
+
 .Nav{
     width: 100vw;
     height: 7vh;
@@ -151,13 +153,19 @@
 }
 
 @media(max-width: 1275px){
+.number{
+    margin-left: 5px;
+}
+.user-top-score{
+    margin-top: none;
+}
 
 .main-profile{
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: yy;
-    margin-top: 20vh;
+    margin-top: 12vh;
 }
 .position{
     width: 100vw;
@@ -171,22 +179,49 @@
 }
 .top-scores{
     width: 100vw;
+    h5{
+        margin-top: 100px;
+    }
 }
 .main-user{
     height: 70%;
     width: 50vw;
+    h5{
+        margin-top: none;
+    }
 }
 }
 
 @media(max-width: 768px){
     .main-user{
         width: 90vw;
+        h4{
+            font-size: 90%;
+          }
     }
     .position{
         height: 20vh;
     }
     .top-score-user{
         height: 100%;
+        img{
+            display: flex;
+            position: absolute;
+            top: 5px;
+            left: 70px;
+        }
+    .number{
+        display: flex;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+    }
+    .mobile-user{
+        display: flex;
+        position: absolute;
+        top: 15px;
+        left: 130px;
+    }
     }
     .score{
         left: 1%;
@@ -195,27 +230,16 @@
 }
 
 @include media(mobile){
-    .number{
-        display: flex;
-        position: absolute;
-        top: 10px;
-        left: 5px;
-    }
     .position{
-        height: 25vh;
+        height: 20vh;
     }
-    .top-score-user{
-        img{
-            display: flex;
-            position: absolute;
-            top: 5px;
-            left: 70px;
-           
-        }
-    }
-    .profile-info{
-        button{
-            font-size: 12px;
-        }
+    .main-user{
+     
+        h4{
+            font-size: 80%;
+          }
+          button{
+              font-size: 12px;
+          }
     }
 }

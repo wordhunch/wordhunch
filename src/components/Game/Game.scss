@@ -2,8 +2,14 @@
 @import '../../styles/mixins';
 .game-outer-container {
     position: relative;
-    margin-top: 12vh;
+    margin-top: 11vh;
     
+    @include media(small-tablet) {
+        margin-top: 15vh;;
+    }
+    @include media(mobile) {
+        margin-top: 15vh;
+    }
     
     .game-container {
         margin: 20px auto;

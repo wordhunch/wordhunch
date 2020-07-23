@@ -377,9 +377,13 @@
 
 @media screen and (max-width: 414px) {
   .Nav .play-btn {
-    width: 14vw;
-    height: 5vh;
-    font-size: 12px;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 4vh;
+    font-size: 13px;
     right: 12vw;
     z-index: 50;
   }
