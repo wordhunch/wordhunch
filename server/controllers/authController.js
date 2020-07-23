@@ -49,7 +49,6 @@ module.exports = {
         req.session.user = newUser
         res.status(201).send(newUser)
       } catch (err) {
-          console.log(username, email, password, profile_picture)
         console.log(err)
         res.status(500).send('An error was encountered while processing your registration request. Please try again later.')
       }

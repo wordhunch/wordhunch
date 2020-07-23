@@ -46,6 +46,13 @@ const Game = (props) => {
       })
   }
 
+  //looks for screen width to toggle display letter chart
+  useEffect(() => {
+    if (window.innerWidth < 767) {
+      setDisplayLC(false)
+    }
+  }, [window.innerWidth])
+
   //generates the target word at the beginning of the game
   useEffect(() => {
     if (!gameStarted) {
@@ -62,7 +69,6 @@ const Game = (props) => {
 
   useEffect(() => {
     if (username && targetWord.wordId) {
-      console.log('creating new game', difficulty)
       axios.post('/game/newGame', { targetWord: targetWord.wordId, difficulty })
         .then(res => {
           setGameId(res.data.game_id)

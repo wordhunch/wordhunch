@@ -29,7 +29,6 @@ const Nav = props => {
           email
         )
         props.history.push('/')
-        console.log('logged in')
         setValue('')
         setPassword('')
         setErrorResponse('')
