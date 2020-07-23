@@ -37,7 +37,7 @@
         @include flexCenter();
         justify-content: flex-end;
         position: absolute;
-        right: 8vw;
+        right: 3vw;
         form{
             margin-top: 2.5vh;
         }
@@ -51,14 +51,9 @@
         margin-right: 1vw;
     }
     
-    .about-btn {
-        @include navBtnPlacer();
-        right: 3vw;
-    }
-    
     .logged-in {
         @include navBtnPlacer();
-        right: 8vw;
+        right: 3vw;
     }
     
     .play-btn{
@@ -246,6 +241,7 @@
         }
         .menu-profile{
             position: absolute;
+            right: 25vw;
             top: 10vh;
         }
         .menu-profile,
