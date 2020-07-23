@@ -4,7 +4,7 @@ const initialState = {
     gameId: null,
     guessedWords: [],
     gameOver: false,
-    gaveUp: false
+    gaveUp: false,
 }
 
 const SET_WORD = 'SET_WORD'
