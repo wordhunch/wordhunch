@@ -35,11 +35,14 @@ const Input = (props) => {
           setValid(true)
           //render input in red or something to show word is not valid
           setSharedLetterCount(res.sharedLetterCount)
+        } else {
+          setValid(false)
+          setSharedLetterCount(null)
         }
       })
 
       textInput.current.focus()
-    }
+    } 
   }, [input, currentWord])
 
 
