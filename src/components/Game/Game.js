@@ -142,9 +142,9 @@ const Game = (props) => {
       </div>
       <div className='letter-chart-container'>
         <LetterChart displayLC={displayLC} />
-        {instructions && <div className="help-bubble letter-chart-help">
+        {instructions && displayLC ? <div className="help-bubble letter-chart-help">
           A chart to help you keep track of which letters are or are not in the target word.  Click them to toggle their color to red, green, and back to blank.
-        </div>}
+        </div> : null}
       </div>
       <div className='game-container'>
         {!gameOver && !gaveUp && <>
