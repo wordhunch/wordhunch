@@ -38,8 +38,11 @@ module.exports = {
         
         // console.log(newUsername, newProfilePicture, newEmail);
         const [registered] = await db.edit_user([user_id, newUsername, newProfilePicture, newEmail])
+        console.log(req.session.user)
 
         if (registered) {
+            req.session.user = registered
+            console.log(req.session.user)
             return res.sendStatus(200)
         }
         console.log(error)
