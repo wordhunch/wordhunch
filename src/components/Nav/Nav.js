@@ -127,7 +127,7 @@ const Nav = props => {
       <div className = 'hamburger-line'></div>
       <div className = 'hamburger-line'></div>
     </div>
-    {menu &&  <div className = 'menu'>
+    <div className = {`menu ${menu ? 'menu-active': null}`}>
     {!props.auth.username 
         ? 
         <div className='menu-no-user'>
@@ -159,7 +159,6 @@ const Nav = props => {
 
       <Link to='/about'><button onClick = {handleMenu} className="menu-about">About</button></Link>
 </div>
-    }
     </div>
   )
 }
