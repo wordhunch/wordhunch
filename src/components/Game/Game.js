@@ -103,10 +103,10 @@ const Game = (props) => {
 
   //cleanup
   useEffect(() => {
-    if (gameOver) {
+    if (gameOver || gaveUp) {
     return () => resetGame()
     }
-  }, [resetGame, gameOver])
+  }, [resetGame, gameOver, gaveUp])
 
   const guessedWordsMap = guessedWords.map((item, index, array) => {
     let numberToRender
