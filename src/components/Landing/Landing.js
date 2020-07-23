@@ -21,7 +21,11 @@ const Landing = (props) => {
       </button> 
   
       {!props.auth.username ?
-      <h4 className="register-here"> If you want to save your scores, log in or <Link to='/Auth' className='auth-link'>sign up here!</Link></h4>
+      <div className="register-here">
+        <span > If you want to save your scores, </span>
+        <br />
+        <span >log in or <Link to='/Auth' className='auth-link'>sign up here!</Link></span>
+      </div>
       : null }
     </div>
   );
