@@ -28,7 +28,7 @@ const Nav = props => {
           profile_picture,
           email
         )
-        props.history.push('/')
+        // props.history.push('/')
         setValue('')
         setPassword('')
         setErrorResponse('')
