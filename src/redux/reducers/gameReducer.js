@@ -5,6 +5,7 @@ const initialState = {
     guessedWords: [],
     gameOver: false,
     gaveUp: false,
+    difficulty: '1'
 }
 
 const SET_WORD = 'SET_WORD'
@@ -15,10 +16,18 @@ const RESET_GAME = 'RESET_GAME'
 const START_GAME = 'START_GAME'
 const GAME_OVER = 'GAME_OVER'
 const GAVE_UP = 'GAVE_UP'
+const SET_DIFFICULTY = 'SET_DIFFICULTY'
 
 export const startGame = () => {
     return {
         type: START_GAME
+    }
+}
+
+export const setDifficulty = (difficulty) => {
+    return {
+        type: SET_DIFFICULTY,
+        payload: difficulty
     }
 }
 
@@ -90,6 +99,8 @@ export default function (state = initialState, action) {
             return {...state, gameOver: action.payload}
         case GAVE_UP:
             return {...state, gaveUp: true}
+        case SET_DIFFICULTY:
+            return {...state, difficulty: action.payload}
         default:
             return state
     }
