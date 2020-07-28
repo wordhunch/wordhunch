@@ -7,18 +7,18 @@ import LetterChart from '../LetterChart/LetterChart'
 import Instructions from "../Instructions/Instructions"
 import { connect } from 'react-redux'
 import { generateWord, determineWinner } from '../../utils/gameFunctions'
-import { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp } from '../../redux/reducers/gameReducer'
+import { setDifficulty, setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp } from '../../redux/reducers/gameReducer'
 import { resetClass } from '../../redux/reducers/letterReducer'
 import './Game.css'
 import fireworks from '../../images/pewpew.png'
 
 const Game = (props) => {
 
-  let { targetWord, gameStarted, guessedWords, gameOver, gaveUp, gameId} = props.game
+  let { targetWord, gameStarted, guessedWords, gameOver, gaveUp, gameId, difficulty} = props.game
   let { username } = props.auth
-  let { setGameOver, setGaveUp, startGame, setGameId, setWord, resetGame } = props
+  let { setGameOver, setGaveUp, startGame, setGameId, setWord, resetGame, setDifficulty } = props
 
-  const [difficulty, setDifficulty] = useState('1')
+  
   const [score, setScore] = useState(null)
   const [instructions, setInstructions] = useState(false)
   const [displayLC, setDisplayLC] = useState(true)
@@ -104,6 +104,7 @@ const Game = (props) => {
   //cleanup
   useEffect(() => {
     if (gameOver || gaveUp) {
+      console.log(gameOver, gaveUp)
     return () => resetGame()
     }
   }, [resetGame, gameOver, gaveUp])
@@ -213,4 +214,4 @@ const Game = (props) => {
 
 const mapStateToProps = (reduxState) => reduxState
 
-export default connect(mapStateToProps, { setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp, resetClass })(Game);
+export default connect(mapStateToProps, { setDifficulty, setWord, setGameId, emptyGuessedWords, resetGame, startGame, setGameOver, setGaveUp, resetClass })(Game);
